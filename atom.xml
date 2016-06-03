@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Not Cool</title>
+  <subtitle>The unknown is fascinating</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://nearsc.github.io/"/>
+  <updated>2016-06-03T10:44:18.643Z</updated>
+  <id>http://nearsc.github.io/</id>
+  
+  <author>
+    <name>Nearsc</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Markdown 备忘录</title>
+    <link href="http://nearsc.github.io/2016/06/03/markdown-notes/"/>
+    <id>http://nearsc.github.io/2016/06/03/markdown-notes/</id>
+    <published>2016-06-03T10:44:18.000Z</published>
+    <updated>2016-06-03T10:44:18.643Z</updated>
+    
+    <content type="html">&lt;p&gt;终于决定要开始整整我的主页了，然后接触到了Markdown，就考虑用它来完成我大部分blog的撰写。虽说使用起来简易方便，没有什么难记的语法，但我感觉自己忘性比较大，还是写个备忘录来记录一下吧。&lt;/p&gt;
+&lt;h1 id=&quot;基本语法&quot;&gt;&lt;a href=&quot;#基本语法&quot; class=&quot;headerlink&quot; title=&quot;基本语法&quot;&gt;&lt;/a&gt;基本语法&lt;/h1&gt;&lt;p&gt;Markdown最为基础的一些语法，不包括那些扩展的功能。&lt;/p&gt;
+&lt;h2 id=&quot;标题&quot;&gt;&lt;a href=&quot;#标题&quot; class=&quot;headerlink&quot; title=&quot;标题&quot;&gt;&lt;/a&gt;标题&lt;/h2&gt;&lt;p&gt;使用 &lt;code&gt;#&lt;/code&gt; 将其设置为标题&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# 基本语法
+## 标题
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;强调字体&quot;&gt;&lt;a href=&quot;#强调字体&quot; class=&quot;headerlink&quot; title=&quot;强调字体&quot;&gt;&lt;/a&gt;强调字体&lt;/h2&gt;&lt;p&gt;前后使用 &lt;code&gt;**&lt;/code&gt; 或 &lt;code&gt;__&lt;/code&gt; 使字体变为粗体。&lt;br&gt;前后使用 &lt;code&gt;*&lt;/code&gt; 或 &lt;code&gt;_&lt;/code&gt; 使字体变为粗体。&lt;br&gt;前后使用 &lt;code&gt;**&lt;/code&gt; 或 &lt;code&gt;__&lt;/code&gt; 并且前后使用 &lt;code&gt;*&lt;/code&gt; 或 &lt;code&gt;_&lt;/code&gt; 使字体变为粗斜体。&lt;br&gt;前后使用 &lt;code&gt;~~&lt;/code&gt; 使字体被划掉。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;**我是粗体**
+__我也是粗体__
+*我是斜体*
+_我也是斜体_
+**_我是粗斜体_**
+__*我也是粗斜体*__
+~~我被划掉了~~
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;我是粗体&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;我也是粗体&lt;/strong&gt;&lt;br&gt;&lt;em&gt;我是斜体&lt;/em&gt;&lt;br&gt;&lt;em&gt;我也是斜体&lt;/em&gt;&lt;br&gt;&lt;strong&gt;&lt;em&gt;我是粗斜体&lt;/em&gt;&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;&lt;em&gt;我也是粗斜体&lt;/em&gt;&lt;/strong&gt;&lt;br&gt;&lt;del&gt;我被划掉了&lt;/del&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;引用文字&quot;&gt;&lt;a href=&quot;#引用文字&quot; class=&quot;headerlink&quot; title=&quot;引用文字&quot;&gt;&lt;/a&gt;引用文字&lt;/h2&gt;&lt;p&gt;使用 &lt;code&gt;&amp;gt;&lt;/code&gt; 将其设置为引用。当然，可以不是名人名言。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt;Remember the past, know the future.
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Remember the past, know the future.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;代码块&quot;&gt;&lt;a href=&quot;#代码块&quot; class=&quot;headerlink&quot; title=&quot;代码块&quot;&gt;&lt;/a&gt;代码块&lt;/h2&gt;&lt;p&gt;使用4个空格或者1个tab来获得代码块&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;Tab&amp;gt;printf(&amp;quot;这是一个代码块&amp;quot;)
+
+printf(&amp;quot;这是一个代码块&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;链接&quot;&gt;&lt;a href=&quot;#链接&quot; class=&quot;headerlink&quot; title=&quot;链接&quot;&gt;&lt;/a&gt;链接&lt;/h2&gt;&lt;p&gt;使用 &lt;code&gt;[]()&lt;/code&gt; 来添链加接&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;详情请访问[Nearsc的主页](http://nearsc.github.io/)
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
+&lt;p&gt;详情请访问&lt;a href=&quot;http://nearsc.github.io/&quot;&gt;Nearsc的主页&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;图片&quot;&gt;&lt;a href=&quot;#图片&quot; class=&quot;headerlink&quot; title=&quot;图片&quot;&gt;&lt;/a&gt;图片&lt;/h2&gt;&lt;p&gt;使用 &lt;code&gt;![]()&lt;/code&gt; 来添加图片&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;![罗小黑](/images/lxh.gif)
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;/images/lxh.gif&quot; alt=&quot;罗小黑&quot;&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;项目清单&quot;&gt;&lt;a href=&quot;#项目清单&quot; class=&quot;headerlink&quot; title=&quot;项目清单&quot;&gt;&lt;/a&gt;项目清单&lt;/h2&gt;&lt;p&gt;使用数字来添加项目编号&lt;br&gt;使用 &lt;code&gt;-&lt;/code&gt; 或 &lt;code&gt;*&lt;/code&gt; 或 &lt;code&gt;+&lt;/code&gt; 来添加项目符号&lt;br&gt;使用两个空格获得嵌套清单&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;1. Personal information
+  * Nearsc
+  * China
+2. Hobbies
+  1. Music
+    - Popular music
+    - Classic music
+  2. Animation
+    + 天空の城ラピュタ
+    + 魔女の宅急便
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;Personal information&lt;ul&gt;
+&lt;li&gt;Nearsc&lt;/li&gt;
+&lt;li&gt;China&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Hobbies&lt;ol&gt;
+&lt;li&gt;Music&lt;ul&gt;
+&lt;li&gt;Popular music&lt;/li&gt;
+&lt;li&gt;Classic music&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Animation&lt;ul&gt;
+&lt;li&gt;天空の城ラピュタ&lt;/li&gt;
+&lt;li&gt;魔女の宅急便&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;GitHub-特殊语法&quot;&gt;&lt;a href=&quot;#GitHub-特殊语法&quot; class=&quot;headerlink&quot; title=&quot;GitHub 特殊语法&quot;&gt;&lt;/a&gt;GitHub 特殊语法&lt;/h1&gt;&lt;p&gt;包含了部分的 GFM (GitHub Flavored Markdown)&lt;/p&gt;
+&lt;h2 id=&quot;引用代码&quot;&gt;&lt;a href=&quot;#引用代码&quot; class=&quot;headerlink&quot; title=&quot;引用代码&quot;&gt;&lt;/a&gt;引用代码&lt;/h2&gt;&lt;p&gt;使用 &lt;code&gt;`&lt;/code&gt; 来加入一串代码&lt;br&gt;&lt;em&gt;嵌入式代码&lt;/em&gt; —— 前后各一个&lt;code&gt;`&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;`tar`是Linux下用来打包的命令
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;tar&lt;/code&gt;是Linux下用来打包的命令&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;代码块&lt;/em&gt; —— 前后连续三个&lt;code&gt;`&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;```bash&lt;br&gt;cd ~/Download&lt;br&gt;tar -xvzf netcdf-4.4.0&lt;br&gt;cd netcdf-4.4.0&lt;br&gt;mkdir -p /opt/netcdf/netcdf-4.4.0&lt;br&gt;./configure --prefix=/opt/netcdf/netcdf-4.4.0&lt;br&gt;make all install&lt;br&gt;```&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; ~/Download&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;tar -xvzf netcdf-4.4.0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; netcdf-4.4.0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;mkdir -p /opt/netcdf/netcdf-4.4.0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;./configure --prefix=/opt/netcdf/netcdf-4.4.0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;make all install&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;任务清单&quot;&gt;&lt;a href=&quot;#任务清单&quot; class=&quot;headerlink&quot; title=&quot;任务清单&quot;&gt;&lt;/a&gt;任务清单&lt;/h2&gt;&lt;p&gt;使用 &lt;code&gt;-&lt;/code&gt; 和 &lt;code&gt;[ ]&lt;/code&gt; 标记为未完成的任务&lt;br&gt;使用 &lt;code&gt;-&lt;/code&gt; 和 &lt;code&gt;[x]&lt;/code&gt; 标记为已完成的任务&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;- [x] 给植物浇水
+- [ ] 收集雨花石
+- [ ] 学画画
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;表格&quot;&gt;&lt;a href=&quot;#表格&quot; class=&quot;headerlink&quot; title=&quot;表格&quot;&gt;&lt;/a&gt;表格&lt;/h2&gt;&lt;p&gt;使用 &lt;code&gt;-&lt;/code&gt; 和 &lt;code&gt;|&lt;/code&gt; 来绘制表格&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;动画名称|上映年份|代表音乐
+-|-|-
+風の谷のナウシカ|1984|鸟の人
+天空の城ラピュタ|1986|空から降ってきた少女
+千と千尋の神隠し|2001|あの夏へ
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;动画名称&lt;/th&gt;
+&lt;th&gt;上映年份&lt;/th&gt;
+&lt;th&gt;代表音乐&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;風の谷のナウシカ&lt;/td&gt;
+&lt;td&gt;1984&lt;/td&gt;
+&lt;td&gt;鸟の人&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;天空の城ラピュタ&lt;/td&gt;
+&lt;td&gt;1986&lt;/td&gt;
+&lt;td&gt;空から降ってきた少女&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;千と千尋の神隠し&lt;/td&gt;
+&lt;td&gt;2001&lt;/td&gt;
+&lt;td&gt;あの夏へ&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/blockquote&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;终于决定要开始整整我的主页了，然后接触到了Markdown，就考虑用它来完成我大部分blog的撰写。虽说使用起来简易方便，没有什么难记的语法，但我感觉自己忘性比较大，还是写个备忘录来记录一下吧。&lt;/p&gt;
+&lt;h1 id=&quot;基本语法&quot;&gt;&lt;a href=&quot;#基本语法&quot; class
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
