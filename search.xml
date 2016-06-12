@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+    
+    <entry>
+      <title><![CDATA[Markdown 备忘录]]></title>
+      <url>http://nearsc.github.io/2016/06/03/markdown-notes/</url>
+      <content type="html"><![CDATA[<p>终于决定要开始整整我的主页了，然后接触到了Markdown，就考虑用它来完成我大部分blog的撰写。虽说使用起来简易方便，没有什么难记的语法，但我感觉自己忘性比较大，还是写个备忘录来记录一下吧。</p>
+<a id="more"></a>
+<h1 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h1><p>Markdown最为基础的一些语法，不包括那些扩展的功能。</p>
+<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>使用 <code>#</code> 将其设置为标题</p>
+<pre><code># 基本语法
+## 标题
+</code></pre><h2 id="强调字体"><a href="#强调字体" class="headerlink" title="强调字体"></a>强调字体</h2><p>前后使用 <code>**</code> 或 <code>__</code> 使字体变为粗体。<br>前后使用 <code>*</code> 或 <code>_</code> 使字体变为粗体。<br>前后使用 <code>**</code> 或 <code>__</code> 并且前后使用 <code>*</code> 或 <code>_</code> 使字体变为粗斜体。<br>前后使用 <code>~~</code> 使字体被划掉。</p>
+<pre><code>**我是粗体**
+__我也是粗体__
+*我是斜体*
+_我也是斜体_
+**_我是粗斜体_**
+__*我也是粗斜体*__
+~~我被划掉了~~
+</code></pre><blockquote>
+<p><strong>我是粗体</strong><br><strong>我也是粗体</strong><br><em>我是斜体</em><br><em>我也是斜体</em><br><strong><em>我是粗斜体</em></strong><br><strong><em>我也是粗斜体</em></strong><br><del>我被划掉了</del></p>
+</blockquote>
+<h2 id="引用文字"><a href="#引用文字" class="headerlink" title="引用文字"></a>引用文字</h2><p>使用 <code>&gt;</code> 将其设置为引用。当然，可以不是名人名言。</p>
+<pre><code>&gt;Remember the past, know the future.
+</code></pre><blockquote>
+<blockquote>
+<p>Remember the past, know the future.</p>
+</blockquote>
+</blockquote>
+<h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><p>使用4个空格或者1个tab来获得代码块</p>
+<pre><code>&lt;Tab&gt;printf(&quot;这是一个代码块&quot;)
+
+printf(&quot;这是一个代码块&quot;)
+</code></pre><h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><p>使用 <code>[]()</code> 来添链加接</p>
+<pre><code>详情请访问[Nearsc的主页](http://nearsc.github.io/)
+</code></pre><blockquote>
+<p>详情请访问<a href="http://nearsc.github.io/">Nearsc的主页</a></p>
+</blockquote>
+<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p>使用 <code>![]()</code> 来添加图片</p>
+<pre><code>![罗小黑](/images/lxh.gif)
+</code></pre><blockquote>
+<p><img src="/images/lxh.gif" alt="罗小黑"></p>
+</blockquote>
+<h2 id="项目清单"><a href="#项目清单" class="headerlink" title="项目清单"></a>项目清单</h2><p>使用数字来添加项目编号<br>使用 <code>-</code> 或 <code>*</code> 或 <code>+</code> 来添加项目符号<br>使用两个空格获得嵌套清单</p>
+<pre><code>1. Personal information
+  * Nearsc
+  * China
+2. Hobbies
+  1. Music
+    - Popular music
+    - Classic music
+  2. Animation
+    + 天空の城ラピュタ
+    + 魔女の宅急便
+</code></pre><blockquote>
+<ol>
+<li>Personal information<ul>
+<li>Nearsc</li>
+<li>China</li>
+</ul>
+</li>
+<li>Hobbies<ol>
+<li>Music<ul>
+<li>Popular music</li>
+<li>Classic music</li>
+</ul>
+</li>
+<li>Animation<ul>
+<li>天空の城ラピュタ</li>
+<li>魔女の宅急便</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+</blockquote>
+<h1 id="GitHub-特殊语法"><a href="#GitHub-特殊语法" class="headerlink" title="GitHub 特殊语法"></a>GitHub 特殊语法</h1><p>包含了部分的 GFM (GitHub Flavored Markdown)</p>
+<h2 id="引用代码"><a href="#引用代码" class="headerlink" title="引用代码"></a>引用代码</h2><p>使用 <code>`</code> 来加入一串代码<br><em>嵌入式代码</em> —— 前后各一个<code>`</code></p>
+<pre><code>`tar`是Linux下用来打包的命令
+</code></pre><blockquote>
+<p><code>tar</code>是Linux下用来打包的命令</p>
+</blockquote>
+<p><em>代码块</em> —— 前后连续三个<code>`</code></p>
+<blockquote>
+<p>```bash<br>cd ~/Download<br>tar -xvzf netcdf-4.4.0<br>cd netcdf-4.4.0<br>mkdir -p /opt/netcdf/netcdf-4.4.0<br>./configure --prefix=/opt/netcdf/netcdf-4.4.0<br>make all install<br>```</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/Download</span><br><span class="line">tar -xvzf netcdf-4.4.0</span><br><span class="line"><span class="built_in">cd</span> netcdf-4.4.0</span><br><span class="line">mkdir -p /opt/netcdf/netcdf-4.4.0</span><br><span class="line">./configure --prefix=/opt/netcdf/netcdf-4.4.0</span><br><span class="line">make all install</span><br></pre></td></tr></table></figure>
+<h2 id="任务清单"><a href="#任务清单" class="headerlink" title="任务清单"></a>任务清单</h2><p>使用 <code>-</code> 和 <code>[ ]</code> 标记为未完成的任务<br>使用 <code>-</code> 和 <code>[x]</code> 标记为已完成的任务</p>
+<pre><code>- [x] 给植物浇水
+- [ ] 收集雨花石
+- [ ] 学画画
+</code></pre><h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p>使用 <code>-</code> 和 <code>|</code> 来绘制表格</p>
+<pre><code>动画名称|上映年份|代表音乐
+-|-|-
+風の谷のナウシカ|1984|鸟の人
+天空の城ラピュタ|1986|空から降ってきた少女
+千と千尋の神隠し|2001|あの夏へ
+</code></pre><blockquote>
+<table>
+<thead>
+<tr>
+<th>动画名称</th>
+<th>上映年份</th>
+<th>代表音乐</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>風の谷のナウシカ</td>
+<td>1984</td>
+<td>鸟の人</td>
+</tr>
+<tr>
+<td>天空の城ラピュタ</td>
+<td>1986</td>
+<td>空から降ってきた少女</td>
+</tr>
+<tr>
+<td>千と千尋の神隠し</td>
+<td>2001</td>
+<td>あの夏へ</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+]]></content>
+    </entry>
+    
+  
+  
+</search>

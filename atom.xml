@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://nearsc.github.io/"/>
-  <updated>2016-06-03T10:44:18.643Z</updated>
+  <updated>2016-06-12T12:58:56.005Z</updated>
   <id>http://nearsc.github.io/</id>
   
   <author>
@@ -20,9 +20,10 @@
     <link href="http://nearsc.github.io/2016/06/03/markdown-notes/"/>
     <id>http://nearsc.github.io/2016/06/03/markdown-notes/</id>
     <published>2016-06-03T10:44:18.000Z</published>
-    <updated>2016-06-03T10:44:18.643Z</updated>
+    <updated>2016-06-12T12:58:56.005Z</updated>
     
     <content type="html">&lt;p&gt;终于决定要开始整整我的主页了，然后接触到了Markdown，就考虑用它来完成我大部分blog的撰写。虽说使用起来简易方便，没有什么难记的语法，但我感觉自己忘性比较大，还是写个备忘录来记录一下吧。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;h1 id=&quot;基本语法&quot;&gt;&lt;a href=&quot;#基本语法&quot; class=&quot;headerlink&quot; title=&quot;基本语法&quot;&gt;&lt;/a&gt;基本语法&lt;/h1&gt;&lt;p&gt;Markdown最为基础的一些语法，不包括那些扩展的功能。&lt;/p&gt;
 &lt;h2 id=&quot;标题&quot;&gt;&lt;a href=&quot;#标题&quot; class=&quot;headerlink&quot; title=&quot;标题&quot;&gt;&lt;/a&gt;标题&lt;/h2&gt;&lt;p&gt;使用 &lt;code&gt;#&lt;/code&gt; 将其设置为标题&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;# 基本语法
@@ -146,10 +147,15 @@ printf(&amp;quot;这是一个代码块&amp;quot;)
     <summary type="html">
     
       &lt;p&gt;终于决定要开始整整我的主页了，然后接触到了Markdown，就考虑用它来完成我大部分blog的撰写。虽说使用起来简易方便，没有什么难记的语法，但我感觉自己忘性比较大，还是写个备忘录来记录一下吧。&lt;/p&gt;
-&lt;h1 id=&quot;基本语法&quot;&gt;&lt;a href=&quot;#基本语法&quot; class
     
     </summary>
     
+      <category term="备忘录" scheme="http://nearsc.github.io/categories/%E5%A4%87%E5%BF%98%E5%BD%95/"/>
+    
+    
+      <category term="Markdown" scheme="http://nearsc.github.io/tags/Markdown/"/>
+    
+      <category term="备忘录" scheme="http://nearsc.github.io/tags/%E5%A4%87%E5%BF%98%E5%BD%95/"/>
     
   </entry>
   
