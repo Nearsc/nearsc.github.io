@@ -4,6 +4,26 @@
   
     
     <entry>
+      <title><![CDATA[Sudoku 测试页]]></title>
+      <url>http://nearsc.github.io/2017/06/16/sudoku/</url>
+      <content type="html"><![CDATA[<p>就当是熟悉下JS啦，当然完成度还不高，大概50%吧？</p>
+<a id="more"></a>
+<script type="text/javascript" src="/js/sudoku.js"></script>
+<script type="text/Javascript">
+    sudoku = new Sudoku();
+    sudoku.initSudoku("form1", sudoku);
+</script>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[linux-notes]]></title>
+      <url>http://nearsc.github.io/2016/10/24/linux-notes/</url>
+      <content type="html"><![CDATA[<p>wget -nH –cut-dirs=<em> -m –ftp-user=</em> –ftp-password=<em> ftp://</em>.<em>.</em>.<em>/</em></p>
+<p>-nH：不创建以主机名命名的目录。<br>–cut-dirs：忽略主机上的目录层数。<br>-m：下载所有子目录并且保留目录结构。<br>–ftp-user：FTP用户名<br>–ftp-password：FTP密码<br>ftp://<em>.</em>.<em>.</em>/*：FTP主机地址。最后可以跟目录名来下载指定目录。</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Vi 备忘录（未完待续）]]></title>
       <url>http://nearsc.github.io/2016/06/26/vi-notes/</url>
       <content type="html"><![CDATA[<p>虽说已经用了很久的vi，可是对于vi不同功能的熟练程度是不同的，这意味着有时会忘掉某些操作而需要查阅相关信息。此时若是手边没有参考书，就非常令人抓狂，只好去网上进行搜索。既然如此，那就花点时间整理下吧，查阅起来应该方便不少。我个人习惯是把vi和vim混在一起统称为vi的，因此尽管标题是“Vi 备忘录”，但其实也包含了vim的功能。</p>
