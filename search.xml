@@ -8,8 +8,9 @@
       <url>http://nearsc.github.io/2017/06/16/sudoku/</url>
       <content type="html"><![CDATA[<p>就当是熟悉下JS啦，当然完成度还不高，大概50%吧？</p>
 <a id="more"></a>
+<p><form action="" id="form1"></form></p>
 <script type="text/javascript" src="/js/sudoku.js"></script>
-<script type="text/Javascript">
+<script type="text/javascript">
     sudoku = new Sudoku();
     sudoku.initSudoku("form1", sudoku);
 </script>]]></content>

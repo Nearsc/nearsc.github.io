@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://nearsc.github.io/"/>
-  <updated>2017-06-16T10:49:09.966Z</updated>
+  <updated>2017-06-16T13:12:10.370Z</updated>
   <id>http://nearsc.github.io/</id>
   
   <author>
@@ -20,12 +20,13 @@
     <link href="http://nearsc.github.io/2017/06/16/sudoku/"/>
     <id>http://nearsc.github.io/2017/06/16/sudoku/</id>
     <published>2017-06-16T10:37:45.000Z</published>
-    <updated>2017-06-16T10:49:09.966Z</updated>
+    <updated>2017-06-16T13:12:10.370Z</updated>
     
     <content type="html">&lt;p&gt;就当是熟悉下JS啦，当然完成度还不高，大概50%吧？&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;&lt;form action=&quot;&quot; id=&quot;form1&quot;&gt;&lt;/form&gt;&lt;/p&gt;
 &lt;script type=&quot;text/javascript&quot; src=&quot;/js/sudoku.js&quot;&gt;&lt;/script&gt;
-&lt;script type=&quot;text/Javascript&quot;&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
     sudoku = new Sudoku();
     sudoku.initSudoku(&quot;form1&quot;, sudoku);
 &lt;/script&gt;</content>
