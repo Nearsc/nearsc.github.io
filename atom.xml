@@ -47,27 +47,6 @@
   </entry>
   
   <entry>
-    <title>linux-notes</title>
-    <link href="http://nearsc.github.io/2016/10/24/linux-notes/"/>
-    <id>http://nearsc.github.io/2016/10/24/linux-notes/</id>
-    <published>2016-10-24T06:05:43.491Z</published>
-    <updated>2016-10-24T06:08:07.823Z</updated>
-    
-    <content type="html">&lt;p&gt;wget -nH –cut-dirs=&lt;em&gt; -m –ftp-user=&lt;/em&gt; –ftp-password=&lt;em&gt; ftp://&lt;/em&gt;.&lt;em&gt;.&lt;/em&gt;.&lt;em&gt;/&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;-nH：不创建以主机名命名的目录。&lt;br&gt;–cut-dirs：忽略主机上的目录层数。&lt;br&gt;-m：下载所有子目录并且保留目录结构。&lt;br&gt;–ftp-user：FTP用户名&lt;br&gt;–ftp-password：FTP密码&lt;br&gt;ftp://&lt;em&gt;.&lt;/em&gt;.&lt;em&gt;.&lt;/em&gt;/*：FTP主机地址。最后可以跟目录名来下载指定目录。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;wget -nH –cut-dirs=&lt;em&gt; -m –ftp-user=&lt;/em&gt; –ftp-password=&lt;em&gt; ftp://&lt;/em&gt;.&lt;em&gt;.&lt;/em&gt;.&lt;em&gt;/&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;-nH：不创建以主机名命名的目录。&lt;br&gt;–cut-dirs：忽略主
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>Vi 备忘录（未完待续）</title>
     <link href="http://nearsc.github.io/2016/06/26/vi-notes/"/>
     <id>http://nearsc.github.io/2016/06/26/vi-notes/</id>
@@ -1321,9 +1300,9 @@
       <category term="备忘录" scheme="http://nearsc.github.io/categories/%E5%A4%87%E5%BF%98%E5%BD%95/"/>
     
     
-      <category term="Vi" scheme="http://nearsc.github.io/tags/Vi/"/>
-    
       <category term="备忘录" scheme="http://nearsc.github.io/tags/%E5%A4%87%E5%BF%98%E5%BD%95/"/>
+    
+      <category term="Vi" scheme="http://nearsc.github.io/tags/Vi/"/>
     
   </entry>
   
@@ -1465,9 +1444,9 @@ printf(&amp;quot;这是一个代码块&amp;quot;)
       <category term="备忘录" scheme="http://nearsc.github.io/categories/%E5%A4%87%E5%BF%98%E5%BD%95/"/>
     
     
-      <category term="备忘录" scheme="http://nearsc.github.io/tags/%E5%A4%87%E5%BF%98%E5%BD%95/"/>
-    
       <category term="Markdown" scheme="http://nearsc.github.io/tags/Markdown/"/>
+    
+      <category term="备忘录" scheme="http://nearsc.github.io/tags/%E5%A4%87%E5%BF%98%E5%BD%95/"/>
     
   </entry>
   
