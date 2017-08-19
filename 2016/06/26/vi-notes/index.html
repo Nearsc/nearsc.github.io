@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="备忘录,Vi," />
+  <meta name="keywords" content="Vi,备忘录," />
 
 
 
@@ -92,7 +92,7 @@
 <meta property="og:url" content="http://nearsc.github.io/2016/06/26/vi-notes/index.html">
 <meta property="og:site_name" content="Not Cool">
 <meta property="og:description" content="虽说已经用了很久的vi，可是对于vi不同功能的熟练程度是不同的，这意味着有时会忘掉某些操作而需要查阅相关信息。此时若是手边没有参考书，就非常令人抓狂，只好去网上进行搜索。既然如此，那就花点时间整理下吧，查阅起来应该方便不少。我个人习惯是把vi和vim混在一起统称为vi的，因此尽管标题是“Vi 备忘录”，但其实也包含了vim的功能。">
-<meta property="og:updated_time" content="2016-07-16T13:09:12.000Z">
+<meta property="og:updated_time" content="2017-08-19T12:48:38.404Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vi 备忘录（未完待续）">
 <meta name="twitter:description" content="虽说已经用了很久的vi，可是对于vi不同功能的熟练程度是不同的，这意味着有时会忘掉某些操作而需要查阅相关信息。此时若是手边没有参考书，就非常令人抓狂，只好去网上进行搜索。既然如此，那就花点时间整理下吧，查阅起来应该方便不少。我个人习惯是把vi和vim混在一起统称为vi的，因此尽管标题是“Vi 备忘录”，但其实也包含了vim的功能。">
@@ -1531,7 +1531,7 @@
 </table>
 <h2 id="设置文件"><a href="#设置文件" class="headerlink" title="设置文件"></a>设置文件</h2><p><code>vi</code> 启动时，会自行寻找设置文件来初始化设置。按照以下顺序，<code>vi</code> 将读取找到的第一个文件。</p>
 <blockquote>
-<p>$HOME/.vimrc<br>$HOME/_vimrc<br>$HOME/.exrc<br>$HOME/_exrc</p>
+<p>\$HOME/.vimrc<br>\$HOME/_vimrc<br>\$HOME/.exrc<br>\$HOME/_exrc</p>
 </blockquote>
 <p>如果使用 <code>vi</code> 的GUI版本，则需要读取 <code>gvimrc</code> 文件。使用 <code>:version</code> 命令可以查看读取了哪些文件。<br>如果想要在打开 <code>vi</code> 后自行读取设置文件，可以使用 <code>:source</code> 命令。<br>如果想要把已修改的设置保存为文件，可以使用 <code>:mkvimrc</code> 和 <code>:mkexrc</code> 命令。<br>如果想在不同的目录读取不同的设置文件，需要在当前目录放置一个 <code>.vimrc</code> 文件，同时在 <code>vi</code> 里设置 <code>:set exrc</code>。</p>
 <table>
@@ -1589,9 +1589,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/备忘录/" rel="tag">#备忘录</a>
-          
             <a href="/tags/Vi/" rel="tag">#Vi</a>
+          
+            <a href="/tags/备忘录/" rel="tag">#备忘录</a>
           
         </div>
       
@@ -1701,7 +1701,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1718,7 +1718,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
