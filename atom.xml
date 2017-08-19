@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://nearsc.github.io/"/>
-  <updated>2017-08-19T13:31:11.581Z</updated>
+  <updated>2017-08-19T14:50:04.767Z</updated>
   <id>http://nearsc.github.io/</id>
   
   <author>
@@ -16,11 +16,54 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>linux-notes</title>
+    <title>Linux入门教程——Linux简介</title>
+    <link href="http://nearsc.github.io/2017/08/19/06climate-linux-intro-1/"/>
+    <id>http://nearsc.github.io/2017/08/19/06climate-linux-intro-1/</id>
+    <published>2017-08-19T13:39:33.000Z</published>
+    <updated>2017-08-19T14:50:04.767Z</updated>
+    
+    <content type="html">&lt;p&gt;气象家园投稿第一篇：Linux简介&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h1 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h1&gt;&lt;p&gt;Hi，大家好！我是受“风往北吹”前辈的邀请，想写写关于Linux入门教程的一个无名小卒，面对的受众大概是那些刚开始研究生生活，对Linux系统了解不多的童鞋吧（微笑&lt;br&gt;我本人真正开始使用Linux的时间也不算长，水平有限，可能分享的内容远不及大神们的有用。希望能和大家多多交流，相互学习。另外，对于可能出现的错误，还请大家多多指正。&lt;/p&gt;
+&lt;h1 id=&quot;我眼里的Linux&quot;&gt;&lt;a href=&quot;#我眼里的Linux&quot; class=&quot;headerlink&quot; title=&quot;我眼里的Linux&quot;&gt;&lt;/a&gt;我眼里的Linux&lt;/h1&gt;&lt;p&gt;随便翻开一本Linux教程，开头都要讲讲Linux的历史。我感觉关于历史的信息，大家大可自己去书上读一读，所以我想了想还是跳过这部分，直接聊一聊自己对Linux的整体认识或者我是怎么看待Linux的。&lt;br&gt;大多数人最开始接触的应该都是Windows系统，现在突然要改用另一种系统，我们就要先了解这个新系统和我们平时用的究竟有多大不同。在我看来，两个系统其实都是在做着相同的事，即为我们提供一个使用计算机各个硬件的外部接口，通过操作系统提供的接口，我们可以使用鼠标键盘进行输入，调用CPU进行计算，用显示器查看结果。而对于它俩的区别，我觉得Windows看起来像是一位神奇的魔术师，而Linux则像是精明的科学家；或者Windows像是偏于感性的右脑，而Linux则为理性的左脑。这么形容它们，主要是因为Windows善于给我们呈现视听上的多彩，而Linux则注重内核的优化（更有效地使用计算机）吧。&lt;br&gt;要是稍微具体地说说Linux与Windows的差异，最直观最先感觉到的，就是会话界面和图形界面的区别了（当然不少Linux发行版也带有图形界面）。Windows下对系统的简单操作主要是由鼠标来完成（码字的时候还是靠键盘咯），因为它有很不错的图形界面，让操作变得形象化；而一开始使用Linux时，总感觉自己在用上世纪的电脑，要不厌其烦的通过输入字符来告诉它你的想法。相信有些不太喜欢编程的筒子们有些上手困难，不过呢，习惯就好啦！甚至还会变得爱上这种敲命令的操作方式了呢！&lt;br&gt;我要提到的另一个事，是关于多用户的问题，但这并不是两个系统间的差异，而是使用服务器时需要关注的问题。尽管Windows也是多用户的系统，但它一般都是安装在个人电脑上，基本也就是个人使用，用户除了你自己以外，就只有几个特殊的用户了吧（Administrator、Guest、System）。当然Windows也有服务器版本，但在服务器上Linux使用更为广泛，这意味着，如果你在服务器上使用Linux时，将会有一堆人跟你抢用计算资源，也意味着你需要知道在Linux下如何查看计算机的使用情况。这就好比是你在Windows下突然发现电脑特别卡了，就会调出任务管理器，看看是不是有些进程占了很多资源，然后干掉它！不同的是，在服务器上你并不能轻易的就把人家的进程给K.O.了（无奈&lt;br&gt;慢着，还有一件事我觉得有必要说一下！是关于编写程序或者使用数值模式时的问题。在Windows下面，我们写好源代码以后，点击编译器的编译、链接、运行……结果就出来了；或者有些可以在Windows下安装的数值模式，使用时可能只需要按照向导点一点，结果也就出来了。但在Linux下面，不光编译、链接、运行这三个步骤需要你通过打字敲命令来实现，而且还有一堆关于环境的设置问题需要你自己解决。简单来说就是，在Windows下的点击，其实伴随着编译器的一系列繁杂的动作，而在Linux下这些动作都需要你自己来完成！我那不长的模式调试经历，就已经让我明白，有时候这就是个麻烦事儿。T_T&lt;/p&gt;
+&lt;h1 id=&quot;傻瓜式的Linux安装教程&quot;&gt;&lt;a href=&quot;#傻瓜式的Linux安装教程&quot; class=&quot;headerlink&quot; title=&quot;傻瓜式的Linux安装教程&quot;&gt;&lt;/a&gt;傻瓜式的Linux安装教程&lt;/h1&gt;&lt;p&gt;由于Linux系统的开源性，其发行版可以说是种类繁多，大致列举几个吧：RedHat、Ubuntu、Fedora、Debian、CentOS、Deepin（国产）等等。Linux的桌面环境（给你的Linux装一个图形界面，如GNOME、KDE等，用起来也有了Windows的一些便捷之处）也在不断改善，对文字处理、图片、视频音频播放等方面的支持也不错，总有预感Linux的普及度将越来越广，说不定以后在个人电脑市场上也要给Windows施压呢！&lt;br&gt;&lt;img src=&quot;/2017/08/19/06climate-linux-intro-1/pic_1.png&quot; alt=&quot;pic_1.png&quot; title=&quot;&quot;&gt;&lt;br&gt;下面我就稍微示范下在个人电脑上傻瓜式安装Fedora 23的步骤吧！&lt;br&gt;需要的工具：LiveUSB Creator软件、Fedora 23镜像文件、8G以上U盘、一台电脑&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;制作安装Fedora 23的启动U盘：&lt;br&gt;下载&lt;a href=&quot;https://fedorahosted.org/liveusb-creator/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;LiveUSB Creator&lt;/a&gt;，以及&lt;a href=&quot;https://getfedora.org/zh_CN/workstation/download/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Fedora 23的光盘镜像&lt;/a&gt;，打开LiveUSB Creator。&lt;br&gt;LiveUSB Creator是Fedora官网上的一个小工具，用来制作启动U盘，操作非常简单，一目了然，相信大家看了就会用~&lt;img src=&quot;/2017/08/19/06climate-linux-intro-1/pic_2.png&quot; alt=&quot;pic_2.png&quot; title=&quot;&quot;&gt;
+&lt;img src=&quot;/2017/08/19/06climate-linux-intro-1/pic_3.png&quot; alt=&quot;pic_3.png&quot; title=&quot;&quot;&gt;
+我们已经下好了Fedora 23的镜像文件，那么就选左边的方式吧（Use existing Live CD）！选好镜像文件及要刻的那个U盘，就可以开始制作启动U盘了。&lt;br&gt;做好启动U盘以后就重启电脑，然后进行安装吧！&lt;/li&gt;
+&lt;li&gt;用U盘启动Fedora 23安装程序，进行安装：&lt;br&gt;重启电脑后要选择从U盘启动，即刚才你制作的那个U盘&lt;img src=&quot;/2017/08/19/06climate-linux-intro-1/pic_4.jpg&quot; alt=&quot;pic_4.jpg&quot; title=&quot;&quot;&gt;
+&lt;img src=&quot;/2017/08/19/06climate-linux-intro-1/pic_5.jpg&quot; alt=&quot;pic_5.jpg&quot; title=&quot;&quot;&gt;
+然后就可以看到U盘里的东西嘞！你可以选择先体验一下，或者现在就开始安装！&lt;img src=&quot;/2017/08/19/06climate-linux-intro-1/pic_6.jpg&quot; alt=&quot;pic_6.jpg&quot; title=&quot;&quot;&gt;
+&lt;img src=&quot;/2017/08/19/06climate-linux-intro-1/pic_7.jpg&quot; alt=&quot;pic_7.jpg&quot; title=&quot;&quot;&gt;
+安装过程按照提示就可以了，不过要注意选好你要安装Fedora的那个硬盘哦~（叹号那个）&lt;br&gt;因为我已经在自己电脑上装过Fedora啦，所以我就尝试着给另一个U盘装了个Fedora（偷笑&lt;img src=&quot;/2017/08/19/06climate-linux-intro-1/pic_8.jpg&quot; alt=&quot;pic_8.jpg&quot; title=&quot;&quot;&gt;
+&lt;img src=&quot;/2017/08/19/06climate-linux-intro-1/pic_9.jpg&quot; alt=&quot;pic_9.jpg&quot; title=&quot;&quot;&gt;
+开始安装！这时你可以设置root帐号的密码，以及创建一个新用户。&lt;br&gt;耐心等待后，一个属于你自己的Linux系统就诞生啦！（由于我是在U盘上装的，它不太给力，安装过程等的我好苦啊）&lt;img src=&quot;/2017/08/19/06climate-linux-intro-1/pic_10.jpg&quot; alt=&quot;pic_10.jpg&quot; title=&quot;&quot;&gt;
+&lt;img src=&quot;/2017/08/19/06climate-linux-intro-1/pic_11.jpg&quot; alt=&quot;pic_11.jpg&quot; title=&quot;&quot;&gt;
+PS：“制作启动U盘”和“把Fedora装在U盘上”，这是不同的过程哦~所以我用到了两个U盘，正常情况下是一个启动U盘+一块硬盘（为了避免误解，还是画蛇添足地说明下吧）&lt;br&gt;好了，第一期就到这了，希望可以帮助到大家吧！也希望这是一个不错的开头~~~^。^&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;气象家园投稿第一篇：Linux简介&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="气象家园文稿" scheme="http://nearsc.github.io/categories/%E6%B0%94%E8%B1%A1%E5%AE%B6%E5%9B%AD%E6%96%87%E7%A8%BF/"/>
+    
+    
+      <category term="Linux" scheme="http://nearsc.github.io/tags/Linux/"/>
+    
+      <category term="写作" scheme="http://nearsc.github.io/tags/%E5%86%99%E4%BD%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux 命令备忘录</title>
     <link href="http://nearsc.github.io/2017/08/19/linux-notes/"/>
     <id>http://nearsc.github.io/2017/08/19/linux-notes/</id>
     <published>2017-08-19T12:50:24.000Z</published>
-    <updated>2017-08-19T13:31:11.581Z</updated>
+    <updated>2017-08-19T13:36:42.727Z</updated>
     
     <content type="html">&lt;p&gt;记录一些比较实用的linux命令。当然，每个命令的描述会尽可能地被缩短，以保持页面的简洁感。如果以后想要单独写几篇笔记，对某些命令进行详细的研究，那这个页面也可以作为一个很好的索引页。&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -39,9 +82,9 @@
       <category term="备忘录" scheme="http://nearsc.github.io/categories/%E5%A4%87%E5%BF%98%E5%BD%95/"/>
     
     
-      <category term="备忘录" scheme="http://nearsc.github.io/tags/%E5%A4%87%E5%BF%98%E5%BD%95/"/>
-    
       <category term="Linux" scheme="http://nearsc.github.io/tags/Linux/"/>
+    
+      <category term="备忘录" scheme="http://nearsc.github.io/tags/%E5%A4%87%E5%BF%98%E5%BD%95/"/>
     
   </entry>
   
@@ -1330,9 +1373,9 @@
       <category term="备忘录" scheme="http://nearsc.github.io/categories/%E5%A4%87%E5%BF%98%E5%BD%95/"/>
     
     
-      <category term="Vi" scheme="http://nearsc.github.io/tags/Vi/"/>
-    
       <category term="备忘录" scheme="http://nearsc.github.io/tags/%E5%A4%87%E5%BF%98%E5%BD%95/"/>
+    
+      <category term="Vi" scheme="http://nearsc.github.io/tags/Vi/"/>
     
   </entry>
   
