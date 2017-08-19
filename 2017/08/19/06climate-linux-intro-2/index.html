@@ -88,14 +88,14 @@
 
 <meta name="description" content="气象家园投稿第二篇：基本操作与常用命令">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux入门教程——基本操作与常用命令">
+<meta property="og:title" content="Linux 入门教程——基本操作与常用命令">
 <meta property="og:url" content="http://nearsc.github.io/2017/08/19/06climate-linux-intro-2/index.html">
 <meta property="og:site_name" content="Not Cool">
 <meta property="og:description" content="气象家园投稿第二篇：基本操作与常用命令">
 <meta property="og:image" content="http://nearsc.github.io/2017/08/19/06climate-linux-intro-2/pic_1.png">
-<meta property="og:updated_time" content="2017-08-19T15:30:28.708Z">
+<meta property="og:updated_time" content="2017-08-19T16:11:56.172Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux入门教程——基本操作与常用命令">
+<meta name="twitter:title" content="Linux 入门教程——基本操作与常用命令">
 <meta name="twitter:description" content="气象家园投稿第二篇：基本操作与常用命令">
 <meta name="twitter:image" content="http://nearsc.github.io/2017/08/19/06climate-linux-intro-2/pic_1.png">
 
@@ -115,7 +115,7 @@
   };
 </script>
 
-  <title> Linux入门教程——基本操作与常用命令 | Not Cool </title>
+  <title> Linux 入门教程——基本操作与常用命令 | Not Cool </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -268,7 +268,7 @@
             
             
               
-                Linux入门教程——基本操作与常用命令
+                Linux 入门教程——基本操作与常用命令
               
             
           </h1>
@@ -336,44 +336,44 @@
       
         <p>气象家园投稿第二篇：基本操作与常用命令</p>
 <a id="more"></a>
-<p>上一期跟大家谈了谈我对Linux的一些个人感受，也讲了Fedora 23的安装过程，那么接下来就是关于“如何用好Linux”的内容了。本期我将以“让初学者快速上手”为主要目标，介绍Linux下的基本操作与常用命令，分享一些我使用时的小经验，希望大家喜欢 :P</p>
-<h1 id="快速上手"><a href="#快速上手" class="headerlink" title="快速上手"></a>快速上手</h1><p>下面的内容均在Fedora 20下进行示范，可能有的小伙伴已经安装了其他Linux发行版（如Ubuntu，CentOS等），但那并不会造成太大影响。<br>启动Fedora 20以后，进行用户登陆，之后弹出来一个桌面，看起来和Windows差不多嘛！正如上期所言，许多Linux发行版都具有图形界面，如果你想切换成字符界面，可以通过组合键Ctrl+Alt+F2~F6来实现。你可以直接就用字符界面来进行后面的操作，但若想使用图形界面（或许是因为你想一边放音乐一边练习命令），就需要把桌面提供的终端调出来，即在程序列表里面找类似“Terminal”的程序。当然我建议你上网搜一下，你所用系统里调出终端的快捷键是什么？如果你和我一样使用了Fedora（桌面为GNOME），那么需要自行设置快捷键（Settings → Keyboard → Shortcuts → Custom Shortcuts → ‘+’），如下图：<br><img src="/2017/08/19/06climate-linux-intro-2/pic_1.png" alt="pic_1.png" title=""><br>其中Name随意填写，Command栏写上“/usr/bin/gnome-terminal”。确定以后可以点击图中Terminal蓝色长条的右端，即可设置快捷键，我这里是“Super+T”，Super即Windows键。不管你是用的是字符界面，还是桌面下的终端，接下来就开始进行一些简单的操作吧！</p>
-<p>进入终端（或字符界面）以后，会出现类似下面的命令提示行，意思是用户N在计算机Dell上登录了，当前路径是~<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell ~]$</span><br></pre></td></tr></table></figure></p>
-<p>以前Windows下从“我的电脑”（即文件浏览器）中查看文件，新建文件夹，复制、移动文件等，现在均以在终端敲命令的方式实现，我们先看下面这一系列操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell ~]$ pwd</span><br><span class="line">/home/N</span><br><span class="line">[N@Dell ~]$ ls</span><br><span class="line">Data     Documents  intel  Music     Public  Templates</span><br><span class="line">Desktop  Downloads  Model  Pictures  Temp    Videos</span><br><span class="line">[N@Dell ~]$ cd Temp</span><br><span class="line">[N@Dell Temp]$ ls</span><br><span class="line">fhello_world_mpi      hello      sin    solve_equation  test1.c</span><br><span class="line">fhello_world_mpi.f90  hello.f90  sin.c  test1</span><br><span class="line">[N@Dell Temp]$ cp hello hello2</span><br><span class="line">[N@Dell Temp]$ mkdir new</span><br><span class="line">[N@Dell Temp]$ mv hello2 new/</span><br><span class="line">[N@Dell Temp]$ new/hello2 </span><br><span class="line"> Hello world!</span><br><span class="line">[N@Dell Temp]$ rm new/hello2 </span><br><span class="line">rm: remove regular file ‘new/hello2’? y</span><br><span class="line">[N@Dell Temp]$ rmdir new/</span><br><span class="line">[N@Dell Temp]$ cd ..</span><br><span class="line">[N@Dell ~]$</span><br></pre></td></tr></table></figure></p>
-<p>pwd是查看当前的目录位置，为/home/N；ls为显示当前目录下的内容，可以看到有Data、Documents……，它们可能是文件夹、各类文件、可执行程序等等；cd为切换目录，这里进入Temp目录，并ls显示了Temp目录下的内容；cp为复制文件，把hello这个文件复制成hello2；mkdir为建立新目录，mv为移动文件，我把复制得到的hello2移动到新建的new目录下了；new/hello2的意思是“执行hello2”，这说明hello2是个可执行文件，即Windows下的.exe文件，看，它在屏幕上给你打了个招呼呢！最后我用rm、和rmdir分别删除了hello2文件和new文件夹，并回到上一级目录（cd ..）。<br>对于上述执行的这些命令，我有几点要说明一下：</p>
+<p>上一期跟大家谈了谈我对 Linux 的一些个人感受，也讲了 Fedora 23 的安装过程，那么接下来就是关于“如何用好 Linux”的内容了。本期我将以“让初学者快速上手”为主要目标，介绍 Linux 下的基本操作与常用命令，分享一些我使用时的小经验，希望大家喜欢 :P</p>
+<h1 id="快速上手"><a href="#快速上手" class="headerlink" title="快速上手"></a>快速上手</h1><p>下面的内容均在 Fedora 20 下进行示范，可能有的小伙伴已经安装了其他 Linux 发行版（如 Ubuntu、CentOS 等），但那并不会造成太大影响。<br>启动 Fedora 20 以后，进行用户登陆，之后弹出来一个桌面，看起来和 Windows 差不多嘛！正如上期所言，许多 Linux 发行版都具有图形界面，如果你想切换成字符界面，可以通过组合键 <code>Ctrl+Alt+F2~F6</code> 来实现。你可以直接就用字符界面来进行后面的操作，但若想使用图形界面（或许是因为你想一边放音乐一边练习命令），就需要把桌面提供的终端调出来，即在程序列表里面找类似 <code>Terminal</code> 的程序。当然我建议你上网搜一下，你所用系统里调出终端的快捷键是什么？如果你和我一样使用了 Fedora（桌面为 GNOME），那么需要自行设置快捷键 <code>Settings → Keyboard → Shortcuts → Custom Shortcuts → &#39;+&#39;</code>，如下图：<br><img src="/2017/08/19/06climate-linux-intro-2/pic_1.png" alt="pic_1.png" title=""><br>其中 Name 随意填写，Command 栏写上 <code>/usr/bin/gnome-terminal</code>。确定以后可以点击图中 <code>Terminal</code> 蓝色长条的右端，即可设置快捷键，我这里是 <code>Super+T</code>，Super 即 Windows 键。不管你是用的是字符界面，还是桌面下的终端，接下来就开始进行一些简单的操作吧！</p>
+<p>进入终端（或字符界面）以后，会出现类似下面的命令提示行，意思是用户 N 在计算机 Dell 上登录了，当前路径是~<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell ~]$</span><br></pre></td></tr></table></figure></p>
+<p>以前 Windows 下从“我的电脑”（即文件浏览器）中查看文件，新建文件夹，复制、移动文件等，现在均以在终端敲命令的方式实现，我们先看下面这一系列操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell ~]$ pwd</span><br><span class="line">/home/N</span><br><span class="line">[N@Dell ~]$ ls</span><br><span class="line">Data     Documents  intel  Music     Public  Templates</span><br><span class="line">Desktop  Downloads  Model  Pictures  Temp    Videos</span><br><span class="line">[N@Dell ~]$ cd Temp</span><br><span class="line">[N@Dell Temp]$ ls</span><br><span class="line">fhello_world_mpi      hello      sin    solve_equation  test1.c</span><br><span class="line">fhello_world_mpi.f90  hello.f90  sin.c  test1</span><br><span class="line">[N@Dell Temp]$ cp hello hello2</span><br><span class="line">[N@Dell Temp]$ mkdir new</span><br><span class="line">[N@Dell Temp]$ mv hello2 new/</span><br><span class="line">[N@Dell Temp]$ new/hello2 </span><br><span class="line"> Hello world!</span><br><span class="line">[N@Dell Temp]$ rm new/hello2 </span><br><span class="line">rm: remove regular file ‘new/hello2’? y</span><br><span class="line">[N@Dell Temp]$ rmdir new/</span><br><span class="line">[N@Dell Temp]$ cd ..</span><br><span class="line">[N@Dell ~]$</span><br></pre></td></tr></table></figure></p>
+<p><code>pwd</code> 是查看当前的目录位置，为 <code>/home/N</code>；<code>ls</code> 为显示当前目录下的内容，可以看到有 <code>Data、Documents......</code>，它们可能是文件夹、各类文件、可执行程序等等；<code>cd</code> 为切换目录，这里进入 <code>Temp</code> 目录，并 <code>ls</code> 显示了 <code>Temp</code> 目录下的内容；<code>cp</code> 为复制文件，把 <code>hello</code> 这个文件复制成 <code>hello2</code>；<code>mkdir</code> 为建立新目录，<code>mv</code> 为移动文件，我把复制得到的 <code>hello2</code> 移动到新建的 <code>new</code> 目录下了；<code>new/hello2</code> 的意思是执行 <code>hello2</code>，这说明 <code>hello2</code> 是个可执行文件，即 Windows 下的 <code>.exe</code> 文件，看，它在屏幕上给你打了个招呼呢！最后我用 <code>rm</code>、和 <code>rmdir</code> 分别删除了 <code>hello2</code> 文件和 <code>new</code> 文件夹，并回到上一级目录（<code>cd ..</code>）。<br>对于上述执行的这些命令，我有几点要说明一下：</p>
 <ol>
-<li><p>绝对路径和相对路径（可能会有人不太清楚）：绝对路径即完整的路径，如pwd后得到的/home/N；相对路径即相对于当前目录位置的路径，例如当你要进入/home/N/Temp，但你现在位置为/home时，就可以输入cd N/Temp。顺便提一下几个特殊路径，~为用户家目录（如对于用户N，~相当于/home/N），.（点）为当前目录，..（两个点）为上一级目录，-为上一次路径。大家可以用cd ~，cd .，cd ..，cd -试试效果。</p>
+<li><p>绝对路径和相对路径（可能会有人不太清楚）：绝对路径即完整的路径，如 <code>pwd</code> 后得到的 <code>/home/N</code>；相对路径即相对于当前目录位置的路径，例如当你要进入 <code>/home/N/Temp</code>，但你现在位置为 <code>/home</code> 时，就可以输入 <code>cd N/Temp</code>。顺便提一下几个特殊路径，<code>~</code> 为用户家目录（如对于用户 N，<code>~</code> 相当于 <code>/home/N</code>），<code>.</code>（点）为当前目录，<code>..</code>（两个点）为上一级目录，<code>-</code> 为上一次路径。大家可以用 <code>cd ~</code>，<code>cd .</code>，<code>cd ..</code>，<code>cd -</code> 试试效果。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell ~]$ pwd</span><br><span class="line">/home/N</span><br><span class="line">[N@Dell ~]$ cd /home/N/Temp/solve_equation/method1/</span><br><span class="line">[N@Dell method1]$ cd -</span><br><span class="line">/home/N</span><br><span class="line">[N@Dell ~]$ cd ..</span><br><span class="line">[N@Dell home]$</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>所谓命令，其实也就是程序而已，当你输ls的时候，实际上你就是运行了/usr/bin/ls这个程序。之前我们也在/home/N/Temp下输入new/hello2来运行hello2这个程序，在我看来，ls和hello2本质上没多大区别，只是一个是系统自带的程序，一个是我写的程序。由于hello2被我删了，我们就运行下hello吧。以绝对路径的形式。</p>
+<li><p>所谓命令，其实也就是程序而已，当你输 <code>ls</code> 的时候，实际上你就是运行了 <code>/usr/bin/ls</code> 这个程序。之前我们也在 <code>/home/N/Temp</code> 下输入 <code>new/hello2</code> 来运行 <code>hello2</code> 这个程序，在我看来，<code>ls</code> 和 <code>hello2</code> 本质上没多大区别，只是一个是系统自带的程序，一个是我写的程序。由于 <code>hello2</code> 被我删了，我们就运行下 <code>hello</code> 吧。以绝对路径的形式。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell ~]$ /usr/bin/ls</span><br><span class="line">Data	 Documents  intel  Music     Public  Templates</span><br><span class="line">Desktop  Downloads  Model  Pictures  Temp    Videos</span><br><span class="line">[N@Dell ~]$ /home/N/Temp/hello</span><br><span class="line"> Hello world!</span><br></pre></td></tr></table></figure>
 <p>不过如果这样输入呢？</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell ~]$ ls</span><br><span class="line">Data     Documents  intel  Music     Public  Templates</span><br><span class="line">Desktop  Downloads  Model  Pictures  Temp    Videos</span><br><span class="line">[N@Dell ~]$ hello</span><br><span class="line">bash: hello: command not found...</span><br></pre></td></tr></table></figure>
-<p>当你输入ls时，系统明白你要运行/usr/bin/ls，但输入hello时系统就晕了，因为你没有事先告诉它你的hello在哪。实际上你只需要在某个文件（.bashrc）里写上hello的绝对路径，系统就会由那个文件获取hello的路径。这样就可以通过直接敲入hello来执行而无需敲完整路径了！关于那个文件的事情我们以后再详细聊~<br>你也可以用相对路径的行式来运行hello，首先”cd /home/N/Temp/”，再敲入”./hello”，注意这和直接敲”hello”是不同的，之前说过.（点）是代表当前目录，”./hello”相当于给出了相对路径，与”cd /home/N/Temp/”组合起来，系统就知道你的hello文件的位置然后正常运行了。<br>这儿有个叫which的命令需要提一下，它可以查看某命令的文件路径在哪。</p>
+<p>当你输入 <code>ls</code> 时，系统明白你要运行 <code>/usr/bin/ls</code> ，但输入 <code>hello</code> 时系统就晕了，因为你没有事先告诉它你的 <code>hello</code> 在哪。实际上你只需要在某个文件（<code>.bashrc</code>）里写上 <code>hello</code> 的绝对路径，系统就会由那个文件获取 <code>hello</code> 的路径。这样就可以通过直接敲入 <code>hello</code> 来执行而无需敲完整路径了！关于那个文件的事情我们以后再详细聊~<br>你也可以用相对路径的行式来运行 <code>hello</code>，首先 <code>cd /home/N/Temp/</code>，再敲入 <code>./hello</code>，注意这和直接敲 <code>hello</code> 是不同的，之前说过 <code>.</code>（点）是代表当前目录，<code>./hello</code> 相当于给出了相对路径，与 <code>cd /home/N/Temp/</code> 组合起来，系统就知道你的 <code>hello</code> 文件的位置然后正常运行了。<br>这儿有个叫 <code>which</code> 的命令需要提一下，它可以查看某命令的文件路径在哪。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell ~]$ which mv</span><br><span class="line">/usr/bin/mv</span><br></pre></td></tr></table></figure>
-<p>若你没有将hello的绝对路径写到.bashrc文件里，那么which hello的结果就是“找不着”哦！</p>
+<p>若你没有将 <code>hello</code> 的绝对路径写到 <code>.bashrc</code> 文件里，那么 <code>which hello</code> 的结果就是“找不着”哦！</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell ~]$ which hello</span><br><span class="line">/usr/bin/which: no hello in ...（这里省略了若干路径）</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>不管是所谓的命令，还是你自己写的程序，实际上我们运行它们都是类似这样的形式</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell ~]$ command [-option] para1 para2 …</span><br></pre></td></tr></table></figure>
-<p>command可以是ls、/home/N/Temp/hello等等；-option为选项，通常以-或–（横杠或双横杠）开头；para1、para2等即参数。如“ls -l ..”会显示上一级目录的详细（因为有“-l”选项）内容；如“cp -r dir1 dir2”，加上“-r”使你可以复制文件夹。实际上，对于每个命令，都有一堆可选择的选项，而又有这么多的命令，怎么可能都记得住嘛！别急，绝大多数命令都有–help选项，加上这个选项就可以迅速浏览某命令的各选项简述。若要获得某个命令的详细描述，则可以使用man和info这两个命令：</p>
+<p><code>command</code> 可以是 <code>ls</code> 、<code>/home/N/Temp/hello</code> 等等；<code>-option</code> 为选项，通常以 <code>-</code> 或 <code>--</code>（横杠或双横杠）开头；<code>para1</code>、<code>para2</code> 等即参数。如 <code>ls -l ..</code> 会显示上一级目录的详细（因为有 <code>-l</code> 选项）内容；如 <code>cp -r dir1 dir2</code>，加上 <code>-r</code> 使你可以复制文件夹。实际上，对于每个命令，都有一堆可选择的选项，而又有这么多的命令，怎么可能都记得住嘛！别急，绝大多数命令都有 <code>--help</code> 选项，加上这个选项就可以迅速浏览某命令的各选项简述。若要获得某个命令的详细描述，则可以使用 <code>man</code> 和 <code>info</code> 这两个命令：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell ~]$ ls --help</span><br><span class="line">[N@Dell ~]$ man cp</span><br><span class="line">[N@Dell ~]$ info mkdir</span><br></pre></td></tr></table></figure>
-<p>我觉得吧，了解了之前的那些简单操作后，大家应该先学好man命令，这样以后遇到新命令，就直接man一下，就什么都知道了哦！另外，你可以先man一下man，里面会有对man的详细说明的，然后百度一下就会了！</p>
+<p>我觉得吧，了解了之前的那些简单操作后，大家应该先学好 <code>man</code> 命令，这样以后遇到新命令，就直接 <code>man</code> 一下，就什么都知道了哦！另外，你可以先 <code>man</code> 一下 <code>man</code> ，里面会有对 <code>man</code> 的详细说明的，然后百度一下就会了！</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell ~]$ man man</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>有时候我们需要反复执行同一条命令，当这条命令超级长的时候，我想你肯定不耐烦一遍遍输入吧，因此我们要了解下如何查看历史操作。一般在命令行直接用↑, ↓方向键就行了，不过这里再介绍下其他方式：</p>
+<li><p>有时候我们需要反复执行同一条命令，当这条命令超级长的时候，我想你肯定不耐烦一遍遍输入吧，因此我们要了解下如何查看历史操作。一般在命令行直接用 <code>↑</code>, <code>↓</code> 方向键就行了，不过这里再介绍下其他方式：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell ~]$ history</span><br><span class="line">[N@Dell ~]$ !1000</span><br></pre></td></tr></table></figure>
-<p>history会列出你之前执行的命令，!1000则执行history中编号为1000的那条命令。另外，在命令行按下组合键Ctrl+r后再输入你的命令，也能快速搜索历史操作并执行。<br>还有自动补全功能，tab与tabtab（按两次），也能让你少敲不少字符。（ps：有些系统并不是用tab来进行补全哟~）<br>对了，如果执行某个命令时半天没有回应，你可以试试按下组合键Ctrl+C来终止命令。比如你用du时：</p>
+<p><code>history</code> 会列出你之前执行的命令，<code>!1000</code> 则执行 <code>history</code> 中编号为1000的那条命令。另外，在命令行按下组合键 <code>Ctrl+r</code> 后再输入你的命令，也能快速搜索历史操作并执行。<br>还有自动补全功能，<code>tab</code> 与 <code>tabtab</code>（按两次），也能让你少敲不少字符。（ps：有些系统并不是用 <code>tab</code> 来进行补全哟~）<br>对了，如果执行某个命令时半天没有回应，你可以试试按下组合键 <code>Ctrl+C</code> 来终止命令。比如你用 <code>du</code> 时：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell ~]$ du –sh /</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h1 id="其他常用的命令"><a href="#其他常用的命令" class="headerlink" title="其他常用的命令"></a>其他常用的命令</h1><p>用户权限：chown、chgrp、chmod、passwd、su<br>压缩、解压及打包：gzip、bzip2、tar<br>查看文件内容：cat、more、less、head、tail<br>搜索：which、find、grep、locate<br>网络：ping、ifconfig…<br>系统资源信息：df、du、top、free…<br>文件：ln、touch、diff、stat<br>日期：date、cal<br>……<br>我简单列了一些命令供大家查询练习，但Linux的神奇与强大，需要大家自己去摸索研究~<br>还有大家平时就用普通用户帐号（如我的N帐号）吧，管理系统时才需要使用root帐号。</p>
+<h1 id="其他常用的命令"><a href="#其他常用的命令" class="headerlink" title="其他常用的命令"></a>其他常用的命令</h1><p>用户权限：<code>chown</code>、<code>chgrp</code>、<code>chmod</code>、<code>passwd</code>、<code>su</code><br>压缩、解压及打包：<code>gzip</code>、<code>bzip2</code>、<code>tar</code><br>查看文件内容：<code>cat</code>、<code>more</code>、<code>less</code>、<code>head</code>、<code>tail</code><br>搜索：<code>which</code>、<code>find</code>、<code>grep</code>、<code>locate</code><br>网络：<code>ping</code>、<code>ifconfig</code>…<br>系统资源信息：<code>df</code>、<code>du</code>、<code>top</code>、<code>free</code>…<br>文件：<code>ln</code>、<code>touch</code>、<code>diff</code>、<code>stat</code><br>日期：<code>date</code>、<code>cal</code><br>……<br>我简单列了一些命令供大家查询练习，但 Linux 的神奇与强大，需要大家自己去摸索研究~<br>还有大家平时就用普通用户帐号（如我的 N 帐号）吧，管理系统时才需要使用 root 帐号。</p>
 <h1 id="心得（不如说是感慨吧）"><a href="#心得（不如说是感慨吧）" class="headerlink" title="心得（不如说是感慨吧）"></a>心得（不如说是感慨吧）</h1><ol>
-<li>作为非计算机专业的我们，其实并不需要“按部就班”地学习Linux，或者说不需要抱着本书从头看到尾，而是在了解基本知识后就可以边学习边使用它做些工作了。这样不用浪费太多时间，最重要的是使用它会让你更快地熟悉了解它。</li>
+<li>作为非计算机专业的我们，其实并不需要“按部就班”地学习 Linux，或者说不需要抱着本书从头看到尾，而是在了解基本知识后就可以边学习边使用它做些工作了。这样不用浪费太多时间，最重要的是使用它会让你更快地熟悉了解它。</li>
 <li>由于我们是“跳着”学的，肯定会经常遇到不懂的问题需要上网搜索，这时对信息的检索能力就十分重要了，才可以迅速找到解决方法啊！相互交流，多多讨教也是一种有效的方式！</li>
-<li>从计算机的角度出发进行思考。我时常会琢磨，Linux作为一类优秀的系统，有哪些能力是理所当然会具备的呢？或者对于Windows下许多功能，它又将如何实现呢？比如Linux应该能对各用户合理分配资源吧，那需要做些什么呢？再想想Linux下怎么查看一个文件夹含有的所有文件数呢？就这样自己思考问题，然后去搜索答案，那么许多问题在出现之前就已经被解决了，相比临时遇到问题再搜索的方式，要节省时间得多。此外，这样也让你思维更活跃，说不定遇到问题时自己突然就知道如何解决了，嗯。</li>
+<li>从计算机的角度出发进行思考。我时常会琢磨，Linux 作为一类优秀的系统，有哪些能力是理所当然会具备的呢？或者对于 Windows 下许多功能，它又将如何实现呢？比如 Linux 应该能对各用户合理分配资源吧，那需要做些什么呢？再想想 Linux 下怎么查看一个文件夹含有的所有文件数呢？就这样自己思考问题，然后去搜索答案，那么许多问题在出现之前就已经被解决了，相比临时遇到问题再搜索的方式，要节省时间得多。此外，这样也让你思维更活跃，说不定遇到问题时自己突然就知道如何解决了，嗯。</li>
 </ol>
-<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>因为我想让第一次使用Linux的人能够快速熟悉，许多操作说明难免有些繁琐、啰嗦，之后肯定会以更加简明的形式描述的。最后，如果有问题的话，可以去气象家园给我留言哈！</p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>因为我想让第一次使用 Linux 的人能够快速熟悉，许多操作说明难免有些繁琐、啰嗦，之后肯定会以更加简明的形式描述的。最后，如果有问题的话，可以去气象家园给我留言哈！</p>
 
       
     </div>
@@ -406,13 +406,17 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/19/06climate-linux-intro-1/" rel="next" title="Linux入门教程——Linux简介">
-                <i class="fa fa-chevron-left"></i> Linux入门教程——Linux简介
+              <a href="/2017/08/19/06climate-linux-intro-1/" rel="next" title="Linux 入门教程——Linux 简介">
+                <i class="fa fa-chevron-left"></i> Linux 入门教程——Linux 简介
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/19/06climate-linux-intro-3/" rel="prev" title="Linux 入门教程——vi 与环境变量">
+                Linux 入门教程——vi 与环境变量 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -428,7 +432,7 @@
     <div class="post-spread">
       
         <div class="ds-share flat" data-thread-key="2017/08/19/06climate-linux-intro-2/"
-     data-title="Linux入门教程——基本操作与常用命令"
+     data-title="Linux 入门教程——基本操作与常用命令"
      data-content=""
      data-url="http://nearsc.github.io/2017/08/19/06climate-linux-intro-2/">
   <div class="ds-share-inline">
@@ -458,7 +462,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2017/08/19/06climate-linux-intro-2/"
-           data-title="Linux入门教程——基本操作与常用命令" data-url="http://nearsc.github.io/2017/08/19/06climate-linux-intro-2/">
+           data-title="Linux 入门教程——基本操作与常用命令" data-url="http://nearsc.github.io/2017/08/19/06climate-linux-intro-2/">
       </div>
     
   </div>
@@ -503,7 +507,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

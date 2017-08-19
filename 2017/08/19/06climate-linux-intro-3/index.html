@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="备忘录,Markdown," />
+  <meta name="keywords" content="Linux,写作," />
 
 
 
@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="终于决定要开始整整我的主页了，然后接触到了Markdown，就考虑用它来完成我大部分blog的撰写。虽说使用起来简易方便，没有什么难记的语法，但我感觉自己忘性比较大，还是写个备忘录来记录一下吧。">
+<meta name="description" content="气象家园投稿第三篇：vi 与环境变量">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Markdown 备忘录">
-<meta property="og:url" content="http://nearsc.github.io/2016/06/03/markdown-notes/index.html">
+<meta property="og:title" content="Linux 入门教程——vi 与环境变量">
+<meta property="og:url" content="http://nearsc.github.io/2017/08/19/06climate-linux-intro-3/index.html">
 <meta property="og:site_name" content="Not Cool">
-<meta property="og:description" content="终于决定要开始整整我的主页了，然后接触到了Markdown，就考虑用它来完成我大部分blog的撰写。虽说使用起来简易方便，没有什么难记的语法，但我感觉自己忘性比较大，还是写个备忘录来记录一下吧。">
-<meta property="og:image" content="http://nearsc.github.io/images/lxh.gif">
-<meta property="og:updated_time" content="2016-06-12T12:58:58.000Z">
+<meta property="og:description" content="气象家园投稿第三篇：vi 与环境变量">
+<meta property="og:image" content="http://nearsc.github.io/2017/08/19/06climate-linux-intro-3/pic_1.png">
+<meta property="og:updated_time" content="2017-08-19T16:58:57.784Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Markdown 备忘录">
-<meta name="twitter:description" content="终于决定要开始整整我的主页了，然后接触到了Markdown，就考虑用它来完成我大部分blog的撰写。虽说使用起来简易方便，没有什么难记的语法，但我感觉自己忘性比较大，还是写个备忘录来记录一下吧。">
-<meta name="twitter:image" content="http://nearsc.github.io/images/lxh.gif">
+<meta name="twitter:title" content="Linux 入门教程——vi 与环境变量">
+<meta name="twitter:description" content="气象家园投稿第三篇：vi 与环境变量">
+<meta name="twitter:image" content="http://nearsc.github.io/2017/08/19/06climate-linux-intro-3/pic_1.png">
 
 
 
@@ -115,7 +115,7 @@
   };
 </script>
 
-  <title> Markdown 备忘录 | Not Cool </title>
+  <title> Linux 入门教程——vi 与环境变量 | Not Cool </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -268,7 +268,7 @@
             
             
               
-                Markdown 备忘录
+                Linux 入门教程——vi 与环境变量
               
             
           </h1>
@@ -280,8 +280,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-03T18:44:18+08:00" content="2016-06-03">
-              2016-06-03
+            <time itemprop="dateCreated" datetime="2017-08-19T23:38:02+08:00" content="2017-08-19">
+              2017-08-19
             </time>
           </span>
 
@@ -294,8 +294,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/备忘录/" itemprop="url" rel="index">
-                    <span itemprop="name">备忘录</span>
+                  <a href="/categories/气象家园文稿/" itemprop="url" rel="index">
+                    <span itemprop="name">气象家园文稿</span>
                   </a>
                 </span>
 
@@ -310,8 +310,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/06/03/markdown-notes/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/03/markdown-notes/" itemprop="commentsCount"></span>
+                <a href="/2017/08/19/06climate-linux-intro-3/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/08/19/06climate-linux-intro-3/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -334,126 +334,29 @@
       
 
       
-        <p>终于决定要开始整整我的主页了，然后接触到了Markdown，就考虑用它来完成我大部分blog的撰写。虽说使用起来简易方便，没有什么难记的语法，但我感觉自己忘性比较大，还是写个备忘录来记录一下吧。</p>
+        <p>气象家园投稿第三篇：vi 与环境变量</p>
 <a id="more"></a>
-<h1 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h1><p>Markdown最为基础的一些语法，不包括那些扩展的功能。</p>
-<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>使用 <code>#</code> 将其设置为标题</p>
-<pre><code># 基本语法
-## 标题
-</code></pre><h2 id="强调字体"><a href="#强调字体" class="headerlink" title="强调字体"></a>强调字体</h2><p>前后使用 <code>**</code> 或 <code>__</code> 使字体变为粗体。<br>前后使用 <code>*</code> 或 <code>_</code> 使字体变为粗体。<br>前后使用 <code>**</code> 或 <code>__</code> 并且前后使用 <code>*</code> 或 <code>_</code> 使字体变为粗斜体。<br>前后使用 <code>~~</code> 使字体被划掉。</p>
-<pre><code>**我是粗体**
-__我也是粗体__
-*我是斜体*
-_我也是斜体_
-**_我是粗斜体_**
-__*我也是粗斜体*__
-~~我被划掉了~~
-</code></pre><blockquote>
-<p><strong>我是粗体</strong><br><strong>我也是粗体</strong><br><em>我是斜体</em><br><em>我也是斜体</em><br><strong><em>我是粗斜体</em></strong><br><strong><em>我也是粗斜体</em></strong><br><del>我被划掉了</del></p>
-</blockquote>
-<h2 id="引用文字"><a href="#引用文字" class="headerlink" title="引用文字"></a>引用文字</h2><p>使用 <code>&gt;</code> 将其设置为引用。当然，可以不是名人名言。</p>
-<pre><code>&gt;Remember the past, know the future.
-</code></pre><blockquote>
-<blockquote>
-<p>Remember the past, know the future.</p>
-</blockquote>
-</blockquote>
-<h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><p>使用4个空格或者1个tab来获得代码块</p>
-<pre><code>&lt;Tab&gt;printf(&quot;这是一个代码块&quot;)
-
-printf(&quot;这是一个代码块&quot;)
-</code></pre><h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><p>使用 <code>[]()</code> 来添链加接</p>
-<pre><code>详情请访问[Nearsc的主页](http://nearsc.github.io/)
-</code></pre><blockquote>
-<p>详情请访问<a href="http://nearsc.github.io/">Nearsc的主页</a></p>
-</blockquote>
-<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p>使用 <code>![]()</code> 来添加图片</p>
-<pre><code>![罗小黑](/images/lxh.gif)
-</code></pre><blockquote>
-<p><img src="/images/lxh.gif" alt="罗小黑"></p>
-</blockquote>
-<h2 id="项目清单"><a href="#项目清单" class="headerlink" title="项目清单"></a>项目清单</h2><p>使用数字来添加项目编号<br>使用 <code>-</code> 或 <code>*</code> 或 <code>+</code> 来添加项目符号<br>使用两个空格获得嵌套清单</p>
-<pre><code>1. Personal information
-  * Nearsc
-  * China
-2. Hobbies
-  1. Music
-    - Popular music
-    - Classic music
-  2. Animation
-    + 天空の城ラピュタ
-    + 魔女の宅急便
-</code></pre><blockquote>
+<p>熟悉了 Linux 的一些基本操作以后，差不多就可以正式用它来进行工作了，那么平时主要在 Linux 上做些什么呢？根据自己的经历，我想大概有以下几点吧：</p>
 <ol>
-<li>Personal information<ul>
-<li>Nearsc</li>
-<li>China</li>
-</ul>
-</li>
-<li>Hobbies<ol>
-<li>Music<ul>
-<li>Popular music</li>
-<li>Classic music</li>
-</ul>
-</li>
-<li>Animation<ul>
-<li>天空の城ラピュタ</li>
-<li>魔女の宅急便</li>
-</ul>
-</li>
+<li>管理文件（或者说管理系统？）</li>
+<li>编写程序（应该大多是 Fortran 语言吧）</li>
+<li>软件使用（如 NCL、Matlab）</li>
+<li>模式使用（多在服务器上运行）<br>之后几篇的内容大致也就是关于这几个方面的。先说说管理文件，可以很简单，比如我备份几个数据、归类几个文件夹，就是对我的文件进行了管理；也可以相对更为复杂，比如我查看一下系统信息的文件，修改一下配置文件，使得我的系统用起来更加符合我自己的习惯。就泛泛地说“管理”这个词，它包含的内容是很多的，对于普通用户和管理员用户，“管理”又具有不同的含义。不过我可没法聊这些，但有必要介绍下文本编辑器，因为不知道怎么编辑文件，怎么能进行管理呢（点头</li>
 </ol>
-</li>
-</ol>
-</blockquote>
-<h1 id="GitHub-特殊语法"><a href="#GitHub-特殊语法" class="headerlink" title="GitHub 特殊语法"></a>GitHub 特殊语法</h1><p>包含了部分的 GFM (GitHub Flavored Markdown)</p>
-<h2 id="引用代码"><a href="#引用代码" class="headerlink" title="引用代码"></a>引用代码</h2><p>使用 <code>`</code> 来加入一串代码<br><em>嵌入式代码</em> —— 前后各一个<code>`</code></p>
-<pre><code>`tar`是Linux下用来打包的命令
-</code></pre><blockquote>
-<p><code>tar</code>是Linux下用来打包的命令</p>
-</blockquote>
-<p><em>代码块</em> —— 前后连续三个<code>`</code></p>
-<blockquote>
-<p>```bash<br>cd ~/Download<br>tar -xvzf netcdf-4.4.0<br>cd netcdf-4.4.0<br>mkdir -p /opt/netcdf/netcdf-4.4.0<br>./configure --prefix=/opt/netcdf/netcdf-4.4.0<br>make all install<br>```</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/Download</span><br><span class="line">tar -xvzf netcdf-4.4.0</span><br><span class="line"><span class="built_in">cd</span> netcdf-4.4.0</span><br><span class="line">mkdir -p /opt/netcdf/netcdf-4.4.0</span><br><span class="line">./configure --prefix=/opt/netcdf/netcdf-4.4.0</span><br><span class="line">make all install</span><br></pre></td></tr></table></figure>
-<h2 id="任务清单"><a href="#任务清单" class="headerlink" title="任务清单"></a>任务清单</h2><p>使用 <code>-</code> 和 <code>[ ]</code> 标记为未完成的任务<br>使用 <code>-</code> 和 <code>[x]</code> 标记为已完成的任务</p>
-<pre><code>- [x] 给植物浇水
-- [ ] 收集雨花石
-- [ ] 学画画
-</code></pre><h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p>使用 <code>-</code> 和 <code>|</code> 来绘制表格</p>
-<pre><code>动画名称|上映年份|代表音乐
--|-|-
-風の谷のナウシカ|1984|鸟の人
-天空の城ラピュタ|1986|空から降ってきた少女
-千と千尋の神隠し|2001|あの夏へ
-</code></pre><blockquote>
-<table>
-<thead>
-<tr>
-<th>动画名称</th>
-<th>上映年份</th>
-<th>代表音乐</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>風の谷のナウシカ</td>
-<td>1984</td>
-<td>鸟の人</td>
-</tr>
-<tr>
-<td>天空の城ラピュタ</td>
-<td>1986</td>
-<td>空から降ってきた少女</td>
-</tr>
-<tr>
-<td>千と千尋の神隠し</td>
-<td>2001</td>
-<td>あの夏へ</td>
-</tr>
-</tbody>
-</table>
-</blockquote>
+<h1 id="vi"><a href="#vi" class="headerlink" title="vi"></a>vi</h1><p>在 Linux 下，如果你想查看一个文本文件的内容，可以通过多种方式来实现。下面这5个命令均能查看文件内容：<code>cat</code>，<code>more</code>，<code>less</code>，<code>head</code>，<code>tail</code>。如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell ~]$ cat readme</span><br></pre></td></tr></table></figure></p>
+<p>其中 <code>cat</code> 会显示所有内容，<code>more</code> 和 <code>less</code> 是分页显示（区别在于 <code>more</code> 只能向下滚动而 <code>less</code> 可以上下滚动），<code>head</code> 显示开头部分，<code>tail</code> 显示结尾部分。具体用哪个命令在于你自己，不过有个常用的用法是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell Temp]$ tail -f log</span><br></pre></td></tr></table></figure></p>
+<p><code>tail</code> 会显示文件结尾部分的内容，而 <code>-f</code> 选项（或 <code>--follow</code>）会实时更新文件内容。意思就是，比如你在运行一段程序，该程序将一些信息写到文件 <code>log</code> 里面，如果只是 <code>tail log</code>，则会显示到该命令为止的 <code>log</code> 文件中的内容，而实际上你的程序还在不断写新信息到 <code>log</code> 里。使用 <code>-f</code> 选项让你可以一直看到新的信息，而不用每隔一段时间就敲一次 <code>tail log</code>。<br>但这5个命令只是查看文本文件的内容，并不能写东西到文件。这时就需要文本编辑器了，比如 vi，Emacs，nano 等等。我想介绍一下 vi，毕竟它有着不可撼动的地位，而且我也是用 <code>vi</code> 用习惯了，懒得去接触其他编辑器了（憨笑<br>先用 vi 打开已存在的文件，或者新建文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell Temp]$ vi new</span><br></pre></td></tr></table></figure></p>
+<p>若 <code>new</code> 已存在，则会打开 <code>new</code> 这个文件，若 <code>new</code> 不存在，则新建一个文件名为 <code>new</code> 的文件。vi 一共有三种模式：一般模式、编辑模式、命令行模式。一般模式是刚打开文件后所进入的模式，可以进行移动光标、删除字符、复制粘贴等操作。在一般模式下若按下 <code>i</code>，<code>o</code>，<code>a</code> 等按键后将进入编辑模式，此时可以对文件内容自由编辑，按下 <code>Esc</code> 则退出到一般模式。在一般模式下若按下 <code>:</code>，<code>/</code>，<code>?</code> 等按键（<code>:</code> 即 <code>shift+;</code>），则进入到命令行模式，该模式下可以执行查找、替换、保存、退出等操作。下面简单列举下三种模式下的常用操作：<br>一般模式：<br><code>h</code>，<code>j</code>，<code>k</code>，<code>l</code> 或 <code>←</code>，<code>↓</code>，<code>↑</code>，<code>→</code>：光标的移动<br><code>[Ctrl]+f</code>，<code>[Ctrl]+b</code> 或 <code>[Page Down]</code>，<code>[Page Up]</code>：向下/向上翻页<br><code>0</code>，<code>$</code> 或 <code>[Home]</code>，<code>[End]</code>：行首/行尾<br><code>n[space]</code>：向右移动 n 个字符，[space] 为空格键<br><code>nG</code>：移动到第 n 行，只按 G 则移动到最后一行，gg（相当于 1G）为移动到第一行<br><code>n[Enter]</code>：向下移动 n 行<br><code>x</code>，<code>X</code>：向后/向前删除一个字符<br><code>dd</code>，<code>ndd</code>：删除当前行/向下删除 n 行<br><code>dw</code>：删除当前单词<br><code>yy</code>，<code>nyy</code>：复制当前行/向下复制 n 行<br><code>p</code>，<code>P</code>：将已复制的内容粘贴到光标的下一行/上一行<br><code>u</code>，<code>[Ctrl]+r</code>：撤销/恢复撤销<br><code>.</code>：重复上一个操作<br><code>v</code>，<code>V</code>，<code>[Ctrl]+v</code>：块选择，选取后用 y 和 d 来复制和删除<br>一般模式切换至编辑模式：<br><code>i</code>，<code>I</code>：插入模式，i 从当前光标插入，I 从行首插入<br><code>a</code>，<code>A</code>：插入模式，a 从当前光标前插入，A 从行尾插入<br><code>o</code>，<code>O</code>：插入模式，o 从下一行插入新行，O 从上一行插入新行<br><code>r</code>，<code>R</code>：替换字符，r 只替换一个字符，R 一直替换<br><code>cw</code>：替换单词，类似于 dw+i<br>命令行模式：<br><code>:w</code>，<code>:w!</code>：保存/强制保存<br><code>:q</code>，<code>:q!</code>：退出/退出但不保存<br><code>:wq</code>：保存且退出<br><code>:set nu</code>，<code>:set nonu</code>：显示行号/不显示行号<br><code>:!command</code>： 暂时离开 vi 执行命令 commad<br><code>:sh</code>，<code>[Ctrl]+d</code>：暂时离开 vi 执行多条命令，[Ctrl]+d 则回到 vi<br><code>/word</code>，<code>?word</code>：向下查找/向上查找<br><code>n</code>，<code>N</code>：进行查找后，寻找下一个/上一个匹配项<br><code>:n1,n2s/word1/word2/g</code>：在第 n1 和 n2 行间查找 word1，并替换成 word2<br><code>:n</code>，<code>:N</code>，<code>:files</code>：打开多个文件时（如 <code>vi file1 file2</code>），切换或显示不同的文件，<br>基本上常用到的就是这些了，更多的内容可以自己找找书上的内容，我这里列举的就当作是一个快速检索页面吧。当然你也可以自己学习 Emacs，不过总归是要学好一款编辑器的，有了它才能做很多事情啊，具体使用哪个编辑器就是你的自由啦！</p>
+<h1 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h1><p>相信大家应该接触过环境变量了，那就是 Windows 下安装 GrADS 时，最后需要 <code>set path</code>，才能正常使用。如果你还记得的话，就是在系统高级设置里面找到环境变量，然后在 <code>Path</code> 那个变量后面加上你装的 GrADS 的路径，这样你在 <code>cmd</code> 里面敲 <code>grads</code> 就可以运行它了。不过也许你还是不太了解什么叫环境变量？<br>总的来说 Linux 下的变量可分为环境变量和自定义变量。简而言之，自定义变量由用户定义，环境变量则由系统来定义。那变量有什么用呢？举个例子，当我们需要重复输入一个长路径的时候，可以通过自定义一个变量保存该路径，以达到减少输入量的目的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell ~]$ workdir=/home/N/Temp/solve_equation</span><br><span class="line">[N@Dell ~]$ cd $workdir</span><br><span class="line">[N@Dell solve_equation]$ pwd</span><br><span class="line">/home/N/Temp/solve_equation</span><br></pre></td></tr></table></figure></p>
+<p>这里定义了变量 <code>workdir</code>，调用这个变量内容时需要用到 <code>$workdir</code> 或者 <code>${workdir}</code> 的形式。这样就不用每次输入一长串路径了。而环境变量，则是系统定义的一系列与操作环境有关的变量，在命令行敲入 <code>env</code> 即可查看所有环境变量：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell solve_equation]$ env</span><br></pre></td></tr></table></figure></p>
+<p>当你使用 Linux 时，可能神不知鬼不觉地就用到了这些环境变量。我感觉其中关注较多的是 <code>PATH</code>，不过像 <code>HOME</code>、<code>SHELL</code>、<code>LANG</code>、<code>HISTSIZE</code> 和 <code>LD_LIBRARY_PATH</code> 等等也含有重要的信息啦，但这里重点要说的还是 <code>PATH</code> 以及 <code>.bashrc</code> 文件。对了，如果你想查看某个变量的值，可以这样：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell ~]$ echo $PATH</span><br></pre></td></tr></table></figure></p>
+<h1 id="PATH"><a href="#PATH" class="headerlink" title="PATH"></a>PATH</h1><p>Windows 下不设置 <code>Path</code> 将无法在命令行直接运行 <code>grads</code>。Linux 也一样，实际上 <code>PATH</code> 这个变量包含了执行文件的查找路径。当你敲入某个命令如 <code>vi</code> 时，系统会在 <code>PATH</code> 提供的路径里去找，看是否存在 <code>vi</code> 这个程序。如果找不到，那就无法运行 vi 咯，你可以试试这样的操作：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell ~]$ export PATH=</span><br></pre></td></tr></table></figure></p>
+<p>然后你会发现不能运行 <code>vi</code> 了，甚至连 <code>ls</code>、<code>cp</code> 等等也没用了，因为你的 <code>PATH</code> 没有值了，不过别急，重新打开终端就恢复了。<br>PS：一般设置自定义变量时直接写成 <code>var=...</code> 的形式，环境变量的修改则写成 <code>export var=...</code> 的形式。<br>简单来说，设置 <code>PATH</code> 使得你直接敲入命令名就能执行该命令，而不用敲命令的路径。前面将 <code>PATH</code> 设为空值以后，虽说敲 <code>vi</code> 没用，但你可以敲 <code>/usr/bin/vi</code> 啊！另一方面，你自己写了个 <code>hello</code>，你也可以把它的路径加到 <code>PATH</code> 里面，这样就能直接敲 <code>hello</code> 了：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell ~]$ export PATH=$PATH:/home/N/Temp</span><br><span class="line">[N@Dell ~]$ hello</span><br><span class="line"> Hello world!</span><br></pre></td></tr></table></figure></p>
+<p>需要说明的是，<code>PATH</code> 里的路径是执行文件所在文件夹，这里我在 <code>PATH</code> 里加上 <code>/home/N/Temp</code> 后，<code>/home/N/Temp</code> 下的所有执行文件都可以通过直接敲入程序名的方式来执行了。你不能把路径直接写到程序名，比如这样：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell ~]$ export PATH=$PATH:/home/N/Temp/hello</span><br><span class="line">[N@Dell ~]$ hello</span><br><span class="line">bash: hello: command not found...</span><br></pre></td></tr></table></figure></p>
+<p>让我们来设想另一个情景，当我们使用服务器时，由于是多个用户在使用，服务器上装了很多的软件，但是并不是所有软件都是你需要的。实际情况是，管理员只是负责把软件装好，至于谁想用，那就把要用的软件的路径加到你的 <code>PATH</code> 里，这也意味着每个用户的 <code>PATH</code> 的内容是不同的。再比如，服务器上某个软件装了好几个版本，而你由于兼容性问题要用老版本的软件，那也得把 <code>PATH</code> 里面该软件的路径改为老版本的路径。</p>
+<h1 id="bashrc文件"><a href="#bashrc文件" class="headerlink" title=".bashrc文件"></a>.bashrc文件</h1><p>另一个要说明的就是 <code>.bashrc</code> 文件了， <code>.bashrc</code> 文件相当于是“登录时自动设置”的脚本，免去了每次登录重新设置各种变量的麻烦。该文件位于用户家目录下（如 <code>/home/N/.bashrc</code>），其内容大致如下：<br><img src="/2017/08/19/06climate-linux-intro-3/pic_1.png" alt="pic_1.png" title=""><br>上一期提到过把 <code>hello</code> 的路径放到这个文件里，可以由程序名来直接运行程序。实际上是将前面提到的 <code>export PATH=$PATH:/home/N/Temp</code> 直接写到 <code>.bashrc</code> 文件中，这样就能在登录时自动设置 <code>PATH</code>，那么登录后就可以直接敲 <code>hello</code> 来运行它了。<br>在 <code>~/.bashrc</code> 文件里还可以对别名进行设置，即 <code>alias ...</code> 。这可是很好用的一个功能，只需要设置一个简称，就可以方便操作。在命令行下演示 <code>alias</code> 的用法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell ~]$ alias &quot;hello=/home/N/Temp/hello&quot;</span><br><span class="line">[N@Dell ~]$ hello</span><br><span class="line"> Hello world!</span><br></pre></td></tr></table></figure></p>
+<p>这里是通过设置 <code>alias</code> 来直接运行 <code>hello</code> 的，看起来设置 <code>alias</code> 和设置 <code>PATH</code> 差不多嘛！不过 <code>alias</code> 和 <code>PATH</code> 确实是两回事，起码后面的路径不相同（<code>alias</code> 是写出了 <code>hello</code> 的完整路径，<code>PATH</code> 里只写到文件夹），但最主要两者基本概念就不同，大家慢慢体会吧。<br>基本上 <code>.bashrc</code> 文件里就是设置 <code>alias</code> 和环境变量了吧，不过以后有什么特殊需求的话，也可能会在 <code>.bashrc</code> 里面写入其他的语句(如图中的 <code>ulimit ...</code>)。<br>对了，图里的 <code>source</code> 命令是啥？其实和 <code>export</code> 一样也是用来设置环境的，搜一下就懂咯~<br>有的机器上只有 <code>.kshrc</code> 没有 <code>.bashrc</code>？？那就修改 <code>.kshrc</code> 呗！</p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>这一期的内容其实涉及到 shell 及 shell script 的学习，不过它也挺复杂的，我只能从很浅的层面稍微介绍介绍。建议有时间可以多看看 shell 与 shell script 的内容，真的很重要！</p>
 
       
     </div>
@@ -475,9 +378,9 @@ printf(&quot;这是一个代码块&quot;)
       
         <div class="post-tags">
           
-            <a href="/tags/备忘录/" rel="tag">#备忘录</a>
+            <a href="/tags/Linux/" rel="tag">#Linux</a>
           
-            <a href="/tags/Markdown/" rel="tag">#Markdown</a>
+            <a href="/tags/写作/" rel="tag">#写作</a>
           
         </div>
       
@@ -486,13 +389,13 @@ printf(&quot;这是一个代码块&quot;)
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/08/19/06climate-linux-intro-2/" rel="next" title="Linux 入门教程——基本操作与常用命令">
+                <i class="fa fa-chevron-left"></i> Linux 入门教程——基本操作与常用命令
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/06/26/vi-notes/" rel="prev" title="Vi 备忘录（未完待续）">
-                Vi 备忘录（未完待续） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -507,10 +410,10 @@ printf(&quot;这是一个代码块&quot;)
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/06/03/markdown-notes/"
-     data-title="Markdown 备忘录"
+        <div class="ds-share flat" data-thread-key="2017/08/19/06climate-linux-intro-3/"
+     data-title="Linux 入门教程——vi 与环境变量"
      data-content=""
-     data-url="http://nearsc.github.io/2016/06/03/markdown-notes/">
+     data-url="http://nearsc.github.io/2017/08/19/06climate-linux-intro-3/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -537,8 +440,8 @@ printf(&quot;这是一个代码块&quot;)
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/06/03/markdown-notes/"
-           data-title="Markdown 备忘录" data-url="http://nearsc.github.io/2016/06/03/markdown-notes/">
+      <div class="ds-thread" data-thread-key="2017/08/19/06climate-linux-intro-3/"
+           data-title="Linux 入门教程——vi 与环境变量" data-url="http://nearsc.github.io/2017/08/19/06climate-linux-intro-3/">
       </div>
     
   </div>
@@ -685,7 +588,7 @@ printf(&quot;这是一个代码块&quot;)
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基本语法"><span class="nav-number">1.</span> <span class="nav-text">基本语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#标题"><span class="nav-number">1.1.</span> <span class="nav-text">标题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#强调字体"><span class="nav-number">1.2.</span> <span class="nav-text">强调字体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引用文字"><span class="nav-number">1.3.</span> <span class="nav-text">引用文字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码块"><span class="nav-number">1.4.</span> <span class="nav-text">代码块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链接"><span class="nav-number">1.5.</span> <span class="nav-text">链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片"><span class="nav-number">1.6.</span> <span class="nav-text">图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目清单"><span class="nav-number">1.7.</span> <span class="nav-text">项目清单</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#GitHub-特殊语法"><span class="nav-number">2.</span> <span class="nav-text">GitHub 特殊语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#引用代码"><span class="nav-number">2.1.</span> <span class="nav-text">引用代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#任务清单"><span class="nav-number">2.2.</span> <span class="nav-text">任务清单</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表格"><span class="nav-number">2.3.</span> <span class="nav-text">表格</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#vi"><span class="nav-number">1.</span> <span class="nav-text">vi</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#环境变量"><span class="nav-number">2.</span> <span class="nav-text">环境变量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PATH"><span class="nav-number">3.</span> <span class="nav-text">PATH</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bashrc文件"><span class="nav-number">4.</span> <span class="nav-text">.bashrc文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结语"><span class="nav-number">5.</span> <span class="nav-text">结语</span></a></li></ol></div>
             
           </div>
         </section>
