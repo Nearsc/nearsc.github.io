@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://nearsc.github.io/"/>
-  <updated>2017-08-19T14:50:04.767Z</updated>
+  <updated>2017-08-19T15:30:28.708Z</updated>
   <id>http://nearsc.github.io/</id>
   
   <author>
@@ -16,11 +16,75 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Linux入门教程——基本操作与常用命令</title>
+    <link href="http://nearsc.github.io/2017/08/19/06climate-linux-intro-2/"/>
+    <id>http://nearsc.github.io/2017/08/19/06climate-linux-intro-2/</id>
+    <published>2017-08-19T14:55:46.000Z</published>
+    <updated>2017-08-19T15:30:28.708Z</updated>
+    
+    <content type="html">&lt;p&gt;气象家园投稿第二篇：基本操作与常用命令&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;上一期跟大家谈了谈我对Linux的一些个人感受，也讲了Fedora 23的安装过程，那么接下来就是关于“如何用好Linux”的内容了。本期我将以“让初学者快速上手”为主要目标，介绍Linux下的基本操作与常用命令，分享一些我使用时的小经验，希望大家喜欢 :P&lt;/p&gt;
+&lt;h1 id=&quot;快速上手&quot;&gt;&lt;a href=&quot;#快速上手&quot; class=&quot;headerlink&quot; title=&quot;快速上手&quot;&gt;&lt;/a&gt;快速上手&lt;/h1&gt;&lt;p&gt;下面的内容均在Fedora 20下进行示范，可能有的小伙伴已经安装了其他Linux发行版（如Ubuntu，CentOS等），但那并不会造成太大影响。&lt;br&gt;启动Fedora 20以后，进行用户登陆，之后弹出来一个桌面，看起来和Windows差不多嘛！正如上期所言，许多Linux发行版都具有图形界面，如果你想切换成字符界面，可以通过组合键Ctrl+Alt+F2~F6来实现。你可以直接就用字符界面来进行后面的操作，但若想使用图形界面（或许是因为你想一边放音乐一边练习命令），就需要把桌面提供的终端调出来，即在程序列表里面找类似“Terminal”的程序。当然我建议你上网搜一下，你所用系统里调出终端的快捷键是什么？如果你和我一样使用了Fedora（桌面为GNOME），那么需要自行设置快捷键（Settings → Keyboard → Shortcuts → Custom Shortcuts → ‘+’），如下图：&lt;br&gt;&lt;img src=&quot;/2017/08/19/06climate-linux-intro-2/pic_1.png&quot; alt=&quot;pic_1.png&quot; title=&quot;&quot;&gt;&lt;br&gt;其中Name随意填写，Command栏写上“/usr/bin/gnome-terminal”。确定以后可以点击图中Terminal蓝色长条的右端，即可设置快捷键，我这里是“Super+T”，Super即Windows键。不管你是用的是字符界面，还是桌面下的终端，接下来就开始进行一些简单的操作吧！&lt;/p&gt;
+&lt;p&gt;进入终端（或字符界面）以后，会出现类似下面的命令提示行，意思是用户N在计算机Dell上登录了，当前路径是~&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[N@Dell ~]$&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;以前Windows下从“我的电脑”（即文件浏览器）中查看文件，新建文件夹，复制、移动文件等，现在均以在终端敲命令的方式实现，我们先看下面这一系列操作&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[N@Dell ~]$ pwd&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/home/N&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[N@Dell ~]$ ls&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Data     Documents  intel  Music     Public  Templates&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Desktop  Downloads  Model  Pictures  Temp    Videos&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[N@Dell ~]$ cd Temp&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[N@Dell Temp]$ ls&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;fhello_world_mpi      hello      sin    solve_equation  test1.c&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;fhello_world_mpi.f90  hello.f90  sin.c  test1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[N@Dell Temp]$ cp hello hello2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[N@Dell Temp]$ mkdir new&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[N@Dell Temp]$ mv hello2 new/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[N@Dell Temp]$ new/hello2 &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; Hello world!&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[N@Dell Temp]$ rm new/hello2 &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;rm: remove regular file ‘new/hello2’? y&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[N@Dell Temp]$ rmdir new/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[N@Dell Temp]$ cd ..&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[N@Dell ~]$&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;pwd是查看当前的目录位置，为/home/N；ls为显示当前目录下的内容，可以看到有Data、Documents……，它们可能是文件夹、各类文件、可执行程序等等；cd为切换目录，这里进入Temp目录，并ls显示了Temp目录下的内容；cp为复制文件，把hello这个文件复制成hello2；mkdir为建立新目录，mv为移动文件，我把复制得到的hello2移动到新建的new目录下了；new/hello2的意思是“执行hello2”，这说明hello2是个可执行文件，即Windows下的.exe文件，看，它在屏幕上给你打了个招呼呢！最后我用rm、和rmdir分别删除了hello2文件和new文件夹，并回到上一级目录（cd ..）。&lt;br&gt;对于上述执行的这些命令，我有几点要说明一下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;绝对路径和相对路径（可能会有人不太清楚）：绝对路径即完整的路径，如pwd后得到的/home/N；相对路径即相对于当前目录位置的路径，例如当你要进入/home/N/Temp，但你现在位置为/home时，就可以输入cd N/Temp。顺便提一下几个特殊路径，~为用户家目录（如对于用户N，~相当于/home/N），.（点）为当前目录，..（两个点）为上一级目录，-为上一次路径。大家可以用cd ~，cd .，cd ..，cd -试试效果。&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[N@Dell ~]$ pwd&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/home/N&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[N@Dell ~]$ cd /home/N/Temp/solve_equation/method1/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[N@Dell method1]$ cd -&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/home/N&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[N@Dell ~]$ cd ..&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[N@Dell home]$&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;所谓命令，其实也就是程序而已，当你输ls的时候，实际上你就是运行了/usr/bin/ls这个程序。之前我们也在/home/N/Temp下输入new/hello2来运行hello2这个程序，在我看来，ls和hello2本质上没多大区别，只是一个是系统自带的程序，一个是我写的程序。由于hello2被我删了，我们就运行下hello吧。以绝对路径的形式。&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[N@Dell ~]$ /usr/bin/ls&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Data	 Documents  intel  Music     Public  Templates&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Desktop  Downloads  Model  Pictures  Temp    Videos&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[N@Dell ~]$ /home/N/Temp/hello&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; Hello world!&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;不过如果这样输入呢？&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[N@Dell ~]$ ls&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Data     Documents  intel  Music     Public  Templates&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Desktop  Downloads  Model  Pictures  Temp    Videos&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[N@Dell ~]$ hello&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;bash: hello: command not found...&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;当你输入ls时，系统明白你要运行/usr/bin/ls，但输入hello时系统就晕了，因为你没有事先告诉它你的hello在哪。实际上你只需要在某个文件（.bashrc）里写上hello的绝对路径，系统就会由那个文件获取hello的路径。这样就可以通过直接敲入hello来执行而无需敲完整路径了！关于那个文件的事情我们以后再详细聊~&lt;br&gt;你也可以用相对路径的行式来运行hello，首先”cd /home/N/Temp/”，再敲入”./hello”，注意这和直接敲”hello”是不同的，之前说过.（点）是代表当前目录，”./hello”相当于给出了相对路径，与”cd /home/N/Temp/”组合起来，系统就知道你的hello文件的位置然后正常运行了。&lt;br&gt;这儿有个叫which的命令需要提一下，它可以查看某命令的文件路径在哪。&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[N@Dell ~]$ which mv&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/usr/bin/mv&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;若你没有将hello的绝对路径写到.bashrc文件里，那么which hello的结果就是“找不着”哦！&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[N@Dell ~]$ which hello&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/usr/bin/which: no hello in ...（这里省略了若干路径）&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;不管是所谓的命令，还是你自己写的程序，实际上我们运行它们都是类似这样的形式&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[N@Dell ~]$ command [-option] para1 para2 …&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;command可以是ls、/home/N/Temp/hello等等；-option为选项，通常以-或–（横杠或双横杠）开头；para1、para2等即参数。如“ls -l ..”会显示上一级目录的详细（因为有“-l”选项）内容；如“cp -r dir1 dir2”，加上“-r”使你可以复制文件夹。实际上，对于每个命令，都有一堆可选择的选项，而又有这么多的命令，怎么可能都记得住嘛！别急，绝大多数命令都有–help选项，加上这个选项就可以迅速浏览某命令的各选项简述。若要获得某个命令的详细描述，则可以使用man和info这两个命令：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[N@Dell ~]$ ls --help&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[N@Dell ~]$ man cp&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[N@Dell ~]$ info mkdir&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;我觉得吧，了解了之前的那些简单操作后，大家应该先学好man命令，这样以后遇到新命令，就直接man一下，就什么都知道了哦！另外，你可以先man一下man，里面会有对man的详细说明的，然后百度一下就会了！&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[N@Dell ~]$ man man&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;有时候我们需要反复执行同一条命令，当这条命令超级长的时候，我想你肯定不耐烦一遍遍输入吧，因此我们要了解下如何查看历史操作。一般在命令行直接用↑, ↓方向键就行了，不过这里再介绍下其他方式：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[N@Dell ~]$ history&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[N@Dell ~]$ !1000&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;history会列出你之前执行的命令，!1000则执行history中编号为1000的那条命令。另外，在命令行按下组合键Ctrl+r后再输入你的命令，也能快速搜索历史操作并执行。&lt;br&gt;还有自动补全功能，tab与tabtab（按两次），也能让你少敲不少字符。（ps：有些系统并不是用tab来进行补全哟~）&lt;br&gt;对了，如果执行某个命令时半天没有回应，你可以试试按下组合键Ctrl+C来终止命令。比如你用du时：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[N@Dell ~]$ du –sh /&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&quot;其他常用的命令&quot;&gt;&lt;a href=&quot;#其他常用的命令&quot; class=&quot;headerlink&quot; title=&quot;其他常用的命令&quot;&gt;&lt;/a&gt;其他常用的命令&lt;/h1&gt;&lt;p&gt;用户权限：chown、chgrp、chmod、passwd、su&lt;br&gt;压缩、解压及打包：gzip、bzip2、tar&lt;br&gt;查看文件内容：cat、more、less、head、tail&lt;br&gt;搜索：which、find、grep、locate&lt;br&gt;网络：ping、ifconfig…&lt;br&gt;系统资源信息：df、du、top、free…&lt;br&gt;文件：ln、touch、diff、stat&lt;br&gt;日期：date、cal&lt;br&gt;……&lt;br&gt;我简单列了一些命令供大家查询练习，但Linux的神奇与强大，需要大家自己去摸索研究~&lt;br&gt;还有大家平时就用普通用户帐号（如我的N帐号）吧，管理系统时才需要使用root帐号。&lt;/p&gt;
+&lt;h1 id=&quot;心得（不如说是感慨吧）&quot;&gt;&lt;a href=&quot;#心得（不如说是感慨吧）&quot; class=&quot;headerlink&quot; title=&quot;心得（不如说是感慨吧）&quot;&gt;&lt;/a&gt;心得（不如说是感慨吧）&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;作为非计算机专业的我们，其实并不需要“按部就班”地学习Linux，或者说不需要抱着本书从头看到尾，而是在了解基本知识后就可以边学习边使用它做些工作了。这样不用浪费太多时间，最重要的是使用它会让你更快地熟悉了解它。&lt;/li&gt;
+&lt;li&gt;由于我们是“跳着”学的，肯定会经常遇到不懂的问题需要上网搜索，这时对信息的检索能力就十分重要了，才可以迅速找到解决方法啊！相互交流，多多讨教也是一种有效的方式！&lt;/li&gt;
+&lt;li&gt;从计算机的角度出发进行思考。我时常会琢磨，Linux作为一类优秀的系统，有哪些能力是理所当然会具备的呢？或者对于Windows下许多功能，它又将如何实现呢？比如Linux应该能对各用户合理分配资源吧，那需要做些什么呢？再想想Linux下怎么查看一个文件夹含有的所有文件数呢？就这样自己思考问题，然后去搜索答案，那么许多问题在出现之前就已经被解决了，相比临时遇到问题再搜索的方式，要节省时间得多。此外，这样也让你思维更活跃，说不定遇到问题时自己突然就知道如何解决了，嗯。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&quot;结语&quot;&gt;&lt;a href=&quot;#结语&quot; class=&quot;headerlink&quot; title=&quot;结语&quot;&gt;&lt;/a&gt;结语&lt;/h1&gt;&lt;p&gt;因为我想让第一次使用Linux的人能够快速熟悉，许多操作说明难免有些繁琐、啰嗦，之后肯定会以更加简明的形式描述的。最后，如果有问题的话，可以去气象家园给我留言哈！&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;气象家园投稿第二篇：基本操作与常用命令&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="气象家园文稿" scheme="http://nearsc.github.io/categories/%E6%B0%94%E8%B1%A1%E5%AE%B6%E5%9B%AD%E6%96%87%E7%A8%BF/"/>
+    
+    
+      <category term="Linux" scheme="http://nearsc.github.io/tags/Linux/"/>
+    
+      <category term="写作" scheme="http://nearsc.github.io/tags/%E5%86%99%E4%BD%9C/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Linux入门教程——Linux简介</title>
     <link href="http://nearsc.github.io/2017/08/19/06climate-linux-intro-1/"/>
     <id>http://nearsc.github.io/2017/08/19/06climate-linux-intro-1/</id>
     <published>2017-08-19T13:39:33.000Z</published>
-    <updated>2017-08-19T14:50:04.767Z</updated>
+    <updated>2017-08-19T15:18:05.873Z</updated>
     
     <content type="html">&lt;p&gt;气象家园投稿第一篇：Linux简介&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -39,8 +103,9 @@
 &lt;img src=&quot;/2017/08/19/06climate-linux-intro-1/pic_9.jpg&quot; alt=&quot;pic_9.jpg&quot; title=&quot;&quot;&gt;
 开始安装！这时你可以设置root帐号的密码，以及创建一个新用户。&lt;br&gt;耐心等待后，一个属于你自己的Linux系统就诞生啦！（由于我是在U盘上装的，它不太给力，安装过程等的我好苦啊）&lt;img src=&quot;/2017/08/19/06climate-linux-intro-1/pic_10.jpg&quot; alt=&quot;pic_10.jpg&quot; title=&quot;&quot;&gt;
 &lt;img src=&quot;/2017/08/19/06climate-linux-intro-1/pic_11.jpg&quot; alt=&quot;pic_11.jpg&quot; title=&quot;&quot;&gt;
-PS：“制作启动U盘”和“把Fedora装在U盘上”，这是不同的过程哦~所以我用到了两个U盘，正常情况下是一个启动U盘+一块硬盘（为了避免误解，还是画蛇添足地说明下吧）&lt;br&gt;好了，第一期就到这了，希望可以帮助到大家吧！也希望这是一个不错的开头~~~^。^&lt;/li&gt;
+PS：“制作启动U盘”和“把Fedora装在U盘上”，这是不同的过程哦~所以我用到了两个U盘，正常情况下是一个启动U盘+一块硬盘（为了避免误解，还是画蛇添足地说明下吧）&lt;/li&gt;
 &lt;/ol&gt;
+&lt;p&gt;好了，第一期就到这了，希望可以帮助到大家吧！也希望这是一个不错的开头~~~^。^&lt;/p&gt;
 </content>
     
     <summary type="html">
