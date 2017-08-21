@@ -1,0 +1,893 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Linux,写作," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Not Cool" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="气象家园投稿第五篇：如何安装软件？">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux 入门教程——如何安装软件？">
+<meta property="og:url" content="http://nearsc.github.io/2017/08/21/06climate-linux-intro-5/index.html">
+<meta property="og:site_name" content="Not Cool">
+<meta property="og:description" content="气象家园投稿第五篇：如何安装软件？">
+<meta property="og:image" content="http://nearsc.github.io/2017/08/21/06climate-linux-intro-5/pic_1.png">
+<meta property="og:image" content="http://nearsc.github.io/2017/08/21/06climate-linux-intro-5/pic_2.png">
+<meta property="og:image" content="http://nearsc.github.io/2017/08/21/06climate-linux-intro-5/pic_3.png">
+<meta property="og:image" content="http://nearsc.github.io/2017/08/21/06climate-linux-intro-5/pic_4.png">
+<meta property="og:image" content="http://nearsc.github.io/2017/08/21/06climate-linux-intro-5/pic_5.png">
+<meta property="og:image" content="http://nearsc.github.io/2017/08/21/06climate-linux-intro-5/pic_6.png">
+<meta property="og:image" content="http://nearsc.github.io/2017/08/21/06climate-linux-intro-5/pic_7.png">
+<meta property="og:image" content="http://nearsc.github.io/2017/08/21/06climate-linux-intro-5/pic_8.png">
+<meta property="og:image" content="http://nearsc.github.io/2017/08/21/06climate-linux-intro-5/pic_9.png">
+<meta property="og:updated_time" content="2017-08-21T13:46:50.853Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux 入门教程——如何安装软件？">
+<meta name="twitter:description" content="气象家园投稿第五篇：如何安装软件？">
+<meta name="twitter:image" content="http://nearsc.github.io/2017/08/21/06climate-linux-intro-5/pic_1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"hide"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 10404271,
+      author: '管理员'
+    }
+  };
+</script>
+
+  <title> Linux 入门教程——如何安装软件？ | Not Cool </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Not Cool</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">The unknown is fascinating</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Linux 入门教程——如何安装软件？
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-08-21T20:29:48+08:00" content="2017-08-21">
+              2017-08-21
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/气象家园文稿/" itemprop="url" rel="index">
+                    <span itemprop="name">气象家园文稿</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/08/21/06climate-linux-intro-5/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/08/21/06climate-linux-intro-5/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>气象家园投稿第五篇：如何安装软件？</p>
+<a id="more"></a>
+<p>上一期曾说过，如果你要在 Linux 下写 Fortran 程序，可能要自行安装 Fortran 编译器；要想读写 nc 文件时，也需要安装 netcdf 库。毫无疑问，新装好的系统当然要根据自己的需求安装一些特定功能的软件啦！不过要在 Linux 下安装软件可不像 Windows 下那样轻松。唔，要是在 Windows 下的话，安装软件只需要“选路径”，“勾选项”和“下一步”就差不多了，图形界面的操作一目了然。可是到了 Linux 下，不光是图形操作变成了字符输入，还得考虑一些环境设置及软件依赖性的问题，确实不太容易啊。哈哈，别急，让我们一起来了解下相关的知识，然后你就会觉得，其实一点也不难嘛！</p>
+<h1 id="源码安装"><a href="#源码安装" class="headerlink" title="源码安装"></a>源码安装</h1><p>软件的安装方式大概可以分成两种，一种是源码安装，即人家把源代码提供给我们，然后我们在自己机器上编译得到可执行文件；另一种则是软件被预先编译好，我们直接下载可执行文件就能用了。Linux 下的绝大部分软件，都是可以源码安装的，换句话说我们可以获取源代码。许多软件网站上会同时提供两种安装方式，即所谓的 source code 和 binaries。但 Windows 下的软件，开源的软件很少见吧？所以在 Windwos 下安装软件，只是将已编译好的程序复制到你电脑上，再设置设置注册表什么的。<br>使用 binaries 安装是最为简单的，前面已经说过了，下载下来就能用，你唯一要做的事情就是解压一下。虽然简单，但存在不小的局限性，即 binaries 必须是在特定的系统上才行使用。你去随便找个软件的 binaries，就会看到它让你根据你的系统选择版本，以NCL为例：<br><img src="/2017/08/21/06climate-linux-intro-5/pic_1.png" alt="pic_1.png" title=""><br>那万一它不提供我这个系统的呢？比如上面也没有 Fedora 的啊！这个时候可以考虑下个 RHEL 的试试，因为 Fedora 和 RHEL 相对比较接近。可要是不行呢？总不能重新换个系统吧。更别说有的软件还不提供 binaries 呢！<br>没办法，只能源码安装咯。那么上一期所介绍的内容就有些用了，因为采用源码安装软件的方式，实际上就是编译一个程序嘛，只不过比我们自己写的程序大一些而已。这里我想找一个软件来演示下安装过程，最后决定还是以 NCL 为例，但 NCL 的源码安装实在是，太！麻！烦！了！就连官网都这样说：</p>
+<blockquote>
+<p>“We highly recommend that you use a precompiled NCL binary rather than attempting a build from source code. If you tried a precompiled binary and ran into problems, you can post your problem to the ncl-install email list. If you decide to go forth with building from source code, good luck!”</p>
+</blockquote>
+<p>好吧……不过我就是喜欢挑战！咳咳，其实也是觉得大多人都没源码装过 NCL，我来介绍介绍也是不错的吧？<br>嗯，我说源码安装就是编译程序，那你会想起这样的命令 <code>compiler -o xxx xxx -Ixxx -Lxxx</code>。不过软件源文件较多，所以是用 Makefile 进行编译。那是用什么编译器，以及所需的头文件和库文件是什么呢？我们得根据软件和系统的实际情况来设置。要是我缺少某个库呢？那就得先把那个库装好，即所谓的依赖性问题：安装该软件时需要依赖其它软件。装好以后还得在 <code>.bashrc</code> 文件里面加上软件路径，有时候还有其他的配置，以便使用。总结一下，源码安装的主要步骤即设置编译环境、编译软件、配置软件。不过不同软件有不同之处，具体某个软件的安装步骤详见其官网及 <code>README</code> 或 <code>INSTALL</code> 文件。好了，下面我给大家演示下源码安装 NCL（<a href="http://www.ncl.ucar.edu/Download/build_from_src.shtml#BuildNCLFromSource" target="_blank" rel="external">参考官网的介绍</a>）。<br>第一步得先解决依赖性问题，即安装 NCL 前，需要先安装其他的软件，这里贴一下官网的列表：<br><img src="/2017/08/21/06climate-linux-intro-5/pic_2.png" alt="pic_2.png" title=""><br>什么？本来我只是要装一个 NCL，现在要装这么多其他的软件？什么什么？怎么我装列表中的某个软件时，它又说我得再装另外几个软件？哦，天哪，到底一共要装多少软件啊！不过要是不需要额外的功能，就能少装些依赖软件，而且可能有些软件已经被安装了。这里只演示下 netcdf 和 hdf5 的安装，其他软件装起来也差不多。当然，假设你和我一样，已经把 netcdf 和 hdf5 的依赖软件装好了。<br>我们先装 hdf5，下载源码后的操作大致是这样的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@Dell Downloads]# tar -xvzf hdf5-1.8.13.tar.gz &gt; /dev/null</span><br><span class="line">[root@Dell Downloads]# cd hdf5-1.8.13/</span><br><span class="line">[root@Dell hdf5-1.8.13]# mkdir -p /opt/hdf5/hdf5-1.8.13</span><br><span class="line">[root@Dell hdf5-1.8.13]# ./configure --prefix=/opt/hdf5/hdf5-1.8.13 &gt; config.output 2&gt;&amp;1</span><br><span class="line">[root@Dell hdf5-1.8.13]# make all install &gt; make.output 2&gt;&amp;1</span><br><span class="line">[root@Dell hdf5-1.8.13]# ls /opt/hdf5/hdf5-1.8.13/</span><br><span class="line">bin  include  lib  share</span><br></pre></td></tr></table></figure></p>
+<p>然后装 netcdf，其过程则是这样的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@Dell netcdf]# tar -xvzf netcdf-4.4.0.tar.gz &gt; /dev/null</span><br><span class="line">[root@Dell netcdf]# cd netcdf-4.4.0/</span><br><span class="line">[root@Dell netcdf-4.4.0]# mkdir -p /opt/netcdf/netcdf-4.4.0</span><br><span class="line">[root@Dell netcdf-4.4.0]# CC=gcc FC=gfortran CPPFLAGS=-I/opt/hdf5/hdf5-1.8.13/include LDFLAGS=-L/opt/hdf5/hdf5-1.8.13/lib ./configure --prefix=/opt/netcdf/netcdf-4.4.0 &gt; config.output 2&gt;&amp;1</span><br><span class="line">[root@Dell netcdf-4.4.0]# make all install &gt; make.output 2&gt;&amp;1</span><br><span class="line">[root@Dell netcdf-4.4.0]# ls /opt/netcdf/netcdf-4.4.0/</span><br><span class="line">bin  include  lib  share</span><br></pre></td></tr></table></figure></p>
+<p>楼上是安装 C 库，楼下开始安装 Fortran 库：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@Dell netcdf]# tar -xvzf netcdf-fortran-4.4.0.tar.gz &gt; /dev/null</span><br><span class="line">[root@Dell netcdf]# cd netcdf-fortran-4.4.0/</span><br><span class="line">[root@Dell netcdf-fortran-4.4.0]# mkdir -p /opt/netcdf/netcdf-fortran-4.4.0</span><br><span class="line">[root@Dell netcdf-fortran-4.4.0]# CC=gcc FC=gfortran CPPFLAGS=-I/opt/netcdf/netcdf-4.4.0/include LDFLAGS=-L/opt/netcdf/netcdf-4.4.0/lib ./configure --prefix=/opt/netcdf/netcdf-fortran-4.4.0 &gt; config.output 2&gt;&amp;1</span><br><span class="line">[root@Dell netcdf-fortran-4.4.0]# make all install &gt; make.output 2&gt;&amp;1</span><br><span class="line">[root@Dell netcdf-fortran-4.4.0]# ls /opt/netcdf/netcdf-fortran-4.4.0/</span><br><span class="line">bin  include  lib  share</span><br></pre></td></tr></table></figure></p>
+<p>安装过程中使用的是 root 权限，因为我要装在 <code>/opt</code> 这个目录下。我这里多次使用了重定向，像 <code>tar</code>、<code>configure</code>、<code>make</code> 这些命令，都会有大量的屏幕输出，为了显示便捷，我通过重定向把这些屏幕输出“扔掉了”（即 <code>&gt; /dev/null</code>）或者保存成文件了（即 <code>&gt; config.out 2&gt;&amp;1</code> 和 <code>&gt; make.output 2&gt;&amp;1</code>）。另外，netcdf 在某个版本（4.2？）后将 C 库和 Fortran 库分离了，而且得先安装 C 库再安装 Fortran 库，就像我这里演示的一样。<br>安装 hdf5 和 netcdf 的过程差不多，先解压源码包，创建安装目录，利用 <code>configure</code> 进行配置（设置库的位置、软件安装位置等），利用 <code>make</code> 进行编译，然后就 OK 了。<code>configure</code> 时可以指定编译器，比如我这里指定为 <code>gcc</code> 和 <code>gfortran</code>，也可以不指定，那么软件会用默认编译器进行安装。安装软件时需要用到不少的外部库函数，其中大部分存放在 <code>/usr/lib</code>、<code>/usr/local/lib</code>（或 <code>/usrlib64</code>、<code>/usrlocal/lib64</code>）里面，这些库可以自动被系统识别到。个别的库则需要我们在 <code>configure</code> 时进行设置，比如装 netcdf 的 C 库时加上了 hdf5 的路径，装 netcdf 的 Fortran 库时又加上了刚装的 netcdf 的 C 库，装 hdf5 时则不需要额外的库路径。那 <code>configure</code> 时要加的库到底有哪些呢？不同的软件明显是不同的 ，你可以在软件的 <code>README</code> 或 <code>INSTALL</code> 文件里进行查看。要是你懒得看，啥都不加也行啊，如果它报错说缺少库了，根据错误信息就能知道要加哪些库。嗯，也许一开始会让人有混乱感，但多装几个不同的软件以后慢慢就会熟悉的。<br>好了，等装好几个必要的软件以后，我们开始安装 NCL。首先需要预先测试下你的系统是否可以安装 NCL，并得到适合你机器的环境文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[root@Dell ncl]# tar -xvzf ncl_ncarg-6.3.0.tar.gz &gt; /dev/null</span><br><span class="line">[root@Dell ncl]# cd ncl_ncarg-6.3.0/</span><br><span class="line">[root@Dell ncl_ncarg-6.3.0]# mkdir -p /opt/ncl/ncl-6.3.0</span><br><span class="line">[root@Dell ncl_ncarg-6.3.0]# cd config/</span><br><span class="line">[root@Dell config]# make -f Makefile.ini</span><br><span class="line">cc -O   -c -o ymake-filter.o ymake-filter.c</span><br><span class="line">cc -O -o ymake-filter ymake-filter.o</span><br><span class="line">[root@Dell config]# ./ymake -config `pwd`</span><br><span class="line">[root@Dell config]# grep SYSTEM_INCLUDE Makefile</span><br><span class="line">SYSTEM_INCLUDE          = &quot;LINUX&quot;</span><br><span class="line">[root@Dell config]# ls LINUX*</span><br><span class="line">LINUX         LINUX.64.INTEL  LINUX.GNU         LINUX.INTEL      LINUX.ppc64.xl</span><br><span class="line">LINUX.32.PGI  LINUX.64.PGI    LINUX.IA64        LINUX.PGI</span><br><span class="line">LINUX.64.GNU  LINUX_alpha     LINUX.IA64.INTEL  LINUX.ppc32.GNU</span><br><span class="line">[root@Dell config]# vi LINUX.64.GNU</span><br><span class="line">[root@Dell config]# cp LINUX.64.GNU LINUX</span><br><span class="line">cp: overwrite &apos;LINUX&apos;? y</span><br></pre></td></tr></table></figure></p>
+<p><code>ymake</code> 用来检测环境，可以看到没有错误提示。<code>grep</code> 的结果则告诉我们，待会 <code>configure</code> 时会用到 <code>LINUX</code> 这个环境文件，我们需要对它进行修改（改一改编译器、编译选项、库路径什么的）。不过这里我们可以用 <code>LINUX.64.GNU</code> 这个 template，用它覆盖掉 <code>LINUX</code> 就行了。当然，使用 <code>LINUX.64.GNU</code> 这个文件说明我所用编译器为 <code>gcc</code> 和 <code>gfortran</code>，如果你想用 intel 的编译器 <code>icc</code>、<code>ifort</code> 来编译，可以考虑使用 <code>LINUX.64.INTEL</code>。<br>好了，接下来就 <code>configure</code> 吧，然后你会发现，NCL 看起来更加友好一些：<br><img src="/2017/08/21/06climate-linux-intro-5/pic_3.png" alt="pic_3.png" title=""><br>是的，你直接运行 <code>configure</code>，它会交互式地让你输入相关信息，不用像装 netcdf 那样要一次性敲一长串字符，而且看起来更容易理解。当然了，其中有很多选项，而有些选项是需要额外库的，如果你确实需要某些功能，那就得先装好所需的库。嗯，还有就是，别把安装路径和库路径输错了。<br>安装路径：<br><img src="/2017/08/21/06climate-linux-intro-5/pic_4.png" alt="pic_4.png" title=""><br>库路径：<br><img src="/2017/08/21/06climate-linux-intro-5/pic_5.png" alt="pic_5.png" title=""><br><code>configure</code> 结束以后，<code>make</code> 一下就完事儿啦！<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@Dell ncl_ncarg-6.3.0]# make Everything &gt; make.output 2&gt;&amp;1</span><br></pre></td></tr></table></figure></p>
+<p>噢，当然，别忘记在 <code>.bashrc</code> 里面设置环境变量了！（这里可以看到我给 netcdf 和 hdf5 也进行了设置）<br><img src="/2017/08/21/06climate-linux-intro-5/pic_6.png" alt="pic_6.png" title=""><br>不知道你看到这感觉怎样？不简单？太容易？我的感觉是：这一段写得我好累啊…</p>
+<h1 id="软件包管理器"><a href="#软件包管理器" class="headerlink" title="软件包管理器"></a>软件包管理器</h1><p>嗯，感觉源码安装还是太麻烦，可是 binaries 又不能用？不妨这样想想，某个人也在用 Fedora，而且他已经源码装过 NCL 了，那他直接把编译好的拷给我是不是就能用了？咳咳，这个想法是不错，就算官网没有合适的，那找同系统且装过 NCL 的人拷贝呗。不过，是不是我还是得装一下 NCL 的依赖软件？好吧，这其实是一种比较粗略的想法。<br>好了，正式的来说，我们需要使用软件包管理器。先提一下 Linux 两大主流的软件包管理器，一个是 Fedora、CentOS、Red Hat 等使用的 RPM，另一个是 Debian、Ubuntu 等使用的 DPKG，后面的内容主要谈论 RPM（因为我是 Fedora 系统）。软件包管理器需要解决的即为 binaries 所无法满足的，即不同系统、不同环境的问题。首先，Fedora 和 CentOS 虽然是不同系统，但它们都采用 RPM 的包管理机制，一个 rpm 软件包当然既可以在 Fedora 下也可以在 CentOS 下安装了。其次，环境问题即为是否已经装有依赖软件，而 rpm 包大概相当于 binaries 加上环境检测脚本，它会先自动检测依赖性问题，不满足则不会安装，并且告诉你需要的依赖软件。虽说我们还是得装好几个其他的软件，但依赖软件也通过 RPM 安装不就行了，不用编译源码还是比较省事的。RPM 安装过程非常简单，比如我装一个 Google Chrome：<br><img src="/2017/08/21/06climate-linux-intro-5/pic_7.png" alt="pic_7.png" title=""><br>使用 <code>rpm</code> 命令就行了，<code>-i</code> 表示安装，<code>-v</code> 表示显示详细信息，<code>-h</code> 表示显示安装进度，<code>-q</code> 则查找是否安装了某个包。从显示的内容可以看出，我已经装过 Chrome 了。这里我就不再为了演示而把我的 Chrome 卸载重装了。<br>使用 RPM 是不是容易多了？毕竟不用自己编译。但还有更简单的方式，那就是使用 <code>yum</code> 命令。<code>yum</code> 可以自动帮你查找依赖软件然后一并安装。比如我用 <code>yum</code> 安装 NCL：<br><img src="/2017/08/21/06climate-linux-intro-5/pic_8.png" alt="pic_8.png" title=""><br><img src="/2017/08/21/06climate-linux-intro-5/pic_9.png" alt="pic_9.png" title=""><br>一条命令，它会自行解决依赖问题，确认后就连 NCL 带依赖软件一起装好了……啊呸，你咋不早说啊？前面源码装了这么久的 NCL，还出错好多次，现在告诉我就一条命令？好吧，我承认 <code>yum</code> 很好用，平时软件都是这么装的，也推荐你这样做。不过 <code>rpm</code> 和 <code>yum</code> 也不是万能的，不一定存在你要的软件包，就好比是“你并没有找到那个和你同系统且装了 NCL 的人”。其实我去年尝试用 <code>yum</code> 装 NCL 时就说找不到这样的软件包，所以我第一次装 NCL 就是实实在在的源码安装。还有一个问题就是版本的问题，我用 <code>yum</code> 只能装到6.1.2版的 NCL，而源码安装就能随便选择版本了。<br>对了，关于 <code>yum</code> 的使用，我也有困惑的地方，那就是软件包的名字。比如 NCL 的包的名字是 <code>ncl</code>，而我之前尝试用 <code>yum</code> 安装过 Google Chrome，我输 <code>yum install chrome</code> 或者 <code>yum install google-chrome</code>，它都说找不到这个软件。Chrome 这么大众的软件，怎么可能没有啊，实际上要这样输才行：<code>yum install google-chrome-stable</code>。嗯，也许猜不到软件包名称的时候应该 Google 一下。还有另一个经验要分享一下，如果你要用 <code>yum</code>，记得有个叫 <code>-devel</code> 的后缀，很多情况下有这个后缀的包才有头文件。比如 <code>yum install netcdf</code> 得到的只有库文件，你得再 <code>yum install netcdf-devel</code> 才能把头文件也装上。</p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>Linux 软件千千万，安装方式两三种。对于你，也许是用的 Ubuntu 的 <code>apt-get</code>，也许更喜欢源码？！看你心情咯～最后预告一下，下一期要开始调模式了。很显然，这个只能是源码安装！</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag">#Linux</a>
+          
+            <a href="/tags/写作/" rel="tag">#写作</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/21/06climate-linux-intro-4/" rel="next" title="Linux 入门教程——编写程序">
+                <i class="fa fa-chevron-left"></i> Linux 入门教程——编写程序
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2017/08/21/06climate-linux-intro-5/"
+     data-title="Linux 入门教程——如何安装软件？"
+     data-content=""
+     data-url="http://nearsc.github.io/2017/08/21/06climate-linux-intro-5/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/08/21/06climate-linux-intro-5/"
+           data-title="Linux 入门教程——如何安装软件？" data-url="http://nearsc.github.io/2017/08/21/06climate-linux-intro-5/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/nearsc.gif"
+               alt="Nearsc" />
+          <p class="site-author-name" itemprop="name">Nearsc</p>
+          <p class="site-description motion-element" itemprop="description">Remember the past, know the future.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/nearsc" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/TedNate" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/nearsc" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://bbs.06climate.com/forum.php" title="气象家园" target="_blank">气象家园</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#源码安装"><span class="nav-number">1.</span> <span class="nav-text">源码安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#软件包管理器"><span class="nav-number">2.</span> <span class="nav-text">软件包管理器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结语"><span class="nav-number">3.</span> <span class="nav-text">结语</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Nearsc</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"nearsc"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+
+</body>
+</html>
