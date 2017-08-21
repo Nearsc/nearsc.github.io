@@ -1,0 +1,899 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Linux,写作," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Not Cool" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="气象家园投稿第六篇：模式使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux 入门教程——模式使用">
+<meta property="og:url" content="http://nearsc.github.io/2017/08/21/06climate-linux-intro-6/index.html">
+<meta property="og:site_name" content="Not Cool">
+<meta property="og:description" content="气象家园投稿第六篇：模式使用">
+<meta property="og:image" content="http://nearsc.github.io/2017/08/21/06climate-linux-intro-6/pic_1.png">
+<meta property="og:image" content="http://nearsc.github.io/2017/08/21/06climate-linux-intro-6/pic_2.png">
+<meta property="og:image" content="http://nearsc.github.io/2017/08/21/06climate-linux-intro-6/pic_3.png">
+<meta property="og:updated_time" content="2017-08-21T14:41:05.255Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux 入门教程——模式使用">
+<meta name="twitter:description" content="气象家园投稿第六篇：模式使用">
+<meta name="twitter:image" content="http://nearsc.github.io/2017/08/21/06climate-linux-intro-6/pic_1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"hide"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 10404271,
+      author: '管理员'
+    }
+  };
+</script>
+
+  <title> Linux 入门教程——模式使用 | Not Cool </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Not Cool</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">The unknown is fascinating</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Linux 入门教程——模式使用
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-08-21T21:58:51+08:00" content="2017-08-21">
+              2017-08-21
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/气象家园文稿/" itemprop="url" rel="index">
+                    <span itemprop="name">气象家园文稿</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/08/21/06climate-linux-intro-6/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/08/21/06climate-linux-intro-6/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>气象家园投稿第六篇：模式使用</p>
+<a id="more"></a>
+<p>前面我们已经讲过了如何在 Linux 下编写程序以及安装软件，在此基础上，我想大家都已对 Linux 系统有了更深的了解，那就让我们开始介绍如何在 Linux 下使用模式吧！等等，你觉得自己用不到模式，而且觉得模式很难，所以不想看本期内容？咳咳，首先，我觉得作为一名大气的研究生，模式使用应该算是基本技能，大家都会只有自己不会还是很难过的～其次，使用模式并不困难，只需要了解一些主要概念，再敲敲键盘，就行了。要说模式的真正困难之处，应该是模式的发展吧，那就需要对模式的每一部分都比较熟知了。本期内容从区域气候模式 RegCM 入手，但不会以它为中心，而是重点介绍模式使用的一般性规律。这样的话即使换成其他模式，大家也能稍作变通，自行解决了。</p>
+<h1 id="基本思路"><a href="#基本思路" class="headerlink" title="基本思路"></a>基本思路</h1><p>记得还未接触模式之前，我在课堂上听老师介绍了各种各样的模式，心想要是想多学几个的话不得花好多时间？后来我才意识到，确实不可能把各种模式里面的各个物理过程都弄清楚，但起码学会使用不同的模式并不太难，因为各个模式的用法其实是大同小异的。那么模式使用的基本思路是什么呢？根据之前积累的经验，我觉得不管是使用什么模式，大致都可以分为五个步骤：环境配置、编译模式、模式配置、运行模式、分析结果。具体而言：</p>
+<ol>
+<li>环境配置：需要设置所用的编译器、编译选项及依赖的库。</li>
+<li>编译模式：通过编译生成可执行文件，大多数模式使用 Makefile 进行编译。</li>
+<li>模式配置：为模式运行准备必要的数据，并对模式配置文件进行修改。</li>
+<li>运行模式：运行编译所得的程序，通常模式会以并行的方式来运行。</li>
+<li>结果分析：模式运行结束后，对模式输出数据进行分析。</li>
+</ol>
+<p>有了基本思路，我们就可以随便找一个模式试一试了。话虽如此，刚开始使用模式的时候还是会遇到许多小问题，但随着接触越来越多，对新模式的掌握也会越来越快。RegCM 对于我来说也是一个全新的模式，那么接下来就看看我是否能够顺利使用它吧～<br>正式开始之前，我们先去官网下载 RegCM 的源码。这里我选择的是下载次数最多的 RegCM-4.5.0 版本，顺便还下了份用户手册：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell regcm]$ ls</span><br><span class="line">doc  RegCM-4.5.0</span><br><span class="line">[N@Dell regcm]$ cd RegCM-4.5.0/</span><br><span class="line">[N@Dell RegCM-4.5.0]$ curl -O http://gforge.ictp.it/gf/download/frsrelease/252/1580/RegCM-4.5.0.tar.gz</span><br><span class="line">  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current</span><br><span class="line">                                 Dload  Upload   Total   Spent    Left  Speed</span><br><span class="line">100 10.6M  100 10.6M    0     0  32919      0  0:05:39  0:05:39 --:--:--  340k</span><br><span class="line">[N@Dell RegCM-4.5.0]$ cd ../doc/</span><br><span class="line">[N@Dell doc]$ curl -O http://gforge.ictp.it/gf/download/docmanfileversion/97/1690/UserGuide.pdf</span><br><span class="line">  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current</span><br><span class="line">                                 Dload  Upload   Total   Spent    Left  Speed</span><br><span class="line">100  407k  100  407k    0     0   113k      0  0:00:03  0:00:03 --:--:--  113k</span><br><span class="line">[N@Dell doc]$ cd ../RegCM-4.5.0/</span><br><span class="line">[N@Dell RegCM-4.5.0]$ tar -zxvf RegCM-4.5.0.tar.gz &gt; /dev/null </span><br><span class="line">[N@Dell RegCM-4.5.0]$ mv RegCM-4.5.0 Original</span><br><span class="line">[N@Dell RegCM-4.5.0]$ cp -r Original test1</span><br></pre></td></tr></table></figure></p>
+<p>P.S.：由于个人习惯，我把解压得到的文件夹改名成 <code>Original</code>，然后复制成 <code>test1</code>，而之后的模式使用过程将在 <code>test1</code> 里进行。</p>
+<h1 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h1><p>一个模式相当于是一个软件，而现在我们就是在源码安装一个软件而已，所以根据上期介绍的内容，我们得先解决编译环境的问题，即对编译器、编译选项、依赖库等进行设置。那么具体要进行哪些操作呢？这个一般都可以在模式的用户手册或者 <code>INSTALL</code> 文件里查看。比如在我刚下载的用户手册中，3.1节介绍了 RegCM 所需要的依赖软件，3.2节则说明了如何进行设置。根据提示，环境配置过程大致如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell RegCM-4.5.0]$ ls</span><br><span class="line">Original  RegCM-4.5.0.tar.gz  test1</span><br><span class="line">[N@Dell RegCM-4.5.0]$ cd test1/</span><br><span class="line">[N@Dell test1]$ ./configure CC=icc FC=ifort &gt; config.output 2&gt;&amp;1</span><br></pre></td></tr></table></figure></p>
+<p>在 RegCM 里，环境配置是通过 <code>configure</code> 来实现的，可以看到我这里指定了将会使用 intel compiler 对 RegCM 进行编译。等一下，怎么这么简单？这里怎么就指定了一下编译器，不是说要设置依赖软件所在路径的吗？实际上我们需要设置 intel compiler，netcdf，openmpi，hdf5 等软件的路径，不过我都已经安装过，并在 <code>.bashrc</code> 文件里设置好了：<br><img src="/2017/08/21/06climate-linux-intro-6/pic_1.png" alt="pic_1.png" title=""><br>如果你仔细查看刚才操作所生成的 <code>config.output</code> 和 <code>config.log</code> 文件里的内容，就会发现 RegCM 确实找到了那些它所需要的库。最重要的是，<code>config.log</code> 文件的最后显示的是 <code>exit 0</code>，Makefile 文件也已经生成，这意味着我们的环境配置成功了！<br>需要说明一下的是，不是所有模式都会通过 <code>configure</code> 来实现环境配置，比如有的模式会让我们直接去修改某个文件。对于更为复杂的模式（如气候系统模式），则需要修改多个文件、执行多个脚本。总之，在熟悉各种模式的套路之前，就多看看它们的用户手册吧～</p>
+<h1 id="编译模式"><a href="#编译模式" class="headerlink" title="编译模式"></a>编译模式</h1><p>环境配置完成之后，就可以进行编译了，这里我们通过 <code>make</code>（它会自动读取 Makefile 文件）来编译 RegCM：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell test1]$ make</span><br><span class="line">CDPATH=&quot;$&#123;ZSH_VERSION+.&#125;:&quot; &amp;&amp; cd . &amp;&amp; /bin/sh /home/N/Model/regcm/RegCM-4.5.0/test1/missing aclocal-1.14 </span><br><span class="line">/home/N/Model/regcm/RegCM-4.5.0/test1/missing: line 81: aclocal-1.14: command not found</span><br><span class="line">WARNING: &apos;aclocal-1.14&apos; is missing on your system.</span><br><span class="line">         You should only need it if you modified &apos;acinclude.m4&apos; or</span><br><span class="line">         &apos;configure.ac&apos; or m4 files included by &apos;configure.ac&apos;.</span><br><span class="line">         The &apos;aclocal&apos; program is part of the GNU Automake package:</span><br><span class="line">         &lt;http://www.gnu.org/software/automake&gt;</span><br><span class="line">         It also requires GNU Autoconf, GNU m4 and Perl in order to run:</span><br><span class="line">         &lt;http://www.gnu.org/software/autoconf&gt;</span><br><span class="line">         &lt;http://www.gnu.org/software/m4/&gt;</span><br><span class="line">         &lt;http://www.perl.org/&gt;</span><br><span class="line">make: *** [aclocal.m4] Error 127</span><br></pre></td></tr></table></figure></p>
+<p>完了，出错了，怎么跟手册上说的不一样啊！正如前面所说，虽然知道了模式使用的五大步骤，也有用户手册供我们参考，可真正操作的时候还是会遇到一些小问题。这个时候，就需要百度、Google 了。若是搜索不到相关信息，可能还得去各种论坛提问，等待别人回答。当然在积累了一定经验之后，可以尝试自己分析、解决问题。这样的话，即使百度、Google 帮不上忙，也不必去论坛求助别人啦（毕竟大神们不一定有空～）。好了，回到我们的 RegCM，看看如何解决吧！<br>根据错误提示信息，大概意思是找不到 <code>aclocal-1.14</code>，而这个东东貌似是 Automake 里面的一个小程序。然后我查看了 RegCM 目录下的 <code>aclocal.m4</code> 文件，似乎 RegCM-4.5.0 使用的 Automake 版本是 1.14.1，而本机版本为 1.13.4。既然如此，我们先更新 Automake（具体过程不再赘述），之后重新 <code>configure</code> 一下就可以 <code>make</code> 啦！这里我直接把 <code>make</code> 的输出信息存到 <code>make.output</code> 文件里：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell test1]$ make all install &gt; make.output 2&gt;&amp;1</span><br><span class="line">[N@Dell test1]$ ls bin/</span><br><span class="line">average     GrADSNcPlot     interp_bionox     regcmMPI  sigma2z</span><br><span class="line">chem_icbc   GrADSNcPrepare  interp_emissions  regrid    sst</span><br><span class="line">emcre_grid  icbc            interp_pollen     sigma2p   terrain</span><br></pre></td></tr></table></figure></p>
+<p><code>make</code> 结束之后，会发现 <code>bin</code> 文件夹（之前为空文件夹）下出现了多个可执行文件，<code>make.output</code> 文件里也没有错误信息，这说明编译已经成功了。虽说我这里是把 Automake 更新了才顺利编译的，但实际上还有其他解决方式。比如我们也可以通过修改一些文件而使 RegCM-4.5.0 直接采用 1.13.4 版本的 Automake，不过这对于经验不够的同学来说可能相对困难一些～<br>其实我这次编译 RegCM 还是挺顺利的，才遇到一个问题。想想以前编译某些模式的时候，都记不清报过多少次错，整了好久才成功。也许你在编译某个模式的时候也遇到了一堆问题，但千万别放弃，最后肯定能成功的！</p>
+<h1 id="模式配置"><a href="#模式配置" class="headerlink" title="模式配置"></a>模式配置</h1><p>既然模式编译好了，那可以开始运行了吧？别急，我们还得准备好模式所需的数据，并对配置文件进行修改。<br>首先是数据的准备。如果我要用 RegCM 来做一系列科学问题，会需要准备大量的数据，包括强迫场和初值场等。不过这里我只是演示如何使用 RegCM，运行一个小个例就行了，所以用到的数据不多。官网上提供了一些<a href="http://clima-dods.ictp.it/regcm4" target="_blank" rel="external">数据</a>，我从中选取了一部分进行下载，并存放在 <code>data</code> 文件夹下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell test1]$ cd /home/N/Model/regcm/data/</span><br><span class="line">[N@Dell data]$ ls</span><br><span class="line">CLM  CLM45  EIN15  SST  SURFACE</span><br></pre></td></tr></table></figure></p>
+<p>接下来我们准备一个 <code>run</code> 文件夹，用来运行一个实例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell data]$ cd /home/N/Model/regcm/RegCM-4.5.0/test1/</span><br><span class="line">[N@Dell test1]$ mkdir run</span><br><span class="line">[N@Dell test1]$ cd run</span><br><span class="line">[N@Dell run]$ mkdir input output</span><br><span class="line">[N@Dell run]$ ln -sf ../bin .</span><br><span class="line">[N@Dell run]$ cp ../Testing/test_001.in .</span><br></pre></td></tr></table></figure></p>
+<p>新建的 <code>input</code> 和 <code>output</code> 文件夹分别存放输入数据和输出数据，存放可执行文件的 <code>bin</code> 文件夹也被链到 <code>run</code> 文件夹下。这里我们还复制了一个 <code>test_001.in</code> 文件，它就是需要修改的模式配置文件了，里面的信息包括时间设置、网格设置、输出格式、数据路径、各方案参数等等。可能有人会叫它 <code>namelist</code> 文件，因为它是按照 Fortran 里的 namelist 格式写的。当然其他模式可能采用不同的格式，比如有的模式采用 xml 格式，还有的则采用自定格式。对于这个个例，我们只需修改数据路径及模式时间：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell run]$ sed -i &quot;s/dirter.*$/dirter = &apos;input\/&apos;,/g&quot; test_001.in</span><br><span class="line">[N@Dell run]$ sed -i &quot;s/inpter.*$/inpter = &apos;\/home\/N\/Model\/regcm\/data\/&apos;,/g&quot; test_001.in</span><br><span class="line">[N@Dell run]$ sed -i &quot;s/dirglob.*$/dirglob = &apos;input\/&apos;,/g&quot; test_001.in</span><br><span class="line">[N@Dell run]$ sed -i &quot;s/inpglob.*$/inpglob = &apos;\/home\/N\/Model\/regcm\/data\/&apos;,/g&quot; test_001.in</span><br><span class="line">[N@Dell run]$ sed -i &quot;s/dirout.*$/dirout = &apos;output\/&apos;,/g&quot; test_001.in</span><br><span class="line">[N@Dell run]$ sed -i &quot;s/gdate1.*$/gdate1 = 2000060100,/g&quot; test_001.in</span><br><span class="line">[N@Dell run]$ sed -i &quot;s/gdate2.*$/gdate2 = 2000070100,/g&quot; test_001.in</span><br><span class="line">[N@Dell run]$ sed -i &quot;s/mdate0.*$/mdate0 = 2000060100,/g&quot; test_001.in</span><br><span class="line">[N@Dell run]$ sed -i &quot;s/mdate1.*$/mdate1 = 2000060100,/g&quot; test_001.in</span><br><span class="line">[N@Dell run]$ sed -i &quot;s/mdate2.*$/mdate2 = 2000070100,/g&quot; test_001.in</span><br></pre></td></tr></table></figure></p>
+<p>可能有人不清楚 <code>sed</code> 是啥，实际上它是用来修改文件的（可以把它理解成命令行式的 <code>vi</code>）。其实我可以直接用 <code>vi</code> 进行修改，不过为了方便展示我还是选择了 <code>sed</code> 命令。总之，我根据实际情况修改了 <code>dirter</code>、<code>inpter</code>、<code>dirglob</code>、<code>inpglob</code>、<code>dirout</code>、<code>gdate1</code>、<code>gdate2</code>、<code>mdate0</code>、<code>mdate1</code>、<code>mdate2</code> 这几个字段。大致就是指出数据的存放路径，以及设置模拟时段为2000年6月1日至30日。噢，顺便提一下，模拟区域的中心经纬度为 45.39°N、13.48°E，在意大利附近。</p>
+<h1 id="运行模式"><a href="#运行模式" class="headerlink" title="运行模式"></a>运行模式</h1><p>对于 RegCM，在正式运行前，还得对初值场、强迫场等数据进行预处理，将该次模拟个例所需的数据提取出来，并完成相关的插值工作。在 <code>bin</code> 文件夹下可以找到 <code>terrain</code>、<code>sst</code>、<code>icbc</code> 这三个可执行程序，<code>terrain</code> 处理地形与土地利用数据，<code>sst</code> 处理海温数据，最后用 <code>icbc</code> 对初值场、强迫场数据进行整合。处理过程如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell run]$ ./bin/terrain test_001.in &amp;&gt;terrain.log</span><br><span class="line">[N@Dell run]$ ./bin/sst test_001.in &amp;&gt;sst.log</span><br><span class="line">[N@Dell run]$ ./bin/icbc test_001.in &amp;&gt;icbc.log</span><br><span class="line">[N@Dell run]$ ls input/</span><br><span class="line">test_001_DOMAIN000.nc        test_001_ICBC.2000070100.nc  test_001_SST.nc</span><br><span class="line">test_001_ICBC.2000060100.nc  test_001_LANDUSE</span><br></pre></td></tr></table></figure></p>
+<p>三个程序均会读取 <code>test_001.in</code> 文件里的信息，并将运行记录保存在各自的 <code>log</code> 文件里。运行结束后可以在 <code>input</code> 文件夹下查看到生成的数据文件，同时三个 <code>log</code> 文件的结尾处均有 <code>Successfully ...</code> 的字样，即数据预处理已完成。嗯，那就开始运行主体程序吧：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell run]$ mpirun -np 8 ./bin/regcmMPI test_001.in &amp;&gt; regcmMPI.log</span><br><span class="line">[N@Dell run]$ ls output/</span><br><span class="line">test_001_ATM.2000060100.nc  test_001_SRF.2000060100.nc</span><br><span class="line">test_001_RAD.2000060100.nc  test_001_STS.2000060100.nc</span><br><span class="line">test_001_SAV.2000070100.nc</span><br></pre></td></tr></table></figure></p>
+<p>运行过程很简单，只需一条命令，不过需要说明下这里是采用并行方式来运行的。所谓并行运行，其实就是提高了模式的运算效率。想想我们现在的个人计算机都是多核的了，而平时运行普通程序的时候实际只用了一个核，其他核要么干自己的事要么就闲着了。所以并行其实就是把模式分成若干份，然后每个核分一份，大家都来参与模式的运算，这样不就快了么？虽说我指定使用八个核来运行 RegCM，但由于我的计算机只是伪八核，以及并行技术的一些问题，实际是达不到八倍速的。RegCM 的输出文件存放在 <code>output</code> 文件夹下，标准输出及错误输出被我存到了 <code>regcmMPI.log</code>。至此，模式运行就完成了，可以稍微看看 <code>regcmMPI.log</code> 里记录的有关模式运行的信息。然后就简单分析下模拟结果吧！</p>
+<h1 id="结果分析"><a href="#结果分析" class="headerlink" title="结果分析"></a>结果分析</h1><p>想必这一步就不用我过多描述了，该怎样分析大家会有自己的想法，我就直接按我的想法给大家看看部分模拟结果吧！这里我对2000年6月的模拟结果取月平均值，并画出各个变量的空间分布：<br><img src="/2017/08/21/06climate-linux-intro-6/pic_2.png" alt="pic_2.png" title=""><br><img src="/2017/08/21/06climate-linux-intro-6/pic_3.png" alt="pic_3.png" title=""><br>大致就这样展示一下吧，大家也不要纠结其空间分布是否合理，我也没有用观测数据来验证。毕竟只是运行了一个 test，没有对模式进行调试，就算模拟得不准也是正常的～</p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>好了，本期内容主要为大家演示了一下我第一次使用 RegCM 的经历，也分享了我对模式使用的基本思路。总体来说还是挺顺利的，都没有遇到那些莫名其妙的问题，不然篇幅可能要更长了&gt;﹏&lt;。当然，如果大家在使用自己的模式时，遇到各种奇葩的问题，欢迎找我讨论（如果我有时间的话 ◠‿◠）。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag">#Linux</a>
+          
+            <a href="/tags/写作/" rel="tag">#写作</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/21/06climate-linux-intro-5/" rel="next" title="Linux 入门教程——如何安装软件？">
+                <i class="fa fa-chevron-left"></i> Linux 入门教程——如何安装软件？
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2017/08/21/06climate-linux-intro-6/"
+     data-title="Linux 入门教程——模式使用"
+     data-content=""
+     data-url="http://nearsc.github.io/2017/08/21/06climate-linux-intro-6/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/08/21/06climate-linux-intro-6/"
+           data-title="Linux 入门教程——模式使用" data-url="http://nearsc.github.io/2017/08/21/06climate-linux-intro-6/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/nearsc.gif"
+               alt="Nearsc" />
+          <p class="site-author-name" itemprop="name">Nearsc</p>
+          <p class="site-description motion-element" itemprop="description">Remember the past, know the future.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/nearsc" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/TedNate" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/nearsc" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://bbs.06climate.com/forum.php" title="气象家园" target="_blank">气象家园</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基本思路"><span class="nav-number">1.</span> <span class="nav-text">基本思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#环境配置"><span class="nav-number">2.</span> <span class="nav-text">环境配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编译模式"><span class="nav-number">3.</span> <span class="nav-text">编译模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#模式配置"><span class="nav-number">4.</span> <span class="nav-text">模式配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#运行模式"><span class="nav-number">5.</span> <span class="nav-text">运行模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结果分析"><span class="nav-number">6.</span> <span class="nav-text">结果分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结语"><span class="nav-number">7.</span> <span class="nav-text">结语</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Nearsc</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"nearsc"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+
+</body>
+</html>
