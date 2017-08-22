@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://nearsc.github.io/"/>
-  <updated>2017-08-21T14:41:05.255Z</updated>
+  <updated>2017-08-22T14:21:39.498Z</updated>
   <id>http://nearsc.github.io/</id>
   
   <author>
@@ -16,11 +16,51 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Linux 入门教程——服务器使用</title>
+    <link href="http://nearsc.github.io/2017/08/22/06climate-linux-intro-7/"/>
+    <id>http://nearsc.github.io/2017/08/22/06climate-linux-intro-7/</id>
+    <published>2017-08-22T14:00:51.000Z</published>
+    <updated>2017-08-22T14:21:39.498Z</updated>
+    
+    <content type="html">&lt;p&gt;气象家园投稿第七篇：服务器使用&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;“Linux 入门教程”系列终于要进入尾声啦！在这最后一期里，我想讲讲有关服务器使用的一些问题。那么为什么要使用服务器呢，自己电脑不够用吗？是的！在科研刚开始的阶段，我也只是用个人电脑下下数据画画图，可是到后面接触了模式以后，计算量太大，数据也很多，就不得不依赖服务器了。服务器其实可以理解成比较厉害的计算机，其运算速度快，存储空间大，因此数值模式一般都会在服务器上运行。但正因为服务器比较好用，大家都抢着用它，所以“多个用户如何充分利用好服务器的计算资源”就变得非常重要。这意味着，同样是使用 Linux 系统，在服务器上就需要考虑一些新的问题。&lt;/p&gt;
+&lt;h1 id=&quot;远程登录&quot;&gt;&lt;a href=&quot;#远程登录&quot; class=&quot;headerlink&quot; title=&quot;远程登录&quot;&gt;&lt;/a&gt;远程登录&lt;/h1&gt;&lt;p&gt;相比于个人电脑，服务器通常是多用户的，而且是多个用户同时使用的。在服务器管理员的管理下，每个用户在自己的目录下做着自己的事情，不会相互打扰。假如我现在向某个服务器的管理员申请到了一个帐户，可我要去哪里打开服务器并登录自己的帐号呢？实际上服务器一直都处于开机状态，并被集中放置在机房里，由专人进行管理，用户们只需要登录并使用它即可。当然大家并不会跑到机房里进行登录，而是采取远程登录的方式，只要连上局域网，就能在实验室或者宿舍使用服务器了。&lt;br&gt;不管自己的电脑是 Windows 系统还是 Linux 系统，我们一般都会采用 ssh 协议进行远程登录。在 Linux 下，输入 &lt;code&gt;ssh&lt;/code&gt; 命令即可：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[N@Dell ~]$ ssh $user@$ip&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;其中 &lt;code&gt;$user&lt;/code&gt; 是你在服务器上的用户名，&lt;code&gt;$ip&lt;/code&gt; 则是服务器的 IP 地址，输入命令后系统会提示你继续输入密码。如果是第一次连接，还会有个小提示，输 yes 就行啦。不过还有关于图形系统（X Window System）的问题，即按照上述命令登录以后，是无法进行画图显示的。比如我用 ncl 打开一个 x11，会显示 &lt;code&gt;--X driver error: DISPLAY environment variable not set&lt;/code&gt;；再试试运行 MATLAB，发现它并没有启动图形窗口，而是直接进入了命令行模式。如果想要正常使用图形系统，只需在登录时加上一个选项：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[N@Dell ~]$ ssh -X $user@$ip&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;如果想在 Windows 系统下登录服务器，则需要下载一个远程登录软件。这里我推荐一下 Xmanager，感觉它使用起来相对比较友好。Xmanager 包含多个应用程序，其中 Xshell 就是用来进行远程登录的，选择协议为 ssh 之后填上用户名、密码和 IP 就 OK 了。若要使用图形系统，记得运行一下 Xmanager - Passive。&lt;/p&gt;
+&lt;h1 id=&quot;文件传输&quot;&gt;&lt;a href=&quot;#文件传输&quot; class=&quot;headerlink&quot; title=&quot;文件传输&quot;&gt;&lt;/a&gt;文件传输&lt;/h1&gt;&lt;p&gt;远程登录没有问题了，可如何在个人电脑和服务器间进行文件传输呢？通常也是采用的 ssh 协议。如果使用 Linux 系统，则会用到 &lt;code&gt;scp&lt;/code&gt; 命令，其用法类似于 &lt;code&gt;cp&lt;/code&gt; 命令：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[N@Dell ~]$ scp $user@$ip:$file $des&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[N@Dell ~]$ scp $file $user@$ip:$des&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;同样需要指定用户名、服务器 IP，同时要指明源文件 &lt;code&gt;$file&lt;/code&gt; 及目标地址 &lt;code&gt;$des&lt;/code&gt;。这里第一行是从服务器下载至本地，第二行是从本地上传至服务器，实际上就是在 &lt;code&gt;cp&lt;/code&gt; 的用法基础上加入了 &lt;code&gt;$user@$ip&lt;/code&gt;。如果要传输文件夹，当然也是加上 &lt;code&gt;-r&lt;/code&gt; 选项啦（类似于 &lt;code&gt;cp&lt;/code&gt; ）！&lt;br&gt;对了，顺带提一下 &lt;code&gt;rsync&lt;/code&gt; 命令：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[N@Dell ~]$ rsync -P --rsh=ssh $user@$ip:$file $dir&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[N@Dell ~]$ rsync -P --rsh=ssh $file $user@$ip:$dir&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;这是一个远程同步工具，功能比较强大。我们可以用它来代替 &lt;code&gt;scp&lt;/code&gt; 进行文件传输，因为它能实现断点续传。这里不多做介绍了，大家可以自行百度。&lt;br&gt;对于 Windows 系统，假如你使用的是 Xmanager，只需要点击 Xshell 工具栏的“新建文件传输”按钮，就会出现文件传输的窗口了。咦，这个文件传输窗口叫 Xftp，难道是采用的 ftp 协议吗？可是我们服务器都没开 ftp 协议，不可能是 ftp 传输的，所以我猜测其实相当于用了 &lt;code&gt;scp&lt;/code&gt; 命令。不过我也没有仔细去研究它 (;-_-)&lt;/p&gt;
+&lt;h1 id=&quot;用户管理&quot;&gt;&lt;a href=&quot;#用户管理&quot; class=&quot;headerlink&quot; title=&quot;用户管理&quot;&gt;&lt;/a&gt;用户管理&lt;/h1&gt;&lt;p&gt;尽管服务器性能优良，但用户一多就得考虑合理分配的问题。而作为用户，我们要时刻注意自己的使用情况，如 CPU 和内存的占用率、磁盘配额、文件系统限制等等。由于用户管理是一个比较大的问题，我现有的经验也比较零散，所以决定从几个重要命令入手，给大家说说我关注的问题吧。&lt;br&gt;&lt;code&gt;free&lt;/code&gt;、&lt;code&gt;top&lt;/code&gt;&lt;br&gt;&lt;code&gt;free&lt;/code&gt; 可以查看内存使用情况，而 &lt;code&gt;top&lt;/code&gt; 可以查看进程的 CPU 占用率、内存占用率、优先级等。这类似于在 Windows 下查看任务管理器，来了解机器运行状况。如果服务器负载过高，可以跟管理员反馈反馈。&lt;br&gt;&lt;code&gt;df&lt;/code&gt;、&lt;code&gt;du&lt;/code&gt;&lt;br&gt;了解服务器的总存储空间大小是很重要的，所以需要用到 &lt;code&gt;df&lt;/code&gt; 命令。知道了总空间大小，当然也得知道自己目录占了多少空间，一般输入 &lt;code&gt;du -sh dir&lt;/code&gt; 就可以查看 &lt;code&gt;dir&lt;/code&gt; 的大小了。&lt;br&gt;&lt;code&gt;ps&lt;/code&gt;&lt;br&gt;&lt;code&gt;ps&lt;/code&gt; 可以查看进程的运行情况。直接输 &lt;code&gt;ps&lt;/code&gt; 可以查看当前会话的进程，若要查看自己所有的进程（包括其他会话的进程以及后台进程），则可以输入 &lt;code&gt;ps -fu $user&lt;/code&gt;，&lt;code&gt;$user&lt;/code&gt; 即用户名。若输入 &lt;code&gt;ps -fe&lt;/code&gt;，则会显示所有用户的所有进程。&lt;br&gt;&lt;code&gt;quota&lt;/code&gt;&lt;br&gt;因为服务器是供多用户使用的，所以对每个用户限定其可用磁盘空间也是理所当然的。大家使用服务器时是否遇到过无法写入磁盘的问题呢？有可能就是磁盘额度不够造成的。如果额度不够了，就只能删掉那些没用的文件，释放空间之后才能写入。这时候就得用 &lt;code&gt;quota&lt;/code&gt; 看看总额度是多少，以及需要腾出多少空间。&lt;br&gt;&lt;code&gt;ulimit&lt;/code&gt;&lt;br&gt;除了磁盘空间，用户的可打开文件数、可使用内存总量、可使用进程数等等也会被限制，相关信息的查看与设置需要用到 &lt;code&gt;ulimit&lt;/code&gt; 命令。如 &lt;code&gt;ulimit -n&lt;/code&gt; 设置可打开文件数，&lt;code&gt;ulimit -u&lt;/code&gt; 设置可使用进程数。还有在运行模式时，如果出现 &lt;code&gt;segmentation fault&lt;/code&gt;，有可能是 &lt;code&gt;ulimit&lt;/code&gt; 设置问题，可以尝试输入 &lt;code&gt;ulimit -s unlimited&lt;/code&gt; 来解决。需要注意的是，用户并不能随心所欲地使用 &lt;code&gt;ulimit&lt;/code&gt; 来进行调整哦~&lt;/p&gt;
+&lt;h1 id=&quot;后台运行&quot;&gt;&lt;a href=&quot;#后台运行&quot; class=&quot;headerlink&quot; title=&quot;后台运行&quot;&gt;&lt;/a&gt;后台运行&lt;/h1&gt;&lt;p&gt;有时候我们的程序要运行很久，如果需要等它运行完才能进行其他操作，难免会有不便之处。解决的办法就是把程序挂到后台运行，这样就能继续输入其他命令，甚至退出登录也不会影响程序的运行。&lt;br&gt;比如我在服务器上运行 &lt;code&gt;matlab&lt;/code&gt; 之后，会话窗口就不能输入其他命令了。这时按下 &lt;code&gt;Ctrl+z&lt;/code&gt;，&lt;code&gt;matlab&lt;/code&gt; 会被临时挂起，输入 &lt;code&gt;jobs&lt;/code&gt; 就能查看到 &lt;code&gt;matlab&lt;/code&gt; 的运行情况。根据 &lt;code&gt;jobs&lt;/code&gt; 的显示，我们再使用 &lt;code&gt;bg&lt;/code&gt; 命令，即可把 &lt;code&gt;matlab&lt;/code&gt; 移至后台。具体过程如下：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[N@Dell ~]$ matlab&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[Ctrl+z]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[1]+  Stopped                 matlab&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[N@Dell ~]$ bg 1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[1]+ matlab &amp;amp;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[N@Dell ~]$&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;当然，我们也可以通过 &lt;code&gt;fg 1&lt;/code&gt; 命令，来将 &lt;code&gt;matlab&lt;/code&gt; 重新移至前台，此时又回到了无法继续输入命令的状态。&lt;br&gt;让我们考虑另一种情况：我用 ncl 对大量数据进行插值，并将插值后的数据保存成文件，但我算了一下时间，完成所有插值需要一天，那我岂不是要一整天都开着电脑并保持登录状态？万一网络出错，连接超时了，程序不就断啦！没错，这样就需要后台运行了，不过为了保证退出登录后程序仍会运行，需要用到 &lt;code&gt;nohup&lt;/code&gt; 命令。由于上述 &lt;code&gt;matlab&lt;/code&gt; 例子的操作比较繁琐，我们采用一种更为简便的方式来实现：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[N@Dell ~]$ nohup ncl interp.ncl &amp;gt; interp.log 2&amp;gt;&amp;amp;1 &amp;amp;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;平常情况下，我们会输入 &lt;code&gt;ncl interp.ncl&lt;/code&gt; 来运行脚本。而这里，首先我通过 &lt;code&gt;&amp;gt; interp.log 2&amp;gt;&amp;amp;1&lt;/code&gt; 将标准输出和标准错误输出重定向到 &lt;code&gt;interp.log&lt;/code&gt; 文件里。然后在命令末端加上 &lt;code&gt;&amp;amp;&lt;/code&gt; 符号，可将程序移至后台运行。最后在命令首端加上 &lt;code&gt;nohup&lt;/code&gt;，以保证退出登录后程序不会中断。之后就可以退出登录，关闭电脑，等一天过后再来查看了。&lt;br&gt;关于程序的后台运行，我只推荐在小型服务器上进行，如自己老板的服务器。对于大型服务器，如全院或全校共同使用的机群，就不要自行将程序移至后台了。对于机群来说（机群包含多台计算机，每台计算机为一个节点），通常会分成登录节点和计算节点，各种程序都应该被放到计算节点上运行。按照刚才的方式，我们会直接在登录节点上将程序转至后台，而无法将它们放到计算节点上去。另一方面，即使是登录到计算节点后再进行后台运行，如果多个用户在同一节点上长时间运行程序，该节点就会变得拥挤，而其他节点却很空闲，这样就不利于服务器的合理利用了。因此服务器通常不会允许用户长时间地自行运行程序（不管是前台运行还是后台运行），而是让用户经由作业系统来运行大型程序。&lt;/p&gt;
+&lt;h1 id=&quot;作业系统&quot;&gt;&lt;a href=&quot;#作业系统&quot; class=&quot;headerlink&quot; title=&quot;作业系统&quot;&gt;&lt;/a&gt;作业系统&lt;/h1&gt;&lt;p&gt;对于机群而言，用户一般在登录节点上登录，但不在登录节点上运行程序，而是经由系统将程序放到计算节点上。其中完成分配工作的就是作业系统了。当新任务提交时，作业系统会对目前机群使用情况进行分析，并根据该任务所需资源，来决定最终使用哪几个计算节点。作业系统实际上就是个管理软件，而这管理软件在不同服务器上可能是不同的。我之前在好几个服务器上接触了不同的作业系统（如 SLURM、Platform LSF 和 LoadLeveler），发现不同的作业系统有着相同的用法，学起来也是一通百通。这里我就以 Platform LSF 为例来讲讲基本用法：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[N@Dell ~]$ bhosts&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[N@Dell ~]$ bsub -a openmpi -n 40 -e test.err -o test.out mpirun.lsf ./test&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[N@Dell ~]$ bjobs&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[N@Dell ~]$ bkill jobid&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;首先 &lt;code&gt;bhosts&lt;/code&gt; 可以查看各节点的占用情况，然后用 &lt;code&gt;bsub&lt;/code&gt; 来提交作业，之后用 &lt;code&gt;bjobs&lt;/code&gt; 查看当前作业运行情况，而如果想终止作业的话可以使用 &lt;code&gt;bkill&lt;/code&gt;。其中 &lt;code&gt;bsub&lt;/code&gt; 后的 &lt;code&gt;-a openmpi&lt;/code&gt; 指定了采用的并行方式为 &lt;code&gt;openmpi&lt;/code&gt;，&lt;code&gt;-n 40&lt;/code&gt; 指定程序将使用40个核，&lt;code&gt;-e test.err -o test.out&lt;/code&gt; 指定标准输出和错误输出的日志文件，&lt;code&gt;mpirun.lsf ./test&lt;/code&gt; 则为所运行的程序。&lt;code&gt;bkill&lt;/code&gt; 之后接作业编号，该编号由 &lt;code&gt;bjobs&lt;/code&gt; 查询得到。&lt;br&gt;简单来看，使用作业系统基本就是这四条命令了，是不是很简单呢？当然你可以自己去查看其他命令，也可以去了解其他作业系统，这里我就不再赘述了。&lt;/p&gt;
+&lt;h1 id=&quot;结语&quot;&gt;&lt;a href=&quot;#结语&quot; class=&quot;headerlink&quot; title=&quot;结语&quot;&gt;&lt;/a&gt;结语&lt;/h1&gt;&lt;p&gt;终于到了完结撒花的时候啦！虽说一开始我就已经想好所有7期的主题了，但在确定每期的具体内容时总是思前想后，困扰不已，也曾因为太忙而拖了好久没写。这个系列算是我第一次尝试在微信公众号上发表连载文章，只能说深切体会到了写文章的不易。当然了，我感觉自己得到了不少锻炼，也希望大家看了我的文章以后能有一些帮助。如果大家觉得我写得不好，欢迎指正，任何合理意见与建议我都会好好听取的，下次再有机会的话我会努力做更好~ ◕‿◕&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;气象家园投稿第七篇：服务器使用&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="气象家园文稿" scheme="http://nearsc.github.io/categories/%E6%B0%94%E8%B1%A1%E5%AE%B6%E5%9B%AD%E6%96%87%E7%A8%BF/"/>
+    
+    
+      <category term="Linux" scheme="http://nearsc.github.io/tags/Linux/"/>
+    
+      <category term="写作" scheme="http://nearsc.github.io/tags/%E5%86%99%E4%BD%9C/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Linux 入门教程——模式使用</title>
     <link href="http://nearsc.github.io/2017/08/21/06climate-linux-intro-6/"/>
     <id>http://nearsc.github.io/2017/08/21/06climate-linux-intro-6/</id>
     <published>2017-08-21T13:58:51.000Z</published>
-    <updated>2017-08-21T14:41:05.255Z</updated>
+    <updated>2017-08-22T14:01:56.385Z</updated>
     
     <content type="html">&lt;p&gt;气象家园投稿第六篇：模式使用&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -1766,9 +1806,9 @@ printf(&amp;quot;这是一个代码块&amp;quot;)
       <category term="备忘录" scheme="http://nearsc.github.io/categories/%E5%A4%87%E5%BF%98%E5%BD%95/"/>
     
     
-      <category term="备忘录" scheme="http://nearsc.github.io/tags/%E5%A4%87%E5%BF%98%E5%BD%95/"/>
-    
       <category term="Markdown" scheme="http://nearsc.github.io/tags/Markdown/"/>
+    
+      <category term="备忘录" scheme="http://nearsc.github.io/tags/%E5%A4%87%E5%BF%98%E5%BD%95/"/>
     
   </entry>
   

@@ -86,18 +86,16 @@
 
 
 
-<meta name="description" content="气象家园投稿第三篇：vi 与环境变量">
+<meta name="description" content="气象家园投稿第七篇：服务器使用">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux 入门教程——vi 与环境变量">
-<meta property="og:url" content="http://nearsc.github.io/2017/08/19/06climate-linux-intro-3/index.html">
+<meta property="og:title" content="Linux 入门教程——服务器使用">
+<meta property="og:url" content="http://nearsc.github.io/2017/08/22/06climate-linux-intro-7/index.html">
 <meta property="og:site_name" content="Not Cool">
-<meta property="og:description" content="气象家园投稿第三篇：vi 与环境变量">
-<meta property="og:image" content="http://nearsc.github.io/2017/08/19/06climate-linux-intro-3/pic_1.png">
-<meta property="og:updated_time" content="2017-08-19T16:58:57.784Z">
+<meta property="og:description" content="气象家园投稿第七篇：服务器使用">
+<meta property="og:updated_time" content="2017-08-22T14:21:39.498Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux 入门教程——vi 与环境变量">
-<meta name="twitter:description" content="气象家园投稿第三篇：vi 与环境变量">
-<meta name="twitter:image" content="http://nearsc.github.io/2017/08/19/06climate-linux-intro-3/pic_1.png">
+<meta name="twitter:title" content="Linux 入门教程——服务器使用">
+<meta name="twitter:description" content="气象家园投稿第七篇：服务器使用">
 
 
 
@@ -115,7 +113,7 @@
   };
 </script>
 
-  <title> Linux 入门教程——vi 与环境变量 | Not Cool </title>
+  <title> Linux 入门教程——服务器使用 | Not Cool </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -268,7 +266,7 @@
             
             
               
-                Linux 入门教程——vi 与环境变量
+                Linux 入门教程——服务器使用
               
             
           </h1>
@@ -280,8 +278,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-08-19T23:38:02+08:00" content="2017-08-19">
-              2017-08-19
+            <time itemprop="dateCreated" datetime="2017-08-22T22:00:51+08:00" content="2017-08-22">
+              2017-08-22
             </time>
           </span>
 
@@ -310,8 +308,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/08/19/06climate-linux-intro-3/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/08/19/06climate-linux-intro-3/" itemprop="commentsCount"></span>
+                <a href="/2017/08/22/06climate-linux-intro-7/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/08/22/06climate-linux-intro-7/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -334,29 +332,22 @@
       
 
       
-        <p>气象家园投稿第三篇：vi 与环境变量</p>
+        <p>气象家园投稿第七篇：服务器使用</p>
 <a id="more"></a>
-<p>熟悉了 Linux 的一些基本操作以后，差不多就可以正式用它来进行工作了，那么平时主要在 Linux 上做些什么呢？根据自己的经历，我想大概有以下几点吧：</p>
-<ol>
-<li>管理文件（或者说管理系统？）</li>
-<li>编写程序（应该大多是 Fortran 语言吧）</li>
-<li>软件使用（如 NCL、Matlab）</li>
-<li>模式使用（多在服务器上运行）<br>之后几篇的内容大致也就是关于这几个方面的。先说说管理文件，可以很简单，比如我备份几个数据、归类几个文件夹，就是对我的文件进行了管理；也可以相对更为复杂，比如我查看一下系统信息的文件，修改一下配置文件，使得我的系统用起来更加符合我自己的习惯。就泛泛地说“管理”这个词，它包含的内容是很多的，对于普通用户和管理员用户，“管理”又具有不同的含义。不过我可没法聊这些，但有必要介绍下文本编辑器，因为不知道怎么编辑文件，怎么能进行管理呢（点头</li>
-</ol>
-<h1 id="vi"><a href="#vi" class="headerlink" title="vi"></a>vi</h1><p>在 Linux 下，如果你想查看一个文本文件的内容，可以通过多种方式来实现。下面这5个命令均能查看文件内容：<code>cat</code>，<code>more</code>，<code>less</code>，<code>head</code>，<code>tail</code>。如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell ~]$ cat readme</span><br></pre></td></tr></table></figure></p>
-<p>其中 <code>cat</code> 会显示所有内容，<code>more</code> 和 <code>less</code> 是分页显示（区别在于 <code>more</code> 只能向下滚动而 <code>less</code> 可以上下滚动），<code>head</code> 显示开头部分，<code>tail</code> 显示结尾部分。具体用哪个命令在于你自己，不过有个常用的用法是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell Temp]$ tail -f log</span><br></pre></td></tr></table></figure></p>
-<p><code>tail</code> 会显示文件结尾部分的内容，而 <code>-f</code> 选项（或 <code>--follow</code>）会实时更新文件内容。意思就是，比如你在运行一段程序，该程序将一些信息写到文件 <code>log</code> 里面，如果只是 <code>tail log</code>，则会显示到该命令为止的 <code>log</code> 文件中的内容，而实际上你的程序还在不断写新信息到 <code>log</code> 里。使用 <code>-f</code> 选项让你可以一直看到新的信息，而不用每隔一段时间就敲一次 <code>tail log</code>。<br>但这5个命令只是查看文本文件的内容，并不能写东西到文件。这时就需要文本编辑器了，比如 vi，Emacs，nano 等等。我想介绍一下 vi，毕竟它有着不可撼动的地位，而且我也是用 <code>vi</code> 用习惯了，懒得去接触其他编辑器了（憨笑<br>先用 vi 打开已存在的文件，或者新建文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell Temp]$ vi new</span><br></pre></td></tr></table></figure></p>
-<p>若 <code>new</code> 已存在，则会打开 <code>new</code> 这个文件，若 <code>new</code> 不存在，则新建一个文件名为 <code>new</code> 的文件。vi 一共有三种模式：一般模式、编辑模式、命令行模式。一般模式是刚打开文件后所进入的模式，可以进行移动光标、删除字符、复制粘贴等操作。在一般模式下若按下 <code>i</code>，<code>o</code>，<code>a</code> 等按键后将进入编辑模式，此时可以对文件内容自由编辑，按下 <code>Esc</code> 则退出到一般模式。在一般模式下若按下 <code>:</code>，<code>/</code>，<code>?</code> 等按键（<code>:</code> 即 <code>shift+;</code>），则进入到命令行模式，该模式下可以执行查找、替换、保存、退出等操作。下面简单列举下三种模式下的常用操作：<br>一般模式：<br><code>h</code>，<code>j</code>，<code>k</code>，<code>l</code> 或 <code>←</code>，<code>↓</code>，<code>↑</code>，<code>→</code>：光标的移动<br><code>[Ctrl]+f</code>，<code>[Ctrl]+b</code> 或 <code>[Page Down]</code>，<code>[Page Up]</code>：向下/向上翻页<br><code>0</code>，<code>$</code> 或 <code>[Home]</code>，<code>[End]</code>：行首/行尾<br><code>n[space]</code>：向右移动 n 个字符，[space] 为空格键<br><code>nG</code>：移动到第 n 行，只按 G 则移动到最后一行，gg（相当于 1G）为移动到第一行<br><code>n[Enter]</code>：向下移动 n 行<br><code>x</code>，<code>X</code>：向后/向前删除一个字符<br><code>dd</code>，<code>ndd</code>：删除当前行/向下删除 n 行<br><code>dw</code>：删除当前单词<br><code>yy</code>，<code>nyy</code>：复制当前行/向下复制 n 行<br><code>p</code>，<code>P</code>：将已复制的内容粘贴到光标的下一行/上一行<br><code>u</code>，<code>[Ctrl]+r</code>：撤销/恢复撤销<br><code>.</code>：重复上一个操作<br><code>v</code>，<code>V</code>，<code>[Ctrl]+v</code>：块选择，选取后用 y 和 d 来复制和删除<br>一般模式切换至编辑模式：<br><code>i</code>，<code>I</code>：插入模式，i 从当前光标插入，I 从行首插入<br><code>a</code>，<code>A</code>：插入模式，a 从当前光标前插入，A 从行尾插入<br><code>o</code>，<code>O</code>：插入模式，o 从下一行插入新行，O 从上一行插入新行<br><code>r</code>，<code>R</code>：替换字符，r 只替换一个字符，R 一直替换<br><code>cw</code>：替换单词，类似于 dw+i<br>命令行模式：<br><code>:w</code>，<code>:w!</code>：保存/强制保存<br><code>:q</code>，<code>:q!</code>：退出/退出但不保存<br><code>:wq</code>：保存且退出<br><code>:set nu</code>，<code>:set nonu</code>：显示行号/不显示行号<br><code>:!command</code>： 暂时离开 vi 执行命令 commad<br><code>:sh</code>，<code>[Ctrl]+d</code>：暂时离开 vi 执行多条命令，[Ctrl]+d 则回到 vi<br><code>/word</code>，<code>?word</code>：向下查找/向上查找<br><code>n</code>，<code>N</code>：进行查找后，寻找下一个/上一个匹配项<br><code>:n1,n2s/word1/word2/g</code>：在第 n1 和 n2 行间查找 word1，并替换成 word2<br><code>:n</code>，<code>:N</code>，<code>:files</code>：打开多个文件时（如 <code>vi file1 file2</code>），切换或显示不同的文件，<br>基本上常用到的就是这些了，更多的内容可以自己找找书上的内容，我这里列举的就当作是一个快速检索页面吧。当然你也可以自己学习 Emacs，不过总归是要学好一款编辑器的，有了它才能做很多事情啊，具体使用哪个编辑器就是你的自由啦！</p>
-<h1 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h1><p>相信大家应该接触过环境变量了，那就是 Windows 下安装 GrADS 时，最后需要 <code>set path</code>，才能正常使用。如果你还记得的话，就是在系统高级设置里面找到环境变量，然后在 <code>Path</code> 那个变量后面加上你装的 GrADS 的路径，这样你在 <code>cmd</code> 里面敲 <code>grads</code> 就可以运行它了。不过也许你还是不太了解什么叫环境变量？<br>总的来说 Linux 下的变量可分为环境变量和自定义变量。简而言之，自定义变量由用户定义，环境变量则由系统来定义。那变量有什么用呢？举个例子，当我们需要重复输入一个长路径的时候，可以通过自定义一个变量保存该路径，以达到减少输入量的目的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell ~]$ workdir=/home/N/Temp/solve_equation</span><br><span class="line">[N@Dell ~]$ cd $workdir</span><br><span class="line">[N@Dell solve_equation]$ pwd</span><br><span class="line">/home/N/Temp/solve_equation</span><br></pre></td></tr></table></figure></p>
-<p>这里定义了变量 <code>workdir</code>，调用这个变量内容时需要用到 <code>$workdir</code> 或者 <code>${workdir}</code> 的形式。这样就不用每次输入一长串路径了。而环境变量，则是系统定义的一系列与操作环境有关的变量，在命令行敲入 <code>env</code> 即可查看所有环境变量：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell solve_equation]$ env</span><br></pre></td></tr></table></figure></p>
-<p>当你使用 Linux 时，可能神不知鬼不觉地就用到了这些环境变量。我感觉其中关注较多的是 <code>PATH</code>，不过像 <code>HOME</code>、<code>SHELL</code>、<code>LANG</code>、<code>HISTSIZE</code> 和 <code>LD_LIBRARY_PATH</code> 等等也含有重要的信息啦，但这里重点要说的还是 <code>PATH</code> 以及 <code>.bashrc</code> 文件。对了，如果你想查看某个变量的值，可以这样：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell ~]$ echo $PATH</span><br></pre></td></tr></table></figure></p>
-<h1 id="PATH"><a href="#PATH" class="headerlink" title="PATH"></a>PATH</h1><p>Windows 下不设置 <code>Path</code> 将无法在命令行直接运行 <code>grads</code>。Linux 也一样，实际上 <code>PATH</code> 这个变量包含了执行文件的查找路径。当你敲入某个命令如 <code>vi</code> 时，系统会在 <code>PATH</code> 提供的路径里去找，看是否存在 <code>vi</code> 这个程序。如果找不到，那就无法运行 vi 咯，你可以试试这样的操作：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell ~]$ export PATH=</span><br></pre></td></tr></table></figure></p>
-<p>然后你会发现不能运行 <code>vi</code> 了，甚至连 <code>ls</code>、<code>cp</code> 等等也没用了，因为你的 <code>PATH</code> 没有值了，不过别急，重新打开终端就恢复了。<br>PS：一般设置自定义变量时直接写成 <code>var=...</code> 的形式，环境变量的修改则写成 <code>export var=...</code> 的形式。<br>简单来说，设置 <code>PATH</code> 使得你直接敲入命令名就能执行该命令，而不用敲命令的路径。前面将 <code>PATH</code> 设为空值以后，虽说敲 <code>vi</code> 没用，但你可以敲 <code>/usr/bin/vi</code> 啊！另一方面，你自己写了个 <code>hello</code>，你也可以把它的路径加到 <code>PATH</code> 里面，这样就能直接敲 <code>hello</code> 了：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell ~]$ export PATH=$PATH:/home/N/Temp</span><br><span class="line">[N@Dell ~]$ hello</span><br><span class="line"> Hello world!</span><br></pre></td></tr></table></figure></p>
-<p>需要说明的是，<code>PATH</code> 里的路径是执行文件所在文件夹，这里我在 <code>PATH</code> 里加上 <code>/home/N/Temp</code> 后，<code>/home/N/Temp</code> 下的所有执行文件都可以通过直接敲入程序名的方式来执行了。你不能把路径直接写到程序名，比如这样：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell ~]$ export PATH=$PATH:/home/N/Temp/hello</span><br><span class="line">[N@Dell ~]$ hello</span><br><span class="line">bash: hello: command not found...</span><br></pre></td></tr></table></figure></p>
-<p>让我们来设想另一个情景，当我们使用服务器时，由于是多个用户在使用，服务器上装了很多的软件，但是并不是所有软件都是你需要的。实际情况是，管理员只是负责把软件装好，至于谁想用，那就把要用的软件的路径加到你的 <code>PATH</code> 里，这也意味着每个用户的 <code>PATH</code> 的内容是不同的。再比如，服务器上某个软件装了好几个版本，而你由于兼容性问题要用老版本的软件，那也得把 <code>PATH</code> 里面该软件的路径改为老版本的路径。</p>
-<h1 id="bashrc文件"><a href="#bashrc文件" class="headerlink" title=".bashrc文件"></a>.bashrc文件</h1><p>另一个要说明的就是 <code>.bashrc</code> 文件了， <code>.bashrc</code> 文件相当于是“登录时自动设置”的脚本，免去了每次登录重新设置各种变量的麻烦。该文件位于用户家目录下（如 <code>/home/N/.bashrc</code>），其内容大致如下：<br><img src="/2017/08/19/06climate-linux-intro-3/pic_1.png" alt="pic_1.png" title=""><br>上一期提到过把 <code>hello</code> 的路径放到这个文件里，可以由程序名来直接运行程序。实际上是将前面提到的 <code>export PATH=$PATH:/home/N/Temp</code> 直接写到 <code>.bashrc</code> 文件中，这样就能在登录时自动设置 <code>PATH</code>，那么登录后就可以直接敲 <code>hello</code> 来运行它了。<br>在 <code>~/.bashrc</code> 文件里还可以对别名进行设置，即 <code>alias ...</code> 。这可是很好用的一个功能，只需要设置一个简称，就可以方便操作。在命令行下演示 <code>alias</code> 的用法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell ~]$ alias &quot;hello=/home/N/Temp/hello&quot;</span><br><span class="line">[N@Dell ~]$ hello</span><br><span class="line"> Hello world!</span><br></pre></td></tr></table></figure></p>
-<p>这里是通过设置 <code>alias</code> 来直接运行 <code>hello</code> 的，看起来设置 <code>alias</code> 和设置 <code>PATH</code> 差不多嘛！不过 <code>alias</code> 和 <code>PATH</code> 确实是两回事，起码后面的路径不相同（<code>alias</code> 是写出了 <code>hello</code> 的完整路径，<code>PATH</code> 里只写到文件夹），但最主要两者基本概念就不同，大家慢慢体会吧。<br>基本上 <code>.bashrc</code> 文件里就是设置 <code>alias</code> 和环境变量了吧，不过以后有什么特殊需求的话，也可能会在 <code>.bashrc</code> 里面写入其他的语句(如图中的 <code>ulimit ...</code>)。<br>对了，图里的 <code>source</code> 命令是啥？其实和 <code>export</code> 一样也是用来设置环境的，搜一下就懂咯~<br>有的机器上只有 <code>.kshrc</code> 没有 <code>.bashrc</code>？？那就修改 <code>.kshrc</code> 呗！</p>
-<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>这一期的内容其实涉及到 shell 及 shell script 的学习，不过它也挺复杂的，我只能从很浅的层面稍微介绍介绍。建议有时间可以多看看 shell 与 shell script 的内容，真的很重要！</p>
+<p>“Linux 入门教程”系列终于要进入尾声啦！在这最后一期里，我想讲讲有关服务器使用的一些问题。那么为什么要使用服务器呢，自己电脑不够用吗？是的！在科研刚开始的阶段，我也只是用个人电脑下下数据画画图，可是到后面接触了模式以后，计算量太大，数据也很多，就不得不依赖服务器了。服务器其实可以理解成比较厉害的计算机，其运算速度快，存储空间大，因此数值模式一般都会在服务器上运行。但正因为服务器比较好用，大家都抢着用它，所以“多个用户如何充分利用好服务器的计算资源”就变得非常重要。这意味着，同样是使用 Linux 系统，在服务器上就需要考虑一些新的问题。</p>
+<h1 id="远程登录"><a href="#远程登录" class="headerlink" title="远程登录"></a>远程登录</h1><p>相比于个人电脑，服务器通常是多用户的，而且是多个用户同时使用的。在服务器管理员的管理下，每个用户在自己的目录下做着自己的事情，不会相互打扰。假如我现在向某个服务器的管理员申请到了一个帐户，可我要去哪里打开服务器并登录自己的帐号呢？实际上服务器一直都处于开机状态，并被集中放置在机房里，由专人进行管理，用户们只需要登录并使用它即可。当然大家并不会跑到机房里进行登录，而是采取远程登录的方式，只要连上局域网，就能在实验室或者宿舍使用服务器了。<br>不管自己的电脑是 Windows 系统还是 Linux 系统，我们一般都会采用 ssh 协议进行远程登录。在 Linux 下，输入 <code>ssh</code> 命令即可：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell ~]$ ssh $user@$ip</span><br></pre></td></tr></table></figure></p>
+<p>其中 <code>$user</code> 是你在服务器上的用户名，<code>$ip</code> 则是服务器的 IP 地址，输入命令后系统会提示你继续输入密码。如果是第一次连接，还会有个小提示，输 yes 就行啦。不过还有关于图形系统（X Window System）的问题，即按照上述命令登录以后，是无法进行画图显示的。比如我用 ncl 打开一个 x11，会显示 <code>--X driver error: DISPLAY environment variable not set</code>；再试试运行 MATLAB，发现它并没有启动图形窗口，而是直接进入了命令行模式。如果想要正常使用图形系统，只需在登录时加上一个选项：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell ~]$ ssh -X $user@$ip</span><br></pre></td></tr></table></figure></p>
+<p>如果想在 Windows 系统下登录服务器，则需要下载一个远程登录软件。这里我推荐一下 Xmanager，感觉它使用起来相对比较友好。Xmanager 包含多个应用程序，其中 Xshell 就是用来进行远程登录的，选择协议为 ssh 之后填上用户名、密码和 IP 就 OK 了。若要使用图形系统，记得运行一下 Xmanager - Passive。</p>
+<h1 id="文件传输"><a href="#文件传输" class="headerlink" title="文件传输"></a>文件传输</h1><p>远程登录没有问题了，可如何在个人电脑和服务器间进行文件传输呢？通常也是采用的 ssh 协议。如果使用 Linux 系统，则会用到 <code>scp</code> 命令，其用法类似于 <code>cp</code> 命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell ~]$ scp $user@$ip:$file $des</span><br><span class="line">[N@Dell ~]$ scp $file $user@$ip:$des</span><br></pre></td></tr></table></figure></p>
+<p>同样需要指定用户名、服务器 IP，同时要指明源文件 <code>$file</code> 及目标地址 <code>$des</code>。这里第一行是从服务器下载至本地，第二行是从本地上传至服务器，实际上就是在 <code>cp</code> 的用法基础上加入了 <code>$user@$ip</code>。如果要传输文件夹，当然也是加上 <code>-r</code> 选项啦（类似于 <code>cp</code> ）！<br>对了，顺带提一下 <code>rsync</code> 命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell ~]$ rsync -P --rsh=ssh $user@$ip:$file $dir</span><br><span class="line">[N@Dell ~]$ rsync -P --rsh=ssh $file $user@$ip:$dir</span><br></pre></td></tr></table></figure></p>
+<p>这是一个远程同步工具，功能比较强大。我们可以用它来代替 <code>scp</code> 进行文件传输，因为它能实现断点续传。这里不多做介绍了，大家可以自行百度。<br>对于 Windows 系统，假如你使用的是 Xmanager，只需要点击 Xshell 工具栏的“新建文件传输”按钮，就会出现文件传输的窗口了。咦，这个文件传输窗口叫 Xftp，难道是采用的 ftp 协议吗？可是我们服务器都没开 ftp 协议，不可能是 ftp 传输的，所以我猜测其实相当于用了 <code>scp</code> 命令。不过我也没有仔细去研究它 (;-_-)</p>
+<h1 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h1><p>尽管服务器性能优良，但用户一多就得考虑合理分配的问题。而作为用户，我们要时刻注意自己的使用情况，如 CPU 和内存的占用率、磁盘配额、文件系统限制等等。由于用户管理是一个比较大的问题，我现有的经验也比较零散，所以决定从几个重要命令入手，给大家说说我关注的问题吧。<br><code>free</code>、<code>top</code><br><code>free</code> 可以查看内存使用情况，而 <code>top</code> 可以查看进程的 CPU 占用率、内存占用率、优先级等。这类似于在 Windows 下查看任务管理器，来了解机器运行状况。如果服务器负载过高，可以跟管理员反馈反馈。<br><code>df</code>、<code>du</code><br>了解服务器的总存储空间大小是很重要的，所以需要用到 <code>df</code> 命令。知道了总空间大小，当然也得知道自己目录占了多少空间，一般输入 <code>du -sh dir</code> 就可以查看 <code>dir</code> 的大小了。<br><code>ps</code><br><code>ps</code> 可以查看进程的运行情况。直接输 <code>ps</code> 可以查看当前会话的进程，若要查看自己所有的进程（包括其他会话的进程以及后台进程），则可以输入 <code>ps -fu $user</code>，<code>$user</code> 即用户名。若输入 <code>ps -fe</code>，则会显示所有用户的所有进程。<br><code>quota</code><br>因为服务器是供多用户使用的，所以对每个用户限定其可用磁盘空间也是理所当然的。大家使用服务器时是否遇到过无法写入磁盘的问题呢？有可能就是磁盘额度不够造成的。如果额度不够了，就只能删掉那些没用的文件，释放空间之后才能写入。这时候就得用 <code>quota</code> 看看总额度是多少，以及需要腾出多少空间。<br><code>ulimit</code><br>除了磁盘空间，用户的可打开文件数、可使用内存总量、可使用进程数等等也会被限制，相关信息的查看与设置需要用到 <code>ulimit</code> 命令。如 <code>ulimit -n</code> 设置可打开文件数，<code>ulimit -u</code> 设置可使用进程数。还有在运行模式时，如果出现 <code>segmentation fault</code>，有可能是 <code>ulimit</code> 设置问题，可以尝试输入 <code>ulimit -s unlimited</code> 来解决。需要注意的是，用户并不能随心所欲地使用 <code>ulimit</code> 来进行调整哦~</p>
+<h1 id="后台运行"><a href="#后台运行" class="headerlink" title="后台运行"></a>后台运行</h1><p>有时候我们的程序要运行很久，如果需要等它运行完才能进行其他操作，难免会有不便之处。解决的办法就是把程序挂到后台运行，这样就能继续输入其他命令，甚至退出登录也不会影响程序的运行。<br>比如我在服务器上运行 <code>matlab</code> 之后，会话窗口就不能输入其他命令了。这时按下 <code>Ctrl+z</code>，<code>matlab</code> 会被临时挂起，输入 <code>jobs</code> 就能查看到 <code>matlab</code> 的运行情况。根据 <code>jobs</code> 的显示，我们再使用 <code>bg</code> 命令，即可把 <code>matlab</code> 移至后台。具体过程如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell ~]$ matlab</span><br><span class="line">[Ctrl+z]</span><br><span class="line">[1]+  Stopped                 matlab</span><br><span class="line">[N@Dell ~]$ bg 1</span><br><span class="line">[1]+ matlab &amp;</span><br><span class="line">[N@Dell ~]$</span><br></pre></td></tr></table></figure></p>
+<p>当然，我们也可以通过 <code>fg 1</code> 命令，来将 <code>matlab</code> 重新移至前台，此时又回到了无法继续输入命令的状态。<br>让我们考虑另一种情况：我用 ncl 对大量数据进行插值，并将插值后的数据保存成文件，但我算了一下时间，完成所有插值需要一天，那我岂不是要一整天都开着电脑并保持登录状态？万一网络出错，连接超时了，程序不就断啦！没错，这样就需要后台运行了，不过为了保证退出登录后程序仍会运行，需要用到 <code>nohup</code> 命令。由于上述 <code>matlab</code> 例子的操作比较繁琐，我们采用一种更为简便的方式来实现：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell ~]$ nohup ncl interp.ncl &gt; interp.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure></p>
+<p>平常情况下，我们会输入 <code>ncl interp.ncl</code> 来运行脚本。而这里，首先我通过 <code>&gt; interp.log 2&gt;&amp;1</code> 将标准输出和标准错误输出重定向到 <code>interp.log</code> 文件里。然后在命令末端加上 <code>&amp;</code> 符号，可将程序移至后台运行。最后在命令首端加上 <code>nohup</code>，以保证退出登录后程序不会中断。之后就可以退出登录，关闭电脑，等一天过后再来查看了。<br>关于程序的后台运行，我只推荐在小型服务器上进行，如自己老板的服务器。对于大型服务器，如全院或全校共同使用的机群，就不要自行将程序移至后台了。对于机群来说（机群包含多台计算机，每台计算机为一个节点），通常会分成登录节点和计算节点，各种程序都应该被放到计算节点上运行。按照刚才的方式，我们会直接在登录节点上将程序转至后台，而无法将它们放到计算节点上去。另一方面，即使是登录到计算节点后再进行后台运行，如果多个用户在同一节点上长时间运行程序，该节点就会变得拥挤，而其他节点却很空闲，这样就不利于服务器的合理利用了。因此服务器通常不会允许用户长时间地自行运行程序（不管是前台运行还是后台运行），而是让用户经由作业系统来运行大型程序。</p>
+<h1 id="作业系统"><a href="#作业系统" class="headerlink" title="作业系统"></a>作业系统</h1><p>对于机群而言，用户一般在登录节点上登录，但不在登录节点上运行程序，而是经由系统将程序放到计算节点上。其中完成分配工作的就是作业系统了。当新任务提交时，作业系统会对目前机群使用情况进行分析，并根据该任务所需资源，来决定最终使用哪几个计算节点。作业系统实际上就是个管理软件，而这管理软件在不同服务器上可能是不同的。我之前在好几个服务器上接触了不同的作业系统（如 SLURM、Platform LSF 和 LoadLeveler），发现不同的作业系统有着相同的用法，学起来也是一通百通。这里我就以 Platform LSF 为例来讲讲基本用法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[N@Dell ~]$ bhosts</span><br><span class="line">[N@Dell ~]$ bsub -a openmpi -n 40 -e test.err -o test.out mpirun.lsf ./test</span><br><span class="line">[N@Dell ~]$ bjobs</span><br><span class="line">[N@Dell ~]$ bkill jobid</span><br></pre></td></tr></table></figure></p>
+<p>首先 <code>bhosts</code> 可以查看各节点的占用情况，然后用 <code>bsub</code> 来提交作业，之后用 <code>bjobs</code> 查看当前作业运行情况，而如果想终止作业的话可以使用 <code>bkill</code>。其中 <code>bsub</code> 后的 <code>-a openmpi</code> 指定了采用的并行方式为 <code>openmpi</code>，<code>-n 40</code> 指定程序将使用40个核，<code>-e test.err -o test.out</code> 指定标准输出和错误输出的日志文件，<code>mpirun.lsf ./test</code> 则为所运行的程序。<code>bkill</code> 之后接作业编号，该编号由 <code>bjobs</code> 查询得到。<br>简单来看，使用作业系统基本就是这四条命令了，是不是很简单呢？当然你可以自己去查看其他命令，也可以去了解其他作业系统，这里我就不再赘述了。</p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>终于到了完结撒花的时候啦！虽说一开始我就已经想好所有7期的主题了，但在确定每期的具体内容时总是思前想后，困扰不已，也曾因为太忙而拖了好久没写。这个系列算是我第一次尝试在微信公众号上发表连载文章，只能说深切体会到了写文章的不易。当然了，我感觉自己得到了不少锻炼，也希望大家看了我的文章以后能有一些帮助。如果大家觉得我写得不好，欢迎指正，任何合理意见与建议我都会好好听取的，下次再有机会的话我会努力做更好~ ◕‿◕</p>
 
       
     </div>
@@ -389,17 +380,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/19/06climate-linux-intro-2/" rel="next" title="Linux 入门教程——基本操作与常用命令">
-                <i class="fa fa-chevron-left"></i> Linux 入门教程——基本操作与常用命令
+              <a href="/2017/08/21/06climate-linux-intro-6/" rel="next" title="Linux 入门教程——模式使用">
+                <i class="fa fa-chevron-left"></i> Linux 入门教程——模式使用
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/08/21/06climate-linux-intro-4/" rel="prev" title="Linux 入门教程——编写程序">
-                Linux 入门教程——编写程序 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -414,10 +401,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2017/08/19/06climate-linux-intro-3/"
-     data-title="Linux 入门教程——vi 与环境变量"
+        <div class="ds-share flat" data-thread-key="2017/08/22/06climate-linux-intro-7/"
+     data-title="Linux 入门教程——服务器使用"
      data-content=""
-     data-url="http://nearsc.github.io/2017/08/19/06climate-linux-intro-3/">
+     data-url="http://nearsc.github.io/2017/08/22/06climate-linux-intro-7/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -444,8 +431,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/08/19/06climate-linux-intro-3/"
-           data-title="Linux 入门教程——vi 与环境变量" data-url="http://nearsc.github.io/2017/08/19/06climate-linux-intro-3/">
+      <div class="ds-thread" data-thread-key="2017/08/22/06climate-linux-intro-7/"
+           data-title="Linux 入门教程——服务器使用" data-url="http://nearsc.github.io/2017/08/22/06climate-linux-intro-7/">
       </div>
     
   </div>
@@ -592,7 +579,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#vi"><span class="nav-number">1.</span> <span class="nav-text">vi</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#环境变量"><span class="nav-number">2.</span> <span class="nav-text">环境变量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PATH"><span class="nav-number">3.</span> <span class="nav-text">PATH</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bashrc文件"><span class="nav-number">4.</span> <span class="nav-text">.bashrc文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结语"><span class="nav-number">5.</span> <span class="nav-text">结语</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#远程登录"><span class="nav-number">1.</span> <span class="nav-text">远程登录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文件传输"><span class="nav-number">2.</span> <span class="nav-text">文件传输</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#用户管理"><span class="nav-number">3.</span> <span class="nav-text">用户管理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后台运行"><span class="nav-number">4.</span> <span class="nav-text">后台运行</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#作业系统"><span class="nav-number">5.</span> <span class="nav-text">作业系统</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结语"><span class="nav-number">6.</span> <span class="nav-text">结语</span></a></li></ol></div>
             
           </div>
         </section>
