@@ -92,7 +92,7 @@
 <meta property="og:url" content="http://nearsc.github.io/2017/08/23/cice-intro/index.html">
 <meta property="og:site_name" content="Not Cool">
 <meta property="og:description" content="在学习模式以及调试模式的过程中，我不太习惯把每个步骤或细节都记录下来，也懒得把一些关于模式的有用信息整理成文档。我自己要查看某些信息的时候，就直接去源代码里看了。话虽如此，整理工作还是很有必要的。这里就先写一份海冰模式 CICE 的使用手册，以供师弟师妹们查阅。">
-<meta property="og:updated_time" content="2017-09-04T15:29:14.380Z">
+<meta property="og:updated_time" content="2017-09-10T16:09:40.894Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CICE 使用手册">
 <meta name="twitter:description" content="在学习模式以及调试模式的过程中，我不太习惯把每个步骤或细节都记录下来，也懒得把一些关于模式的有用信息整理成文档。我自己要查看某些信息的时候，就直接去源代码里看了。话虽如此，整理工作还是很有必要的。这里就先写一份海冰模式 CICE 的使用手册，以供师弟师妹们查阅。">
@@ -361,7 +361,175 @@
 <p>日志文件里面也有程序终止的相关信息：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[scnie@Leo1 rundir]$ tail -n 1 170823-181336.out </span><br><span class="line">20 total processes killed (some possibly by mpirun during cleanup)</span><br></pre></td></tr></table></figure></p>
 <p>以及再次使用 <code>ps</code> 命令时，<code>cice</code> 的进程全部消失：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[scnie@Leo1 rundir]$ ps -ef|grep scnie</span><br><span class="line">root     25976  5300  0 18:21 ?        00:00:00 sshd: scnie [priv]</span><br><span class="line">scnie    25978 25976  0 18:21 ?        00:00:00 sshd: scnie@pts/2</span><br><span class="line">scnie    25979 25978  0 18:21 pts/2    00:00:00 -bash</span><br><span class="line">scnie    26046 25979  0 18:31 pts/2    00:00:00 ps -ef</span><br><span class="line">scnie    26047 25979  0 18:31 pts/2    00:00:00 grep --color=auto scnie</span><br></pre></td></tr></table></figure></p>
 <p>通过上面的这些操作，你就可以最低限度地正常使用 CICE 了。至于如何进一步控制 CICE 的模拟（如修改模拟时段等），我会在后面的内容里提供相关信息以及具体操作方法。<br>对了，有一点需要注意一下，由于我们服务器较小，最好不要同时运行多个模式试验。所以运行模式前相互打好招呼，一次只由一人运行一个模式试验，不然服务器会变得特别慢~</p>
-<h1 id="模式组成"><a href="#模式组成" class="headerlink" title="模式组成"></a><span style="color: #5275D5;">模式组成</span></h1><h2 id="文件目录结构"><a href="#文件目录结构" class="headerlink" title="文件目录结构"></a>文件目录结构</h2><h2 id="模式配置文件"><a href="#模式配置文件" class="headerlink" title="模式配置文件"></a>模式配置文件</h2><h3 id="comp-ice"><a href="#comp-ice" class="headerlink" title="comp_ice"></a>comp_ice</h3><h3 id="ice-in"><a href="#ice-in" class="headerlink" title="ice_in"></a>ice_in</h3><p>CICE 的大部分模式配置都在 <code>ice_in</code> 文件里进行，该文件的存放位置为 <code>$SYSTEM_USERDIR/src/input_templates/$RES/ice_in</code>。这里 <code>$SYSTEM_USERDIR</code> 即为前文中提到过的模式根目录，而 <code>$RES</code> 则应随分辨率的改变而取不同的值。实际上根据分辨率的不同，模式需使用不同的 <code>ice_in</code> 文件，这些文件被分别放在了以分辨率为名的各个文件夹下。根据 <code>$RES</code> 所取的不同的值，<code>comp_ice</code> 在编译模式的同时，会将相应的 <code>$SYSTEM_USERDIR/src/input_templates/$RES/ice_in</code> 文件拷贝到 <code>$SYSTEM_USERDIR/rundir</code> 下。这意味着，你可以在编译前先修改 <code>$SYSTEM_USERDIR/src/input_templates/$RES/ice_in</code>，也可以编译后直接修改 <code>$SYSTEM_USERDIR/rundir/ice_in</code>。我的建议是采用前者的方式，因为这样可以对修改进行存档，即使你把 <code>rundir</code> 删掉了，你所做的修改也仍然放在 <code>$SYSTEM_USERDIR/src/input_templates/$RES</code> 下。但需要记住 <code>$SYSTEM_USERDIR/rundir/ice_in</code> 才是模式真正读取的文件。<br><code>ice_in</code> 文件里的参数名及其描述如下（点击展开）：</p>
+<h1 id="模式组成"><a href="#模式组成" class="headerlink" title="模式组成"></a><span style="color: #5275D5;">模式组成</span></h1><h2 id="文件目录结构"><a href="#文件目录结构" class="headerlink" title="文件目录结构"></a>文件目录结构</h2><p><span id="dsinfo" style="display: none;">
+  0:src
+  1:bld
+  2:Macros.Darwin.CPOM.mi2
+  2:Macros.Darwin.LANL.bigsuze
+  2:Macros.Linux.LANL.conejo
+  2:Macros.Linux.NCAR.yellowstone
+  2:Macros.Linux.ORNL.jaguar
+  2:Macros.Linux.Ubuntu
+  2:makdep.c
+  2:Makefile
+  2:Makefile.Darwin
+  2:Makefile.std
+  2:Makefile.UNICOS
+  1:comp_ice
+  1:csm_share
+  2:README
+  2:shr_orb_mod.F90
+  1:doc
+  2:cicedoc.pdf
+  2:PDF
+  3:BFLM_OceMod2013.pdf
+  3:BL_JGR1999.pdf
+  3:BL_NCAR2007.pdf
+  3:CGHM_JPO2004.pdf
+  3:DB_JCP2000.pdf
+  3:Elliot_etal_JGR2012.pdf
+  3:FSFH_JGR2012.pdf
+  3:HBBLH_JClim2012.pdf
+  3:HD_JPO1997.pdf
+  3:HD_MWR2002.pdf
+  3:HHL_OceMod2013.pdf
+  3:Hunke_JCP2001.pdf
+  3:HZ_MWR1999.pdf
+  3:LAUR-03-2219.pdf
+  3:LHMJ_JGR07.pdf
+  3:LH_MWR2004.pdf
+  3:Lipscomb_JGR2001.pdf
+  3:TFW_JGR2013.pdf
+  3:THB_JGR2013.pdf
+  1:drivers
+  2:cice
+  3:CICE.F90
+  3:CICE_FinalMod.F90
+  3:CICE_InitMod.F90
+  3:CICE_RunMod.F90
+  3:CICE_RunMod.F90_debug
+  3:ice_constants.F90
+  2:hadgem3
+  3:CICE.F90
+  3:CICE_FinalMod.F90
+  3:CICE_InitMod.F90
+  3:CICE_RunMod.F90
+  3:ice_constants.F90
+  1:ice.log.Linux.LANL.conejo
+  1:input_templates
+  2:col
+  3:ice_in
+  2:convert_restarts.f90
+  2:gx1
+  3:global_gx1.grid
+  3:global_gx1.kmt
+  3:ice.restart_file
+  3:iced_gx1_v5.nc
+  3:ice_in
+  3:ice_in.v4.1
+  2:gx3
+  3:global_gx3.grid
+  3:global_gx3.grid.nc
+  3:global_gx3.kmt
+  3:global_gx3.kmt.nc
+  3:ice.restart_file
+  3:iced_gx3_v5.nc
+  3:ice_in
+  2:run_ice.Darwin.CPOM.mi2
+  2:run_ice.Linux.LANL.conejo
+  2:run_ice.Linux.NCAR.yellowstone
+  2:run_ice.Linux.ORNL.jaguar
+  2:run_ice.Linux.Ubuntu
+  1:io_binary
+  2:ice_history_write.F90
+  2:ice_restart.F90
+  1:io_netcdf
+  2:ice_history_write.F90
+  2:ice_restart.F90
+  1:io_pio
+  2:ice_history_write.F90
+  2:ice_pio.F90
+  2:ice_restart.F90
+  1:mpi
+  2:ice_boundary.F90
+  2:ice_broadcast.F90
+  2:ice_communicate.F90
+  2:ice_exit.F90
+  2:ice_gather_scatter.F90
+  2:ice_global_reductions.F90
+  2:ice_timers.F90
+  1:README_v5.0
+  1:serial
+  2:ice_boundary.F90
+  2:ice_broadcast.F90
+  2:ice_communicate.F90
+  2:ice_exit.F90
+  2:ice_gather_scatter.F90
+  2:ice_global_reductions.F90
+  2:ice_timers.F90
+  1:source
+  2:ice_aerosol.F90
+  2:ice_age.F90
+  2:ice_algae.F90
+  2:ice_atmo.F90
+  2:ice_blocks.F90
+  2:ice_brine.F90
+  2:ice_calendar.F90
+  2:ice_diagnostics.F90
+  2:ice_distribution.F90
+  2:ice_domain.F90
+  2:ice_domain_size.F90
+  2:ice_dyn_eap.F90
+  2:ice_dyn_evp.F90
+  2:ice_dyn_shared.F90
+  2:ice_fileunits.F90
+  2:ice_firstyear.F90
+  2:ice_flux.F90
+  2:ice_forcing.F90
+  2:ice_grid.F90
+  2:ice_history.F90
+  2:ice_history_bgc.F90
+  2:ice_history_drag.F90
+  2:ice_history_mechred.F90
+  2:ice_history_pond.F90
+  2:ice_history_shared.F90
+  2:ice_init.F90
+  2:ice_itd.F90
+  2:ice_kinds_mod.F90
+  2:ice_lvl.F90
+  2:ice_mechred.F90
+  2:ice_meltpond_cesm.F90
+  2:ice_meltpond_lvl.F90
+  2:ice_meltpond_topo.F90
+  2:ice_ocean.F90
+  2:ice_orbital.F90
+  2:ice_read_write.F90
+  2:ice_restart_driver.F90
+  2:ice_restart_shared.F90
+  2:ice_restoring.F90
+  2:ice_shortwave.F90
+  2:ice_spacecurve.F90
+  2:ice_state.F90
+  2:ice_step_mod.F90
+  2:ice_therm_0layer.F90
+  2:ice_therm_bl99.F90
+  2:ice_therm_itd.F90
+  2:ice_therm_mushy.F90
+  2:ice_therm_shared.F90
+  2:ice_therm_vertical.F90
+  2:ice_transport_driver.F90
+  2:ice_transport_remap.F90
+  2:ice_zbgc.F90
+  2:ice_zbgc_shared.F90
+</span></p>
+<p><form action="" id="form1"></form></p>
+<script type="text/javascript" src="/js/dirstruct.js"></script>
+<script type="text/javascript">
+  dirstruct = new DirStruct();
+  dirstruct.initDirStruct("dsinfo", "form1");
+</script>
+
+<h2 id="模式配置文件"><a href="#模式配置文件" class="headerlink" title="模式配置文件"></a>模式配置文件</h2><h3 id="comp-ice"><a href="#comp-ice" class="headerlink" title="comp_ice"></a>comp_ice</h3><h3 id="ice-in"><a href="#ice-in" class="headerlink" title="ice_in"></a>ice_in</h3><p>CICE 的大部分模式配置都在 <code>ice_in</code> 文件里进行，该文件的存放位置为 <code>$SYSTEM_USERDIR/src/input_templates/$RES/ice_in</code>。这里 <code>$SYSTEM_USERDIR</code> 即为前文中提到过的模式根目录，而 <code>$RES</code> 则应随分辨率的改变而取不同的值。实际上根据分辨率的不同，模式需使用不同的 <code>ice_in</code> 文件，这些文件被分别放在了以分辨率为名的各个文件夹下。根据 <code>$RES</code> 所取的不同的值，<code>comp_ice</code> 在编译模式的同时，会将相应的 <code>$SYSTEM_USERDIR/src/input_templates/$RES/ice_in</code> 文件拷贝到 <code>$SYSTEM_USERDIR/rundir</code> 下。这意味着，你可以在编译前先修改 <code>$SYSTEM_USERDIR/src/input_templates/$RES/ice_in</code>，也可以编译后直接修改 <code>$SYSTEM_USERDIR/rundir/ice_in</code>。我的建议是采用前者的方式，因为这样可以对修改进行存档，即使你把 <code>rundir</code> 删掉了，你所做的修改也仍然放在 <code>$SYSTEM_USERDIR/src/input_templates/$RES</code> 下。但需要记住 <code>$SYSTEM_USERDIR/rundir/ice_in</code> 才是模式真正读取的文件。<br><code>ice_in</code> 文件里的参数名及其描述如下（点击展开）：</p>
 <h4 id="amp-setup-nml"><a href="#amp-setup-nml" class="headerlink" title="&amp;setup_nml"></a><span style="cursor: pointer;" onmouseover="this.style.color='#3FC7B0'" onmouseout="this.style.color=''" onclick="state=this.parentNode.nextSibling;if(state.style.display!='none')state.style.display='none';else state.style.display='';"><em>&amp;setup_nml</em></span></h4><table>
 <thead>
 <tr>
@@ -2068,7 +2236,11 @@
 <h2 id="强迫场设置"><a href="#强迫场设置" class="headerlink" title="强迫场设置"></a>强迫场设置</h2><h2 id="时间设置"><a href="#时间设置" class="headerlink" title="时间设置"></a>时间设置</h2><p>CICE 的时间设置主要涉及到 <code>ice_in</code> 文件里的 <code>year_init</code>、<code>dt</code>、<code>npt</code>、<code>fyear_init</code>、<code>ycycle</code> 参数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">, year_init      = 1979</span><br><span class="line">, dt             = 3600.0</span><br><span class="line">, npt            = 271560</span><br><span class="line">, fyear_init      = 1979</span><br><span class="line">, ycycle          = 31</span><br></pre></td></tr></table></figure></p>
 <p><code>year_init</code> 为模式的起始年份，<code>dt</code> 为时间步长（秒），<code>npt</code> 为模式运行的总步数。若要改变模式运行时间，通常先修改模式开始的年份 <code>year_init</code>；然后根据你要运行的总时间以及 <code>dt</code>，计算得到模式运行的总步数 <code>npt</code>，如 31 年即 977616000 秒，则 <code>npt=977616000/3600=271560</code>。一般不对时间步长 <code>dt</code> 进行修改。<br>修改完模式运行时间，还要对强迫场时间进行修改，即强迫场开始的年份 <code>fyear_init</code> 与强迫场循环年数 <code>ycycle</code>。大多数情况下，强迫场时间会与模式运行时间保持一致，如这里两者均设置成了 1979-2009 年。但实际上两者是相互独立的，比如我可以改为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">, year_init      = 1979</span><br><span class="line">, dt             = 3600.0</span><br><span class="line">, npt            = 271560</span><br><span class="line">, fyear_init      = 1990</span><br><span class="line">, ycycle          = 10</span><br></pre></td></tr></table></figure></p>
 <p>那么就会用 1990-1999 年的强迫场来循环强迫，即重复利用这 10 年的强迫场来完成 31 年的模拟。它的实际含义即为“90 年代气候特征背景下的海冰模拟结果”。</p>
-<h2 id="输出控制"><a href="#输出控制" class="headerlink" title="输出控制"></a>输出控制</h2>
+<h2 id="输出控制"><a href="#输出控制" class="headerlink" title="输出控制"></a>输出控制</h2><p>输出控制主要涉及到 <code>ice_in</code> 文件里的如下字段：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">  , histfreq       = &apos;m&apos;,&apos;x&apos;,&apos;x&apos;,&apos;x&apos;,&apos;x&apos;</span><br><span class="line">  , histfreq_n     =  1 , 1 , 1 , 1 , 1</span><br><span class="line">  , hist_avg       = .true.</span><br><span class="line">  , history_dir    = &apos;./history/&apos;</span><br><span class="line">  , history_file   = &apos;iceh&apos;</span><br><span class="line">......</span><br><span class="line">  , f_aice         = &apos;m&apos; </span><br><span class="line">......</span><br></pre></td></tr></table></figure></p>
+<p>你可以通过 <code>history_dir</code> 和 <code>history_file</code> 来设置模式输出文件的命名和存放位置。实际上，我们更多情况下是要对模式输出的频率进行控制。CICE 可以设置多种输出频率，如可以同时按逐月和逐日进行输出。首先需要对 <code>histfreq</code> 和 <code>histfreq_n</code> 进行修改，其中前者是输出频率的单位，后者为具体数值。我们通过一个例子来说明：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">, histfreq       = &apos;m&apos;,&apos;d&apos;,&apos;h&apos;,&apos;x&apos;,&apos;x&apos;</span><br><span class="line">, histfreq_n     =  1 , 1 , 6 , 1 , 1</span><br></pre></td></tr></table></figure></p>
+<p>这样设置之后，CICE 就可以同时按逐月、逐日以及逐六小时的频率进行输出了。当然，<code>histfreq</code> 最多可以设置五种频率，其可取的值包括 <code>y</code>、<code>m</code>、<code>d</code>、<code>h</code>、<code>l</code>，即年、月、日、小时、时步，而用不到的就设成 <code>x</code>。通过 <code>histfreq</code> 和 <code>histfreq_n</code> 我们设置的是模式的整体输出频率，之后还得对每个变量进行设置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">......</span><br><span class="line">  , f_aice         = &apos;m&apos;</span><br><span class="line">  , f_hi           = &apos;h&apos;</span><br><span class="line">  , f_hs           = &apos;d&apos;</span><br><span class="line">  , f_Tsfc         = &apos;mh&apos;</span><br><span class="line">  , f_sice         = &apos;x&apos;</span><br><span class="line">......</span><br></pre></td></tr></table></figure></p>
+<p>结合 <code>histfreq</code> 和 <code>histfreq_n</code> 的值，就可以控制 CICE 对前四个变量分别按逐月、逐六小时、逐日、逐月及逐六小时来进行输出，而不输出第五个变量。</p>
+
       
     </div>
 

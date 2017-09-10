@@ -6,7 +6,7 @@ const cemphasize = "#000099";
 const cwrong = "#ffbfbf";
 
 function Sudoku () {
-	// Attributes
+	// Properties
 	//   Arrays
 	this.tabPuzzle = new Array(9);
 	for (var i = 0; i < this.tabPuzzle.length; i++)
@@ -44,7 +44,7 @@ function Sudoku () {
 	this.updatePrompt = updatePrompt;
 }
 
-function initSudoku(node, objsudoku) {
+function initSudoku (node) {
 	// Initialize arrays
 	for (var i = 0; i < 9; i++)
 		for (var j = 0; j < 9; j++) {
@@ -55,10 +55,10 @@ function initSudoku(node, objsudoku) {
 		}
 
 	// Create gird
-	this.grid = createGrid(node, this.tabCurrent, objsudoku);
+	this.grid = createGrid(node, this.tabCurrent, this);
 
 	// Create UI
-	this.prompt = createSudokuUI(node, objsudoku);
+	this.prompt = createSudokuUI(node, this);
 }
 
 function createSudoku (type) {

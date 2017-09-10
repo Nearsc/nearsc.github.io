@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://nearsc.github.io/"/>
-  <updated>2017-09-04T15:29:14.380Z</updated>
+  <updated>2017-09-10T16:09:40.894Z</updated>
   <id>http://nearsc.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://nearsc.github.io/2017/08/23/cice-intro/"/>
     <id>http://nearsc.github.io/2017/08/23/cice-intro/</id>
     <published>2017-08-23T06:38:52.000Z</published>
-    <updated>2017-09-04T15:29:14.380Z</updated>
+    <updated>2017-09-10T16:09:40.894Z</updated>
     
     <content type="html">&lt;p&gt;在学习模式以及调试模式的过程中，我不太习惯把每个步骤或细节都记录下来，也懒得把一些关于模式的有用信息整理成文档。我自己要查看某些信息的时候，就直接去源代码里看了。话虽如此，整理工作还是很有必要的。这里就先写一份海冰模式 CICE 的使用手册，以供师弟师妹们查阅。&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -51,7 +51,175 @@
 &lt;p&gt;日志文件里面也有程序终止的相关信息：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[scnie@Leo1 rundir]$ tail -n 1 170823-181336.out &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20 total processes killed (some possibly by mpirun during cleanup)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;以及再次使用 &lt;code&gt;ps&lt;/code&gt; 命令时，&lt;code&gt;cice&lt;/code&gt; 的进程全部消失：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[scnie@Leo1 rundir]$ ps -ef|grep scnie&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;root     25976  5300  0 18:21 ?        00:00:00 sshd: scnie [priv]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;scnie    25978 25976  0 18:21 ?        00:00:00 sshd: scnie@pts/2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;scnie    25979 25978  0 18:21 pts/2    00:00:00 -bash&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;scnie    26046 25979  0 18:31 pts/2    00:00:00 ps -ef&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;scnie    26047 25979  0 18:31 pts/2    00:00:00 grep --color=auto scnie&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;通过上面的这些操作，你就可以最低限度地正常使用 CICE 了。至于如何进一步控制 CICE 的模拟（如修改模拟时段等），我会在后面的内容里提供相关信息以及具体操作方法。&lt;br&gt;对了，有一点需要注意一下，由于我们服务器较小，最好不要同时运行多个模式试验。所以运行模式前相互打好招呼，一次只由一人运行一个模式试验，不然服务器会变得特别慢~&lt;/p&gt;
-&lt;h1 id=&quot;模式组成&quot;&gt;&lt;a href=&quot;#模式组成&quot; class=&quot;headerlink&quot; title=&quot;模式组成&quot;&gt;&lt;/a&gt;&lt;span style=&quot;color: #5275D5;&quot;&gt;模式组成&lt;/span&gt;&lt;/h1&gt;&lt;h2 id=&quot;文件目录结构&quot;&gt;&lt;a href=&quot;#文件目录结构&quot; class=&quot;headerlink&quot; title=&quot;文件目录结构&quot;&gt;&lt;/a&gt;文件目录结构&lt;/h2&gt;&lt;h2 id=&quot;模式配置文件&quot;&gt;&lt;a href=&quot;#模式配置文件&quot; class=&quot;headerlink&quot; title=&quot;模式配置文件&quot;&gt;&lt;/a&gt;模式配置文件&lt;/h2&gt;&lt;h3 id=&quot;comp-ice&quot;&gt;&lt;a href=&quot;#comp-ice&quot; class=&quot;headerlink&quot; title=&quot;comp_ice&quot;&gt;&lt;/a&gt;comp_ice&lt;/h3&gt;&lt;h3 id=&quot;ice-in&quot;&gt;&lt;a href=&quot;#ice-in&quot; class=&quot;headerlink&quot; title=&quot;ice_in&quot;&gt;&lt;/a&gt;ice_in&lt;/h3&gt;&lt;p&gt;CICE 的大部分模式配置都在 &lt;code&gt;ice_in&lt;/code&gt; 文件里进行，该文件的存放位置为 &lt;code&gt;$SYSTEM_USERDIR/src/input_templates/$RES/ice_in&lt;/code&gt;。这里 &lt;code&gt;$SYSTEM_USERDIR&lt;/code&gt; 即为前文中提到过的模式根目录，而 &lt;code&gt;$RES&lt;/code&gt; 则应随分辨率的改变而取不同的值。实际上根据分辨率的不同，模式需使用不同的 &lt;code&gt;ice_in&lt;/code&gt; 文件，这些文件被分别放在了以分辨率为名的各个文件夹下。根据 &lt;code&gt;$RES&lt;/code&gt; 所取的不同的值，&lt;code&gt;comp_ice&lt;/code&gt; 在编译模式的同时，会将相应的 &lt;code&gt;$SYSTEM_USERDIR/src/input_templates/$RES/ice_in&lt;/code&gt; 文件拷贝到 &lt;code&gt;$SYSTEM_USERDIR/rundir&lt;/code&gt; 下。这意味着，你可以在编译前先修改 &lt;code&gt;$SYSTEM_USERDIR/src/input_templates/$RES/ice_in&lt;/code&gt;，也可以编译后直接修改 &lt;code&gt;$SYSTEM_USERDIR/rundir/ice_in&lt;/code&gt;。我的建议是采用前者的方式，因为这样可以对修改进行存档，即使你把 &lt;code&gt;rundir&lt;/code&gt; 删掉了，你所做的修改也仍然放在 &lt;code&gt;$SYSTEM_USERDIR/src/input_templates/$RES&lt;/code&gt; 下。但需要记住 &lt;code&gt;$SYSTEM_USERDIR/rundir/ice_in&lt;/code&gt; 才是模式真正读取的文件。&lt;br&gt;&lt;code&gt;ice_in&lt;/code&gt; 文件里的参数名及其描述如下（点击展开）：&lt;/p&gt;
+&lt;h1 id=&quot;模式组成&quot;&gt;&lt;a href=&quot;#模式组成&quot; class=&quot;headerlink&quot; title=&quot;模式组成&quot;&gt;&lt;/a&gt;&lt;span style=&quot;color: #5275D5;&quot;&gt;模式组成&lt;/span&gt;&lt;/h1&gt;&lt;h2 id=&quot;文件目录结构&quot;&gt;&lt;a href=&quot;#文件目录结构&quot; class=&quot;headerlink&quot; title=&quot;文件目录结构&quot;&gt;&lt;/a&gt;文件目录结构&lt;/h2&gt;&lt;p&gt;&lt;span id=&quot;dsinfo&quot; style=&quot;display: none;&quot;&gt;
+  0:src
+  1:bld
+  2:Macros.Darwin.CPOM.mi2
+  2:Macros.Darwin.LANL.bigsuze
+  2:Macros.Linux.LANL.conejo
+  2:Macros.Linux.NCAR.yellowstone
+  2:Macros.Linux.ORNL.jaguar
+  2:Macros.Linux.Ubuntu
+  2:makdep.c
+  2:Makefile
+  2:Makefile.Darwin
+  2:Makefile.std
+  2:Makefile.UNICOS
+  1:comp_ice
+  1:csm_share
+  2:README
+  2:shr_orb_mod.F90
+  1:doc
+  2:cicedoc.pdf
+  2:PDF
+  3:BFLM_OceMod2013.pdf
+  3:BL_JGR1999.pdf
+  3:BL_NCAR2007.pdf
+  3:CGHM_JPO2004.pdf
+  3:DB_JCP2000.pdf
+  3:Elliot_etal_JGR2012.pdf
+  3:FSFH_JGR2012.pdf
+  3:HBBLH_JClim2012.pdf
+  3:HD_JPO1997.pdf
+  3:HD_MWR2002.pdf
+  3:HHL_OceMod2013.pdf
+  3:Hunke_JCP2001.pdf
+  3:HZ_MWR1999.pdf
+  3:LAUR-03-2219.pdf
+  3:LHMJ_JGR07.pdf
+  3:LH_MWR2004.pdf
+  3:Lipscomb_JGR2001.pdf
+  3:TFW_JGR2013.pdf
+  3:THB_JGR2013.pdf
+  1:drivers
+  2:cice
+  3:CICE.F90
+  3:CICE_FinalMod.F90
+  3:CICE_InitMod.F90
+  3:CICE_RunMod.F90
+  3:CICE_RunMod.F90_debug
+  3:ice_constants.F90
+  2:hadgem3
+  3:CICE.F90
+  3:CICE_FinalMod.F90
+  3:CICE_InitMod.F90
+  3:CICE_RunMod.F90
+  3:ice_constants.F90
+  1:ice.log.Linux.LANL.conejo
+  1:input_templates
+  2:col
+  3:ice_in
+  2:convert_restarts.f90
+  2:gx1
+  3:global_gx1.grid
+  3:global_gx1.kmt
+  3:ice.restart_file
+  3:iced_gx1_v5.nc
+  3:ice_in
+  3:ice_in.v4.1
+  2:gx3
+  3:global_gx3.grid
+  3:global_gx3.grid.nc
+  3:global_gx3.kmt
+  3:global_gx3.kmt.nc
+  3:ice.restart_file
+  3:iced_gx3_v5.nc
+  3:ice_in
+  2:run_ice.Darwin.CPOM.mi2
+  2:run_ice.Linux.LANL.conejo
+  2:run_ice.Linux.NCAR.yellowstone
+  2:run_ice.Linux.ORNL.jaguar
+  2:run_ice.Linux.Ubuntu
+  1:io_binary
+  2:ice_history_write.F90
+  2:ice_restart.F90
+  1:io_netcdf
+  2:ice_history_write.F90
+  2:ice_restart.F90
+  1:io_pio
+  2:ice_history_write.F90
+  2:ice_pio.F90
+  2:ice_restart.F90
+  1:mpi
+  2:ice_boundary.F90
+  2:ice_broadcast.F90
+  2:ice_communicate.F90
+  2:ice_exit.F90
+  2:ice_gather_scatter.F90
+  2:ice_global_reductions.F90
+  2:ice_timers.F90
+  1:README_v5.0
+  1:serial
+  2:ice_boundary.F90
+  2:ice_broadcast.F90
+  2:ice_communicate.F90
+  2:ice_exit.F90
+  2:ice_gather_scatter.F90
+  2:ice_global_reductions.F90
+  2:ice_timers.F90
+  1:source
+  2:ice_aerosol.F90
+  2:ice_age.F90
+  2:ice_algae.F90
+  2:ice_atmo.F90
+  2:ice_blocks.F90
+  2:ice_brine.F90
+  2:ice_calendar.F90
+  2:ice_diagnostics.F90
+  2:ice_distribution.F90
+  2:ice_domain.F90
+  2:ice_domain_size.F90
+  2:ice_dyn_eap.F90
+  2:ice_dyn_evp.F90
+  2:ice_dyn_shared.F90
+  2:ice_fileunits.F90
+  2:ice_firstyear.F90
+  2:ice_flux.F90
+  2:ice_forcing.F90
+  2:ice_grid.F90
+  2:ice_history.F90
+  2:ice_history_bgc.F90
+  2:ice_history_drag.F90
+  2:ice_history_mechred.F90
+  2:ice_history_pond.F90
+  2:ice_history_shared.F90
+  2:ice_init.F90
+  2:ice_itd.F90
+  2:ice_kinds_mod.F90
+  2:ice_lvl.F90
+  2:ice_mechred.F90
+  2:ice_meltpond_cesm.F90
+  2:ice_meltpond_lvl.F90
+  2:ice_meltpond_topo.F90
+  2:ice_ocean.F90
+  2:ice_orbital.F90
+  2:ice_read_write.F90
+  2:ice_restart_driver.F90
+  2:ice_restart_shared.F90
+  2:ice_restoring.F90
+  2:ice_shortwave.F90
+  2:ice_spacecurve.F90
+  2:ice_state.F90
+  2:ice_step_mod.F90
+  2:ice_therm_0layer.F90
+  2:ice_therm_bl99.F90
+  2:ice_therm_itd.F90
+  2:ice_therm_mushy.F90
+  2:ice_therm_shared.F90
+  2:ice_therm_vertical.F90
+  2:ice_transport_driver.F90
+  2:ice_transport_remap.F90
+  2:ice_zbgc.F90
+  2:ice_zbgc_shared.F90
+&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;form action=&quot;&quot; id=&quot;form1&quot;&gt;&lt;/form&gt;&lt;/p&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;/js/dirstruct.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+  dirstruct = new DirStruct();
+  dirstruct.initDirStruct(&quot;dsinfo&quot;, &quot;form1&quot;);
+&lt;/script&gt;
+
+&lt;h2 id=&quot;模式配置文件&quot;&gt;&lt;a href=&quot;#模式配置文件&quot; class=&quot;headerlink&quot; title=&quot;模式配置文件&quot;&gt;&lt;/a&gt;模式配置文件&lt;/h2&gt;&lt;h3 id=&quot;comp-ice&quot;&gt;&lt;a href=&quot;#comp-ice&quot; class=&quot;headerlink&quot; title=&quot;comp_ice&quot;&gt;&lt;/a&gt;comp_ice&lt;/h3&gt;&lt;h3 id=&quot;ice-in&quot;&gt;&lt;a href=&quot;#ice-in&quot; class=&quot;headerlink&quot; title=&quot;ice_in&quot;&gt;&lt;/a&gt;ice_in&lt;/h3&gt;&lt;p&gt;CICE 的大部分模式配置都在 &lt;code&gt;ice_in&lt;/code&gt; 文件里进行，该文件的存放位置为 &lt;code&gt;$SYSTEM_USERDIR/src/input_templates/$RES/ice_in&lt;/code&gt;。这里 &lt;code&gt;$SYSTEM_USERDIR&lt;/code&gt; 即为前文中提到过的模式根目录，而 &lt;code&gt;$RES&lt;/code&gt; 则应随分辨率的改变而取不同的值。实际上根据分辨率的不同，模式需使用不同的 &lt;code&gt;ice_in&lt;/code&gt; 文件，这些文件被分别放在了以分辨率为名的各个文件夹下。根据 &lt;code&gt;$RES&lt;/code&gt; 所取的不同的值，&lt;code&gt;comp_ice&lt;/code&gt; 在编译模式的同时，会将相应的 &lt;code&gt;$SYSTEM_USERDIR/src/input_templates/$RES/ice_in&lt;/code&gt; 文件拷贝到 &lt;code&gt;$SYSTEM_USERDIR/rundir&lt;/code&gt; 下。这意味着，你可以在编译前先修改 &lt;code&gt;$SYSTEM_USERDIR/src/input_templates/$RES/ice_in&lt;/code&gt;，也可以编译后直接修改 &lt;code&gt;$SYSTEM_USERDIR/rundir/ice_in&lt;/code&gt;。我的建议是采用前者的方式，因为这样可以对修改进行存档，即使你把 &lt;code&gt;rundir&lt;/code&gt; 删掉了，你所做的修改也仍然放在 &lt;code&gt;$SYSTEM_USERDIR/src/input_templates/$RES&lt;/code&gt; 下。但需要记住 &lt;code&gt;$SYSTEM_USERDIR/rundir/ice_in&lt;/code&gt; 才是模式真正读取的文件。&lt;br&gt;&lt;code&gt;ice_in&lt;/code&gt; 文件里的参数名及其描述如下（点击展开）：&lt;/p&gt;
 &lt;h4 id=&quot;amp-setup-nml&quot;&gt;&lt;a href=&quot;#amp-setup-nml&quot; class=&quot;headerlink&quot; title=&quot;&amp;amp;setup_nml&quot;&gt;&lt;/a&gt;&lt;span style=&quot;cursor: pointer;&quot; onmouseover=&quot;this.style.color=&#39;#3FC7B0&#39;&quot; onmouseout=&quot;this.style.color=&#39;&#39;&quot; onclick=&quot;state=this.parentNode.nextSibling;if(state.style.display!=&#39;none&#39;)state.style.display=&#39;none&#39;;else state.style.display=&#39;&#39;;&quot;&gt;&lt;em&gt;&amp;amp;setup_nml&lt;/em&gt;&lt;/span&gt;&lt;/h4&gt;&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -1758,7 +1926,11 @@
 &lt;h2 id=&quot;强迫场设置&quot;&gt;&lt;a href=&quot;#强迫场设置&quot; class=&quot;headerlink&quot; title=&quot;强迫场设置&quot;&gt;&lt;/a&gt;强迫场设置&lt;/h2&gt;&lt;h2 id=&quot;时间设置&quot;&gt;&lt;a href=&quot;#时间设置&quot; class=&quot;headerlink&quot; title=&quot;时间设置&quot;&gt;&lt;/a&gt;时间设置&lt;/h2&gt;&lt;p&gt;CICE 的时间设置主要涉及到 &lt;code&gt;ice_in&lt;/code&gt; 文件里的 &lt;code&gt;year_init&lt;/code&gt;、&lt;code&gt;dt&lt;/code&gt;、&lt;code&gt;npt&lt;/code&gt;、&lt;code&gt;fyear_init&lt;/code&gt;、&lt;code&gt;ycycle&lt;/code&gt; 参数：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;, year_init      = 1979&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;, dt             = 3600.0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;, npt            = 271560&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;, fyear_init      = 1979&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;, ycycle          = 31&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;year_init&lt;/code&gt; 为模式的起始年份，&lt;code&gt;dt&lt;/code&gt; 为时间步长（秒），&lt;code&gt;npt&lt;/code&gt; 为模式运行的总步数。若要改变模式运行时间，通常先修改模式开始的年份 &lt;code&gt;year_init&lt;/code&gt;；然后根据你要运行的总时间以及 &lt;code&gt;dt&lt;/code&gt;，计算得到模式运行的总步数 &lt;code&gt;npt&lt;/code&gt;，如 31 年即 977616000 秒，则 &lt;code&gt;npt=977616000/3600=271560&lt;/code&gt;。一般不对时间步长 &lt;code&gt;dt&lt;/code&gt; 进行修改。&lt;br&gt;修改完模式运行时间，还要对强迫场时间进行修改，即强迫场开始的年份 &lt;code&gt;fyear_init&lt;/code&gt; 与强迫场循环年数 &lt;code&gt;ycycle&lt;/code&gt;。大多数情况下，强迫场时间会与模式运行时间保持一致，如这里两者均设置成了 1979-2009 年。但实际上两者是相互独立的，比如我可以改为：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;, year_init      = 1979&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;, dt             = 3600.0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;, npt            = 271560&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;, fyear_init      = 1990&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;, ycycle          = 10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;那么就会用 1990-1999 年的强迫场来循环强迫，即重复利用这 10 年的强迫场来完成 31 年的模拟。它的实际含义即为“90 年代气候特征背景下的海冰模拟结果”。&lt;/p&gt;
-&lt;h2 id=&quot;输出控制&quot;&gt;&lt;a href=&quot;#输出控制&quot; class=&quot;headerlink&quot; title=&quot;输出控制&quot;&gt;&lt;/a&gt;输出控制&lt;/h2&gt;</content>
+&lt;h2 id=&quot;输出控制&quot;&gt;&lt;a href=&quot;#输出控制&quot; class=&quot;headerlink&quot; title=&quot;输出控制&quot;&gt;&lt;/a&gt;输出控制&lt;/h2&gt;&lt;p&gt;输出控制主要涉及到 &lt;code&gt;ice_in&lt;/code&gt; 文件里的如下字段：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;  , histfreq       = &amp;apos;m&amp;apos;,&amp;apos;x&amp;apos;,&amp;apos;x&amp;apos;,&amp;apos;x&amp;apos;,&amp;apos;x&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  , histfreq_n     =  1 , 1 , 1 , 1 , 1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  , hist_avg       = .true.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  , history_dir    = &amp;apos;./history/&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  , history_file   = &amp;apos;iceh&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;......&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  , f_aice         = &amp;apos;m&amp;apos; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;......&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;你可以通过 &lt;code&gt;history_dir&lt;/code&gt; 和 &lt;code&gt;history_file&lt;/code&gt; 来设置模式输出文件的命名和存放位置。实际上，我们更多情况下是要对模式输出的频率进行控制。CICE 可以设置多种输出频率，如可以同时按逐月和逐日进行输出。首先需要对 &lt;code&gt;histfreq&lt;/code&gt; 和 &lt;code&gt;histfreq_n&lt;/code&gt; 进行修改，其中前者是输出频率的单位，后者为具体数值。我们通过一个例子来说明：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;, histfreq       = &amp;apos;m&amp;apos;,&amp;apos;d&amp;apos;,&amp;apos;h&amp;apos;,&amp;apos;x&amp;apos;,&amp;apos;x&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;, histfreq_n     =  1 , 1 , 6 , 1 , 1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;这样设置之后，CICE 就可以同时按逐月、逐日以及逐六小时的频率进行输出了。当然，&lt;code&gt;histfreq&lt;/code&gt; 最多可以设置五种频率，其可取的值包括 &lt;code&gt;y&lt;/code&gt;、&lt;code&gt;m&lt;/code&gt;、&lt;code&gt;d&lt;/code&gt;、&lt;code&gt;h&lt;/code&gt;、&lt;code&gt;l&lt;/code&gt;，即年、月、日、小时、时步，而用不到的就设成 &lt;code&gt;x&lt;/code&gt;。通过 &lt;code&gt;histfreq&lt;/code&gt; 和 &lt;code&gt;histfreq_n&lt;/code&gt; 我们设置的是模式的整体输出频率，之后还得对每个变量进行设置：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;......&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  , f_aice         = &amp;apos;m&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  , f_hi           = &amp;apos;h&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  , f_hs           = &amp;apos;d&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  , f_Tsfc         = &amp;apos;mh&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  , f_sice         = &amp;apos;x&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;......&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;结合 &lt;code&gt;histfreq&lt;/code&gt; 和 &lt;code&gt;histfreq_n&lt;/code&gt; 的值，就可以控制 CICE 对前四个变量分别按逐月、逐六小时、逐日、逐月及逐六小时来进行输出，而不输出第五个变量。&lt;/p&gt;
+</content>
     
     <summary type="html">
     
@@ -2140,15 +2312,15 @@ PS：“制作启动U盘”和“把 Fedora 装在U盘上”，这是不同的�
     <link href="http://nearsc.github.io/2017/06/16/sudoku/"/>
     <id>http://nearsc.github.io/2017/06/16/sudoku/</id>
     <published>2017-06-16T10:37:45.000Z</published>
-    <updated>2017-06-16T13:12:10.370Z</updated>
+    <updated>2017-09-05T07:54:42.675Z</updated>
     
     <content type="html">&lt;p&gt;就当是熟悉下JS啦，当然完成度还不高，大概50%吧？&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;&lt;form action=&quot;&quot; id=&quot;form1&quot;&gt;&lt;/form&gt;&lt;/p&gt;
+&lt;p&gt;&lt;form action=&quot;&quot; id=&quot;form1&quot; style=&quot;height: 520px;&quot;&gt;&lt;/form&gt;&lt;/p&gt;
 &lt;script type=&quot;text/javascript&quot; src=&quot;/js/sudoku.js&quot;&gt;&lt;/script&gt;
 &lt;script type=&quot;text/javascript&quot;&gt;
     sudoku = new Sudoku();
-    sudoku.initSudoku(&quot;form1&quot;, sudoku);
+    sudoku.initSudoku(&quot;form1&quot;);
 &lt;/script&gt;</content>
     
     <summary type="html">
@@ -3564,9 +3736,9 @@ printf(&amp;quot;这是一个代码块&amp;quot;)
       <category term="备忘录" scheme="http://nearsc.github.io/categories/%E5%A4%87%E5%BF%98%E5%BD%95/"/>
     
     
-      <category term="备忘录" scheme="http://nearsc.github.io/tags/%E5%A4%87%E5%BF%98%E5%BD%95/"/>
-    
       <category term="Markdown" scheme="http://nearsc.github.io/tags/Markdown/"/>
+    
+      <category term="备忘录" scheme="http://nearsc.github.io/tags/%E5%A4%87%E5%BF%98%E5%BD%95/"/>
     
   </entry>
   
