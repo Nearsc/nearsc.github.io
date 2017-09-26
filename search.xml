@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title><![CDATA[抓取历史台风信息]]></title>
+      <url>http://nearsc.github.io/2017/09/26/crawler-typhoon-nmc-cn/</url>
+      <content type="html"><![CDATA[<p>获取 <a href="http://typhoon.nmc.cn" target="_blank" rel="external">中央气象台台风网</a> 上的历史台风信息。</p>
+<a id="more"></a>
+<p><form action="" id="form1"></form></p>
+<script type="text/javascript" src="/js/typhoon.nmc.cn.js"></script>
+<script type="text/javascript">
+    crawler = new nc_typhoon_nmc_cn();
+    crawler.initCrawler("form1");
+</script>]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[CICE 使用手册]]></title>
       <url>http://nearsc.github.io/2017/08/23/cice-intro/</url>
       <content type="html"><![CDATA[<p>在学习模式以及调试模式的过程中，我不太习惯把每个步骤或细节都记录下来，也懒得把一些关于模式的有用信息整理成文档。我自己要查看某些信息的时候，就直接去源代码里看了。话虽如此，整理工作还是很有必要的。这里就先写一份海冰模式 CICE 的使用手册，以供师弟师妹们查阅。</p>
@@ -1906,7 +1919,7 @@
 </ol>
 <p>另外，由于某些设计不当，还得手动修改 <code>$SYSTEM_USERDIR/src/source/ice_forcing.F90</code> 文件。以 <code>gx1</code> 改为 <code>gx3</code> 为例，打开 <code>ice_forcing.F90</code> 文件后，搜索含 <code>gx1</code> 字段的文件名字符串，并换成 <code>gx3</code> 就行了。比如像这样的地方：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sss_file = trim(ocn_data_dir)//&apos;salinity_monthly_gx1.nc&apos;</span><br></pre></td></tr></table></figure></p>
 <p>改为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sss_file = trim(ocn_data_dir)//&apos;salinity_monthly_gx3.nc&apos;</span><br></pre></td></tr></table></figure></p>
-<p>注意要换掉所有的文件名字符串，但不用对注释里的 <code>gx1</code> 进行修改。<br>分辨率的设置大概就是这样。可能你要问，是不是可选的分辨率就只有 <code>comp_ice</code> 里写的那几种？实际上你可以自己搞一个新网格，然后自己建立网格信息文件，把材料都准备好以后，再按上述内容进行设置就可以了。</p>
+<p>注意要换掉所有的文件名字符串，但不用对注释里的 <code>gx1</code> 进行修改。这里其实牵涉到强迫场的设置，即改变分辨率的同时，也要选用与分辨率相匹配的强迫场数据。更多细节可查看 <a href="#强迫场设置">强迫场设置</a>。<br>分辨率的设置大概就是这样。可能你要问，是不是可选的分辨率就只有 <code>comp_ice</code> 里写的那几种？实际上你可以自己搞一个新网格，然后自己建立网格信息文件，把材料都准备好以后，再按上述内容进行设置就可以了。</p>
 <h2 id="强迫场设置"><a href="#强迫场设置" class="headerlink" title="强迫场设置"></a>强迫场设置</h2><h2 id="时间设置"><a href="#时间设置" class="headerlink" title="时间设置"></a>时间设置</h2><p>CICE 的时间设置主要涉及到 <code>ice_in</code> 文件里的 <code>year_init</code>、<code>dt</code>、<code>npt</code>、<code>fyear_init</code>、<code>ycycle</code> 参数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">, year_init      = 1979</span><br><span class="line">, dt             = 3600.0</span><br><span class="line">, npt            = 271560</span><br><span class="line">, fyear_init      = 1979</span><br><span class="line">, ycycle          = 31</span><br></pre></td></tr></table></figure></p>
 <p><code>year_init</code> 为模式的起始年份，<code>dt</code> 为时间步长（秒），<code>npt</code> 为模式运行的总步数。若要改变模式运行时间，通常先修改模式开始的年份 <code>year_init</code>；然后根据你要运行的总时间以及 <code>dt</code>，计算得到模式运行的总步数 <code>npt</code>，如 31 年即 977616000 秒，则 <code>npt=977616000/3600=271560</code>。一般不对时间步长 <code>dt</code> 进行修改。<br>修改完模式运行时间，还要对强迫场时间进行修改，即强迫场开始的年份 <code>fyear_init</code> 与强迫场循环年数 <code>ycycle</code>。大多数情况下，强迫场时间会与模式运行时间保持一致，如这里两者均设置成了 1979-2009 年。但实际上两者是相互独立的，比如我可以改为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">, year_init      = 1979</span><br><span class="line">, dt             = 3600.0</span><br><span class="line">, npt            = 271560</span><br><span class="line">, fyear_init      = 1990</span><br><span class="line">, ycycle          = 10</span><br></pre></td></tr></table></figure></p>
 <p>那么就会用 1990-1999 年的强迫场来循环强迫，即重复利用这 10 年的强迫场来完成 31 年的模拟。它的实际含义即为“90 年代气候特征背景下的海冰模拟结果”。</p>

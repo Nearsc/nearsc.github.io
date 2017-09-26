@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://nearsc.github.io/"/>
-  <updated>2017-09-10T16:09:40.894Z</updated>
+  <updated>2017-09-26T15:03:10.314Z</updated>
   <id>http://nearsc.github.io/</id>
   
   <author>
@@ -16,11 +16,42 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>抓取历史台风信息</title>
+    <link href="http://nearsc.github.io/2017/09/26/crawler-typhoon-nmc-cn/"/>
+    <id>http://nearsc.github.io/2017/09/26/crawler-typhoon-nmc-cn/</id>
+    <published>2017-09-26T14:48:54.000Z</published>
+    <updated>2017-09-26T15:03:10.314Z</updated>
+    
+    <content type="html">&lt;p&gt;获取 &lt;a href=&quot;http://typhoon.nmc.cn&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;中央气象台台风网&lt;/a&gt; 上的历史台风信息。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;&lt;form action=&quot;&quot; id=&quot;form1&quot;&gt;&lt;/form&gt;&lt;/p&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;/js/typhoon.nmc.cn.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    crawler = new nc_typhoon_nmc_cn();
+    crawler.initCrawler(&quot;form1&quot;);
+&lt;/script&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;获取 &lt;a href=&quot;http://typhoon.nmc.cn&quot;&gt;中央气象台台风网&lt;/a&gt; 上的历史台风信息。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Practice" scheme="http://nearsc.github.io/categories/Practice/"/>
+    
+    
+      <category term="Crawler" scheme="http://nearsc.github.io/tags/Crawler/"/>
+    
+      <category term="JavaScript" scheme="http://nearsc.github.io/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
     <title>CICE 使用手册</title>
     <link href="http://nearsc.github.io/2017/08/23/cice-intro/"/>
     <id>http://nearsc.github.io/2017/08/23/cice-intro/</id>
     <published>2017-08-23T06:38:52.000Z</published>
-    <updated>2017-09-10T16:09:40.894Z</updated>
+    <updated>2017-09-11T09:22:56.422Z</updated>
     
     <content type="html">&lt;p&gt;在学习模式以及调试模式的过程中，我不太习惯把每个步骤或细节都记录下来，也懒得把一些关于模式的有用信息整理成文档。我自己要查看某些信息的时候，就直接去源代码里看了。话虽如此，整理工作还是很有必要的。这里就先写一份海冰模式 CICE 的使用手册，以供师弟师妹们查阅。&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -1922,7 +1953,7 @@
 &lt;/ol&gt;
 &lt;p&gt;另外，由于某些设计不当，还得手动修改 &lt;code&gt;$SYSTEM_USERDIR/src/source/ice_forcing.F90&lt;/code&gt; 文件。以 &lt;code&gt;gx1&lt;/code&gt; 改为 &lt;code&gt;gx3&lt;/code&gt; 为例，打开 &lt;code&gt;ice_forcing.F90&lt;/code&gt; 文件后，搜索含 &lt;code&gt;gx1&lt;/code&gt; 字段的文件名字符串，并换成 &lt;code&gt;gx3&lt;/code&gt; 就行了。比如像这样的地方：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sss_file = trim(ocn_data_dir)//&amp;apos;salinity_monthly_gx1.nc&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;改为：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sss_file = trim(ocn_data_dir)//&amp;apos;salinity_monthly_gx3.nc&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;注意要换掉所有的文件名字符串，但不用对注释里的 &lt;code&gt;gx1&lt;/code&gt; 进行修改。&lt;br&gt;分辨率的设置大概就是这样。可能你要问，是不是可选的分辨率就只有 &lt;code&gt;comp_ice&lt;/code&gt; 里写的那几种？实际上你可以自己搞一个新网格，然后自己建立网格信息文件，把材料都准备好以后，再按上述内容进行设置就可以了。&lt;/p&gt;
+&lt;p&gt;注意要换掉所有的文件名字符串，但不用对注释里的 &lt;code&gt;gx1&lt;/code&gt; 进行修改。这里其实牵涉到强迫场的设置，即改变分辨率的同时，也要选用与分辨率相匹配的强迫场数据。更多细节可查看 &lt;a href=&quot;#强迫场设置&quot;&gt;强迫场设置&lt;/a&gt;。&lt;br&gt;分辨率的设置大概就是这样。可能你要问，是不是可选的分辨率就只有 &lt;code&gt;comp_ice&lt;/code&gt; 里写的那几种？实际上你可以自己搞一个新网格，然后自己建立网格信息文件，把材料都准备好以后，再按上述内容进行设置就可以了。&lt;/p&gt;
 &lt;h2 id=&quot;强迫场设置&quot;&gt;&lt;a href=&quot;#强迫场设置&quot; class=&quot;headerlink&quot; title=&quot;强迫场设置&quot;&gt;&lt;/a&gt;强迫场设置&lt;/h2&gt;&lt;h2 id=&quot;时间设置&quot;&gt;&lt;a href=&quot;#时间设置&quot; class=&quot;headerlink&quot; title=&quot;时间设置&quot;&gt;&lt;/a&gt;时间设置&lt;/h2&gt;&lt;p&gt;CICE 的时间设置主要涉及到 &lt;code&gt;ice_in&lt;/code&gt; 文件里的 &lt;code&gt;year_init&lt;/code&gt;、&lt;code&gt;dt&lt;/code&gt;、&lt;code&gt;npt&lt;/code&gt;、&lt;code&gt;fyear_init&lt;/code&gt;、&lt;code&gt;ycycle&lt;/code&gt; 参数：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;, year_init      = 1979&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;, dt             = 3600.0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;, npt            = 271560&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;, fyear_init      = 1979&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;, ycycle          = 31&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;year_init&lt;/code&gt; 为模式的起始年份，&lt;code&gt;dt&lt;/code&gt; 为时间步长（秒），&lt;code&gt;npt&lt;/code&gt; 为模式运行的总步数。若要改变模式运行时间，通常先修改模式开始的年份 &lt;code&gt;year_init&lt;/code&gt;；然后根据你要运行的总时间以及 &lt;code&gt;dt&lt;/code&gt;，计算得到模式运行的总步数 &lt;code&gt;npt&lt;/code&gt;，如 31 年即 977616000 秒，则 &lt;code&gt;npt=977616000/3600=271560&lt;/code&gt;。一般不对时间步长 &lt;code&gt;dt&lt;/code&gt; 进行修改。&lt;br&gt;修改完模式运行时间，还要对强迫场时间进行修改，即强迫场开始的年份 &lt;code&gt;fyear_init&lt;/code&gt; 与强迫场循环年数 &lt;code&gt;ycycle&lt;/code&gt;。大多数情况下，强迫场时间会与模式运行时间保持一致，如这里两者均设置成了 1979-2009 年。但实际上两者是相互独立的，比如我可以改为：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;, year_init      = 1979&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;, dt             = 3600.0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;, npt            = 271560&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;, fyear_init      = 1990&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;, ycycle          = 10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;那么就会用 1990-1999 年的强迫场来循环强迫，即重复利用这 10 年的强迫场来完成 31 年的模拟。它的实际含义即为“90 年代气候特征背景下的海冰模拟结果”。&lt;/p&gt;
@@ -2332,9 +2363,9 @@ PS：“制作启动U盘”和“把 Fedora 装在U盘上”，这是不同的�
       <category term="Practice" scheme="http://nearsc.github.io/categories/Practice/"/>
     
     
-      <category term="Sudoku" scheme="http://nearsc.github.io/tags/Sudoku/"/>
-    
       <category term="JavaScript" scheme="http://nearsc.github.io/tags/JavaScript/"/>
+    
+      <category term="Sudoku" scheme="http://nearsc.github.io/tags/Sudoku/"/>
     
   </entry>
   
@@ -3736,9 +3767,9 @@ printf(&amp;quot;这是一个代码块&amp;quot;)
       <category term="备忘录" scheme="http://nearsc.github.io/categories/%E5%A4%87%E5%BF%98%E5%BD%95/"/>
     
     
-      <category term="Markdown" scheme="http://nearsc.github.io/tags/Markdown/"/>
-    
       <category term="备忘录" scheme="http://nearsc.github.io/tags/%E5%A4%87%E5%BF%98%E5%BD%95/"/>
+    
+      <category term="Markdown" scheme="http://nearsc.github.io/tags/Markdown/"/>
     
   </entry>
   

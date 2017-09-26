@@ -63,7 +63,7 @@ function initSudoku (node) {
 
 function createSudoku (type) {
 	// clear the last sudoku, if existed
-	if (this.state == 1) this.clearSudoku();
+	if (this.state === 1) this.clearSudoku();
 
 	// Create a very hard sudoku
 	switch (type) {
@@ -125,7 +125,7 @@ function clearSudoku () {
 function checkSudoku () {
 	// Check the error of the table
 	var flag = 1;
-	if (this.state == 1) {
+	if (this.state === 1) {
 		for (var i = 0; i < 9; i++) {
 			for (var j = 0; j < 9; j++) {
 				this.tabError[i][j] = 0;
@@ -133,7 +133,7 @@ function checkSudoku () {
 				objtd.style.backgroundColor = cblank;
 				objtd.onmouseover = gridHighlight;
 				objtd.onmouseout = gridHighlight;
-				if ((this.tabCurrent[i][j] != 0) && (this.tabPuzzle[i][j] == 0))
+				if ((this.tabCurrent[i][j] != 0) && (this.tabPuzzle[i][j] === 0))
 					if (this.tabCurrent[i][j] != this.tabSolution[i][j]) {
 						this.tabError[i][j] = 1;
 						flag = 0;
@@ -144,7 +144,7 @@ function checkSudoku () {
 			}
 		}
 		this.updatePos([-1,-1]);
-		if (flag == 1)
+		if (flag === 1)
 			this.updatePrompt("progress");
 		else
 			this.updatePrompt("wrong");
@@ -155,7 +155,7 @@ function updateGrid () {
 	// Update the content of each grid
 	for (var i = 0; i < 9; i++) {
 		for (var j = 0; j < 9; j++) {
-			var objtx = document.createTextNode(this.tabCurrent[i][j]==0?"":this.tabCurrent[i][j]);
+			var objtx = document.createTextNode(this.tabCurrent[i][j]===0?"":this.tabCurrent[i][j]);
 			var objtd = this.grid.childNodes[i].childNodes[j];
 			if (objtd.hasChildNodes())
 				objtd.replaceChild(objtx,objtd.childNodes[0]);
@@ -169,7 +169,7 @@ function updatePos (posij) {
 	// Restore the last grid
 	if ((this.curPosi != -1) && (this.curPosj != -1)) {
 		var objtd = this.grid.childNodes[this.curPosi].childNodes[this.curPosj];
-		if (this.tabError[this.curPosi][this.curPosj] == 1) {
+		if (this.tabError[this.curPosi][this.curPosj] === 1) {
 			objtd.style.backgroundColor = cwrong;
 			objtd.onmouseover = function(){};
 			objtd.onmouseout = function(){};
@@ -182,7 +182,7 @@ function updatePos (posij) {
 	}
 
 	// Update the position of current selected grid
-	if ((this.curPosi == posij[0]) && (this.curPosj == posij[1])) {
+	if ((this.curPosi === posij[0]) && (this.curPosj === posij[1])) {
 		this.curPosi = -1;
 		this.curPosj = -1;
 	} else {
@@ -200,9 +200,9 @@ function updatePos (posij) {
 }
 
 function updateTab (number) {
-	if ((this.state == 1) && (number != -1))
+	if ((this.state === 1) && (number != -1))
 		if ((this.curPosi != -1) && (this.curPosj != -1))
-			if (this.tabPuzzle[this.curPosi][this.curPosj] == 0) {
+			if (this.tabPuzzle[this.curPosi][this.curPosj] === 0) {
 				this.tabCurrent[this.curPosi][this.curPosj] = number;
 				this.updateGrid();
 			}
@@ -215,7 +215,7 @@ function updatePrompt (option) {
 			var count = 0;
 			for (var i = 0; i < 9; i++)
 				for (var j = 0; j < 9; j++)
-					if (this.tabCurrent[i][j] == 0) count++;
+					if (this.tabCurrent[i][j] === 0) count++;
 			this.prompt.innerHTML = "You have " + count + " more numbers to fill!";
 			break;
 		case "wrong":
@@ -265,11 +265,11 @@ function createGrid (node, table, objsudoku) {
 
 			if (i < 8)
 				objtd.style.borderBottom = "1px solid #999999";
-			if ((i == 2) || (i == 5))
+			if ((i === 2) || (i === 5))
 				objtd.style.borderBottom = "2px solid #555555";
 			if (j < 8)
 				objtd.style.borderRight = "1px solid #999999";
-			if ((j == 2) || (j == 5))
+			if ((j === 2) || (j === 5))
 				objtd.style.borderRight = "2px solid #555555";
 
 			objtd.style.width = "50px";
@@ -417,7 +417,7 @@ function verySimpleSudoku (tabP, tabS, tabC) {
 }
 
 function createSudokuUI (node, objsudoku) {
-	// Create the buttons for UISudoku
+	// Create the buttons for the UI
 	var objnode = document.getElementById(node);
 	var objdiv = document.createElement("div");
 	objnode.appendChild(objdiv);

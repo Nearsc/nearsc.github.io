@@ -51,7 +51,7 @@ function readDSInfo (dsinfo, objds) {
 	var lcount = new Array();
 	for (var i = 0; i < lines.length; i++) {
 		var trimline = lines[i].replace(/(^\s*)|(\s*$)/g, "");
-		if (trimline != "") {
+		if (trimline !== "") {
 			var clevel = trimline.slice(0, trimline.indexOf(":"));
 			var content = trimline.slice(trimline.indexOf(":")+1);
 			if (nlevel <= clevel) {
@@ -83,7 +83,7 @@ function readDSInfo (dsinfo, objds) {
 			objds.ncdirs[i][j] = 0;
 			objds.icdirh[i][j] = -1;
 			if (objds.ipdirs[i][j] >= 0) {
-				if (objds.icdirh[i-1][objds.ipdirs[i][j]] == -1) objds.icdirh[i-1][objds.ipdirs[i][j]] = j;
+				if (objds.icdirh[i-1][objds.ipdirs[i][j]] === -1) objds.icdirh[i-1][objds.ipdirs[i][j]] = j;
 				objds.ncdirs[i-1][objds.ipdirs[i][j]]++;
 			}
 		}
@@ -130,13 +130,13 @@ function createChart (node, objds) {
 		lastClick = Date.now();
 		for (var i = 0; i < objds.dirs.length; i++) {
 			for (var j = 0; j < objds.dirs[i].length; j++) {
-				if ((objds.dpos[0][i][j] != -1) && (objds.dpos[1][i][j] != -1 && (objds.ncdirs[i][j] != 0))) {
+				if ((objds.dpos[0][i][j] !== -1) && (objds.dpos[1][i][j] !== -1 && (objds.ncdirs[i][j] !== 0))) {
 					if ((event.pageX-cvabsLeft>=objds.dpos[0][i][j])&&(event.pageX-cvabsLeft<=objds.dpos[0][i][j]+objds.dirlen[i][j])&&
 						(event.pageY-cvabsTop>=objds.dpos[1][i][j]-6)&&(event.pageY-cvabsTop<=objds.dpos[1][i][j]+8)) {
-						if (i == objds.uflev.length)
+						if (i === objds.uflev.length)
 							objds.uflev[i] = j;
 						else if (i < objds.uflev.length) {
-							if (j == objds.uflev[i])
+							if (j === objds.uflev[i])
 								objds.uflev.splice(i);
 							else {
 								objds.uflev.splice(i);
@@ -177,11 +177,11 @@ async function updateChart (objds, objcanvas, recvcP, cvhBefore) {
 			for (var j = 0; j < objds.dirs[i].length; j++) {
 				newpos[0][i][j] = -1;
 				newpos[1][i][j] = -1;
-				if ((objds.dpos[0][i][j] != -1) && (objds.dpos[1][i][j] != -1)) {
-					if ((objds.pdpos[0][i][j] != -1) && (objds.pdpos[1][i][j] != -1)) {
+				if ((objds.dpos[0][i][j] !== -1) && (objds.dpos[1][i][j] !== -1)) {
+					if ((objds.pdpos[0][i][j] !== -1) && (objds.pdpos[1][i][j] !== -1)) {
 						newpos[0][i][j] = (objds.dpos[0][i][j]-objds.pdpos[0][i][j])*r/50+objds.pdpos[0][i][j];
 						newpos[1][i][j] = (objds.dpos[1][i][j]-objds.pdpos[1][i][j])*r/50+objds.pdpos[1][i][j];
-						if (objds.ncdirs[i][j] == 0)
+						if (objds.ncdirs[i][j] === 0)
 							objctx.fillStyle = "black";
 						else
 							objctx.fillStyle = "blue";
@@ -198,7 +198,7 @@ async function updateChart (objds, objcanvas, recvcP, cvhBefore) {
 		// Draw branch lines
 		if (objds.uflev.length > 0) {
 			for (var i = 0; i < objds.uflev.length; i++) {
-				if (objds.pdpos[0][i+1][objds.icdirh[i][objds.uflev[i]]] != -1) {
+				if (objds.pdpos[0][i+1][objds.icdirh[i][objds.uflev[i]]] !== -1) {
 					var p1x = newpos[0][i][objds.uflev[i]]+objds.dirlen[i][objds.uflev[i]]+tlint;
 					var p1y = newpos[1][i][objds.uflev[i]];
 					var p2x = newpos[0][i][objds.uflev[i]]+recvcP.maxlen[i]+textintx-tlint-stlinew;
@@ -224,7 +224,7 @@ async function updateChart (objds, objcanvas, recvcP, cvhBefore) {
 
 	for (var r = 1; r <= 50; r++) {
 		var ei = objds.uflev.length;
-		if ((ei>0) && objds.pdpos[0][ei][objds.icdirh[ei-1][objds.uflev[ei-1]]] == -1)
+		if ((ei>0) && objds.pdpos[0][ei][objds.icdirh[ei-1][objds.uflev[ei-1]]] === -1)
 			objctx.clearRect(objds.dpos[0][ei][objds.icdirh[ei-1][objds.uflev[ei-1]]]-stlinew-tlint-1, 0, recvcP.maxlen[i]+stlinew+tlint+1, objcanvas.height);
 		objctx.globalAlpha = r/50;
 		objctx.font = "16px Comic Sans MS";
@@ -234,9 +234,9 @@ async function updateChart (objds, objcanvas, recvcP, cvhBefore) {
 		objctx.strokeStyle = "#CD5C5C";
 		for (var i = 0; i < objds.dirs.length; i++) {
 			for (var j = 0; j < objds.dirs[i].length; j++) {
-				if ((objds.dpos[0][i][j] != -1) && (objds.dpos[1][i][j] != -1)) {
-					if ((objds.pdpos[0][i][j] == -1) && (objds.pdpos[1][i][j] == -1)) {
-						if (objds.ncdirs[i][j] == 0)
+				if ((objds.dpos[0][i][j] !== -1) && (objds.dpos[1][i][j] !== -1)) {
+					if ((objds.pdpos[0][i][j] === -1) && (objds.pdpos[1][i][j] === -1)) {
+						if (objds.ncdirs[i][j] === 0)
 							objctx.fillStyle = "black";
 						else
 							objctx.fillStyle = "blue";
@@ -250,12 +250,12 @@ async function updateChart (objds, objcanvas, recvcP, cvhBefore) {
 			}
 		}
 
-		if ((ei > 0) && (objds.pdpos[0][ei][objds.icdirh[ei-1][objds.uflev[ei-1]]] == -1))
+		if ((ei > 0) && (objds.pdpos[0][ei][objds.icdirh[ei-1][objds.uflev[ei-1]]] === -1))
 			objctx.clearRect(objds.dpos[0][ei-1][objds.uflev[ei-1]]+objds.dirlen[ei-1][objds.uflev[ei-1]]+tlint-1, objds.dpos[1][ei-1][objds.uflev[ei-1]]-1, 
 				recvcP.maxlen[ei-1]+textintx-objds.dirlen[ei-1][objds.uflev[ei-1]]-2*tlint-stlinew, 3);
 		if (objds.uflev.length > 0) {
 			for (var i = 0; i < objds.uflev.length; i++) {
-				if (objds.pdpos[0][i+1][objds.icdirh[i][objds.uflev[i]]] == -1) {
+				if (objds.pdpos[0][i+1][objds.icdirh[i][objds.uflev[i]]] === -1) {
 					var p1x = objds.dpos[0][i][objds.uflev[i]]+objds.dirlen[i][objds.uflev[i]]+tlint;
 					var p1y = objds.dpos[1][i][objds.uflev[i]];
 					var p2x = objds.dpos[0][i][objds.uflev[i]]+recvcP.maxlen[i]+textintx-tlint-stlinew;
@@ -296,7 +296,7 @@ function calcPos (objds) {
 	var right = objds.dpos[0][0][0]+objds.dirlen[0][0];
 	if (objds.uflev.length > 0) {
 		for (var i = 0; i < objds.uflev.length; i++) {
-			if (i == 0) maxlen[i] = objds.dirlen[i][objds.uflev[i]];
+			if (i === 0) maxlen[i] = objds.dirlen[i][objds.uflev[i]];
 			maxlen[i+1] = 0;
 			for (var j = objds.icdirh[i][objds.uflev[i]]; j < objds.icdirh[i][objds.uflev[i]]+objds.ncdirs[i][objds.uflev[i]]; j++) {
 				objds.dpos[0][i+1][j] = objds.dpos[0][i][objds.uflev[i]] + maxlen[i] + textintx;
@@ -312,7 +312,7 @@ function calcPos (objds) {
 	// Position offset of each directory
 	for (var i = 0; i < objds.dirs.length; i++) {
 		for (var j = 0; j < objds.dirs[i].length; j++) {
-			if ((objds.dpos[0][i][j] != -1) && (objds.dpos[1][i][j] != -1)) {
+			if ((objds.dpos[0][i][j] !== -1) && (objds.dpos[1][i][j] !== -1)) {
 				objds.dpos[1][i][j] += (cvmgtb*2-top);
 				if (right > cvwidth-cvmglr) objds.dpos[0][i][j] += (cvwidth-cvmglr-right);
 				if (objds.dpos[1][i][j] > bottom) bottom = objds.dpos[1][i][j];
@@ -341,7 +341,7 @@ function clearPos (objds) {
 }
 
 function getAbsLoc (element) {
-	if (arguments.length != 1 || element == null)
+	if (arguments.length !== 1 || element === null)
 		return null;
 	var elmt = element;
 	var offsetTop = elmt.offsetTop;
@@ -350,8 +350,8 @@ function getAbsLoc (element) {
 	var offsetHeight = elmt.offsetHeight;
 	while (elmt = elmt.offsetParent) {
 		// add this judge
-		if(elmt.style.position == 'absolute' || elmt.style.position == 'relative'
-		||(elmt.style.overflow != 'visible' && elmt.style.overflow != '')) break;
+		if(elmt.style.position === 'absolute' || elmt.style.position === 'relative'
+		||(elmt.style.overflow !== 'visible' && elmt.style.overflow !== '')) break;
 		offsetTop += elmt.offsetTop;
 		offsetLeft += elmt.offsetLeft;
 	}
