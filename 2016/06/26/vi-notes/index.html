@@ -92,7 +92,7 @@
 <meta property="og:url" content="http://nearsc.github.io/2016/06/26/vi-notes/index.html">
 <meta property="og:site_name" content="Not Cool">
 <meta property="og:description" content="虽说已经用了很久的vi，可是对于vi不同功能的熟练程度是不同的，这意味着有时会忘掉某些操作而需要查阅相关信息。此时若是手边没有参考书，就非常令人抓狂，只好去网上进行搜索。既然如此，那就花点时间整理下吧，查阅起来应该方便不少。我个人习惯是把vi和vim混在一起统称为vi的，因此尽管标题是“Vi 备忘录”，但其实也包含了vim的功能。">
-<meta property="og:updated_time" content="2017-08-19T12:48:38.404Z">
+<meta property="og:updated_time" content="2017-10-05T03:06:26.645Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vi 备忘录（未完待续）">
 <meta name="twitter:description" content="虽说已经用了很久的vi，可是对于vi不同功能的熟练程度是不同的，这意味着有时会忘掉某些操作而需要查阅相关信息。此时若是手边没有参考书，就非常令人抓狂，只好去网上进行搜索。既然如此，那就花点时间整理下吧，查阅起来应该方便不少。我个人习惯是把vi和vim混在一起统称为vi的，因此尽管标题是“Vi 备忘录”，但其实也包含了vim的功能。">
@@ -610,19 +610,19 @@
 </tr>
 <tr>
 <td>df[char]</td>
-<td></td>
+<td>删除至当前行下一个字符char</td>
 </tr>
 <tr>
 <td>dF[char]</td>
-<td></td>
+<td>删除至当前行上一个字符char</td>
 </tr>
 <tr>
 <td>dt[char]</td>
-<td></td>
+<td>删除至当前行下一个字符char的前一个字符</td>
 </tr>
 <tr>
 <td>dT[char]</td>
-<td></td>
+<td>删除至当前行上一个字符char的后一个字符</td>
 </tr>
 <tr>
 <td>(n)d/string 或 d(n)/string</td>
@@ -680,20 +680,20 @@
 <td>复制当前光标至行尾</td>
 </tr>
 <tr>
-<td>Y</td>
-<td>相当于yy</td>
+<td>(n)yw 或 y(n)w</td>
+<td>从当前光标开始向后复制至下一(n)个单词词首前</td>
 </tr>
 <tr>
-<td>yw</td>
-<td></td>
+<td>(n)ye 或 y(n)e</td>
+<td>从当前光标开始向后复制至下一(n)个单词词尾后</td>
 </tr>
 <tr>
-<td>yb</td>
-<td></td>
+<td>(n)yb 或 y(n)b</td>
+<td>从当前光标开始向前复制至上一(n)个单词词首前</td>
 </tr>
 <tr>
-<td>ye</td>
-<td></td>
+<td>(n)yge 或 y(n)ge</td>
+<td>从当前字符后开始向前复制至上一(n)个单词词尾前</td>
 </tr>
 <tr>
 <td>yaw</td>
@@ -1100,12 +1100,20 @@
 <td>搜索当前单词，并停留在当前匹配项</td>
 </tr>
 <tr>
+<td>(n)*</td>
+<td>搜索当前单词，并移动到下一(n)个匹配项</td>
+</tr>
+<tr>
 <td>(n)#</td>
 <td>搜索当前单词，并移动到上一(n)个匹配项</td>
 </tr>
 <tr>
-<td>(n)*</td>
-<td>搜索当前单词，并移动到下一(n)个匹配项</td>
+<td>(n)g*</td>
+<td>搜索当前字符串，并移动到下一(n)个匹配项</td>
+</tr>
+<tr>
+<td>(n)g#</td>
+<td>搜索当前字符串，并移动到上一(n)个匹配项</td>
 </tr>
 </tbody>
 </table>
@@ -1182,6 +1190,18 @@
 <td>执行上一步的s/str1/str2/g命令</td>
 </tr>
 <tr>
+<td>:ce</td>
+<td>使本行内容居中</td>
+</tr>
+<tr>
+<td>:ri</td>
+<td>使本行内容靠右</td>
+</tr>
+<tr>
+<td>:le</td>
+<td>使本行内容靠左</td>
+</tr>
+<tr>
 <td>:@:</td>
 <td>执行上一次的命令行模式的命令</td>
 </tr>
@@ -1230,7 +1250,7 @@
 </thead>
 <tbody>
 <tr>
-<td>:vi[file]</td>
+<td>:vi [file] 或 :e [file]</td>
 <td>在vi中打开另一个文件[file]</td>
 </tr>
 <tr>
@@ -1240,6 +1260,10 @@
 <tr>
 <td>:N</td>
 <td>切换至上一个文件</td>
+</tr>
+<tr>
+<td>:b [file]</td>
+<td>直接跳到[file]文件对其进行编辑</td>
 </tr>
 <tr>
 <td>:next</td>
@@ -1278,7 +1302,7 @@
 <td>列出当前文件的信息</td>
 </tr>
 <tr>
-<td>:files</td>
+<td>:files 或 :ls</td>
 <td>列出所有打开的文件</td>
 </tr>
 </tbody>
@@ -1292,7 +1316,7 @@
 </thead>
 <tbody>
 <tr>
-<td>:split</td>
+<td>:split 或 [Ctrl]ws</td>
 <td>打开新窗口显示当前文件（水平排列）</td>
 </tr>
 <tr>
@@ -1300,12 +1324,20 @@
 <td>打开新窗口显示file（水平排列）</td>
 </tr>
 <tr>
-<td>:vsplit</td>
+<td>:vsplit 或 [Ctrl]wv</td>
 <td>打开新窗口显示当前文件（垂直排列）</td>
 </tr>
 <tr>
 <td>:vsplit [file]</td>
 <td>打开新窗口显示file（垂直排列）</td>
+</tr>
+<tr>
+<td>:q 或 [Ctrl]wq</td>
+<td>关闭当前窗口</td>
+</tr>
+<tr>
+<td>[Ctrl]wo</td>
+<td>关闭当前窗口以外的其他所有窗口</td>
 </tr>
 <tr>
 <td>[Ctrl]wh 或 [Ctrl]w←</td>
@@ -1322,6 +1354,10 @@
 <tr>
 <td>[Ctrl]wl 或 [Ctrl]w→</td>
 <td>移动至右一个窗口</td>
+</tr>
+<tr>
+<td>[Ctrl]w+ 或 [Ctrl]w-</td>
+<td>增加或减小视窗的高度</td>
 </tr>
 </tbody>
 </table>
@@ -1353,7 +1389,7 @@
 </tr>
 <tr>
 <td>:set autowrite</td>
-<td></td>
+<td>设置自动保存</td>
 </tr>
 <tr>
 <td>:set cindent</td>
@@ -1701,7 +1737,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1709,7 +1745,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1718,7 +1754,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
